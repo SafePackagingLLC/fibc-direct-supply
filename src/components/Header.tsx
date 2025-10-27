@@ -20,7 +20,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-2 text-foreground hover:opacity-80 transition-opacity">
             <Package className="h-8 w-8" />
             <div>
-              <div className="text-xl font-bold">SAFE PACKAGING</div>
+              <div className="text-xl font-bold">SAFE PACKAGING LLC</div>
               <div className="text-xs text-muted-foreground">Manufacturer of FIBCs</div>
             </div>
           </Link>
