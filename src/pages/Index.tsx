@@ -6,12 +6,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import ResourceCard from "@/components/ResourceCard";
-import { CheckCircle2, Award, Zap } from "lucide-react";
+import { CheckCircle2, Award, Zap, Settings } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 import heroImage from "@/assets/hero-warehouse.jpg";
 import productStandard from "@/assets/product-standard-fibc.jpg";
 import productFoodGrade from "@/assets/product-food-grade.jpg";
 
 const Index = () => {
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
   const products = [
     {
       title: "Standard FIBC",
@@ -115,23 +122,46 @@ const Index = () => {
       {/* Product Overview */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">Product Spec</h2>
-              <ul className="space-y-2 text-muted-foreground">
-                <li>• Standard FIBC</li>
-                <li>• Medical-grade</li>
-                <li>• Food & Pharma</li>
-                <li>• Custom solutions</li>
-              </ul>
-            </div>
-            <div className="md:col-span-3">
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                {products.map((product) => (
-                  <ProductCard key={product.slug} {...product} />
-                ))}
+          <h2 className="text-3xl font-bold mb-8 text-center">Product Spec</h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Build Your Bag Panel */}
+            <div className="bg-muted p-8 rounded-lg">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-6">
+                <Settings className="h-8 w-8 text-primary" />
               </div>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-2xl font-bold mb-4">Build Your Own Bag</h3>
+              <p className="text-muted-foreground mb-6">
+                Customize your FIBC bulk bag to match your capacity, liner, fabric, and loop needs.
+              </p>
+              <Button size="lg" asChild className="w-full sm:w-auto">
+                <Link to="/build-your-bag">Build Your Bag</Link>
+              </Button>
+              <div className="mt-8 space-y-2 text-sm text-muted-foreground">
+                <p>• Standard FIBC</p>
+                <p>• Medical-grade</p>
+                <p>• Food & Pharma</p>
+                <p>• Custom solutions</p>
+              </div>
+            </div>
+
+            {/* Right Side - Product Carousel */}
+            <div>
+              <Carousel
+                opts={{ loop: true }}
+                plugins={[plugin.current]}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {products.map((product) => (
+                    <CarouselItem key={product.slug}>
+                      <ProductCard {...product} />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </Carousel>
+              <div className="flex flex-wrap gap-2 mt-6 justify-center">
                 <Badge variant="secondary">Agriculture</Badge>
                 <Badge variant="secondary">Chemicals</Badge>
                 <Badge variant="secondary">Mining</Badge>
