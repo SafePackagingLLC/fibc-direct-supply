@@ -9,24 +9,24 @@ import { Link } from "react-router-dom";
 
 // Bag configuration options
 const bagTops = [
-  { id: "open-top", name: "Open Top", image: "/images/bag-parts/open-top.svg" },
-  { id: "spout-top", name: "Spout Top", image: "/images/bag-parts/spout-top.svg" },
-  { id: "flap-top", name: "Flap Top", image: "/images/bag-parts/flap-top.svg" },
-  { id: "duffle-top", name: "Duffle Top", image: "/images/bag-parts/duffle-top.svg" },
+  { id: "open-top", name: "Open Top", image: "/images/bag-parts/open-top.png" },
+  { id: "spout-top", name: "Spout Top", image: "/images/bag-parts/spout-top.png" },
+  { id: "flap-top", name: "Flap Top", image: "/images/bag-parts/flap-top.png" },
+  { id: "duffle-top", name: "Duffle Top", image: "/images/bag-parts/duffle-top.png" },
 ];
 
 const loopTypes = [
-  { id: "cross-corner", name: "Cross-Corner Loops", image: "/images/bag-parts/loop-cross-corner.svg" },
-  { id: "corner-seam", name: "Corner Seam Loops", image: "/images/bag-parts/loop-corner-seam.svg" },
-  { id: "stevedore", name: "Stevedore Strap", image: "/images/bag-parts/loop-stevedore.svg" },
-  { id: "sleeve", name: "Sleeve Lifts", image: "/images/bag-parts/loop-sleeve.svg" },
-  { id: "single-point", name: "Single Point", image: "/images/bag-parts/loop-single-point.svg" },
+  { id: "cross-corner", name: "Cross-Corner Loops", image: "/images/bag-parts/loop-cross-corner.png" },
+  { id: "corner-seam", name: "Corner Seam Loops", image: "/images/bag-parts/loop-corner-seam.png" },
+  { id: "stevedore", name: "Stevedore Strap", image: "/images/bag-parts/loop-stevedore.png" },
+  { id: "sleeve", name: "Sleeve Lifts", image: "/images/bag-parts/loop-sleeve.png" },
+  { id: "single-point", name: "Single Point", image: "/images/bag-parts/loop-single-point.png" },
 ];
 
 const bagBottoms = [
-  { id: "plain", name: "Plain Bottom", image: "/images/bag-parts/plain-bottom.svg" },
-  { id: "spout", name: "Spout Bottom", image: "/images/bag-parts/spout-bottom.svg" },
-  { id: "open", name: "Full Open Bottom", image: "/images/bag-parts/open-bottom.svg" },
+  { id: "plain", name: "Plain Bottom", image: "/images/bag-parts/plain-bottom.png" },
+  { id: "spout", name: "Spout Bottom", image: "/images/bag-parts/spout-bottom.png" },
+  { id: "open", name: "Full Open Bottom", image: "/images/bag-parts/open-bottom.png" },
 ];
 
 const fabricTypes = [
