@@ -3,32 +3,30 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BagPreview3D from "@/components/BagPreview3D";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // Bag configuration options
 const bagTops = [
-  { id: "spout", name: "Spout", image: "/images/bag-parts/spout-top.svg" },
-  { id: "duffle", name: "Duffle", image: "/images/bag-parts/duffle-top.svg" },
-  { id: "oversize-funnel", name: "Oversize Funnel", image: "/images/bag-parts/funnel-top.svg" },
-  { id: "flap-cover", name: "Flap Cover", image: "/images/bag-parts/flap-top.svg" },
-  { id: "full-open", name: "Full Open", image: "/images/bag-parts/open-top.svg" },
+  { id: "open-top", name: "Open Top", image: "/images/bag-parts/open-top.svg" },
+  { id: "spout-top", name: "Spout Top", image: "/images/bag-parts/spout-top.svg" },
+  { id: "flap-top", name: "Flap Top", image: "/images/bag-parts/flap-top.svg" },
+  { id: "duffle-top", name: "Duffle Top", image: "/images/bag-parts/duffle-top.svg" },
 ];
 
 const loopTypes = [
-  { id: "standard", name: "Standard", image: "/images/bag-parts/loop-standard.svg" },
-  { id: "stevedore", name: "Stevedore", image: "/images/bag-parts/loop-stevedore.svg" },
-  { id: "union", name: "Union", image: "/images/bag-parts/loop-union.svg" },
-  { id: "tunnel", name: "Tunnel", image: "/images/bag-parts/loop-tunnel.svg" },
-  { id: "cross-corner", name: "Cross Corner", image: "/images/bag-parts/loop-cross.svg" },
+  { id: "cross-corner", name: "Cross-Corner Loops", image: "/images/bag-parts/loop-cross-corner.svg" },
+  { id: "corner-seam", name: "Corner Seam Loops", image: "/images/bag-parts/loop-corner-seam.svg" },
+  { id: "stevedore", name: "Stevedore Strap", image: "/images/bag-parts/loop-stevedore.svg" },
+  { id: "sleeve", name: "Sleeve Lifts", image: "/images/bag-parts/loop-sleeve.svg" },
+  { id: "single-point", name: "Single Point", image: "/images/bag-parts/loop-single-point.svg" },
 ];
 
 const bagBottoms = [
-  { id: "spout-bottom", name: "Spout", image: "/images/bag-parts/spout-bottom.svg" },
-  { id: "open", name: "Open", image: "/images/bag-parts/open-bottom.svg" },
-  { id: "funnel-bottom", name: "Oversize Funnel", image: "/images/bag-parts/funnel-bottom.svg" },
-  { id: "diaper", name: "Diaper Bottom", image: "/images/bag-parts/diaper-bottom.svg" },
-  { id: "closed", name: "Closed", image: "/images/bag-parts/closed-bottom.svg" },
+  { id: "plain", name: "Plain Bottom", image: "/images/bag-parts/plain-bottom.svg" },
+  { id: "spout", name: "Spout Bottom", image: "/images/bag-parts/spout-bottom.svg" },
+  { id: "open", name: "Full Open Bottom", image: "/images/bag-parts/open-bottom.svg" },
 ];
 
 const fabricTypes = [
@@ -53,9 +51,9 @@ const capacities = [
 ];
 
 const BuildYourBag = () => {
-  const [selectedTop, setSelectedTop] = useState("spout");
-  const [selectedLoop, setSelectedLoop] = useState("standard");
-  const [selectedBottom, setSelectedBottom] = useState("closed");
+  const [selectedTop, setSelectedTop] = useState("open-top");
+  const [selectedLoop, setSelectedLoop] = useState("cross-corner");
+  const [selectedBottom, setSelectedBottom] = useState("plain");
   const [selectedFabric, setSelectedFabric] = useState("standard");
   const [selectedLiner, setSelectedLiner] = useState("none");
   const [selectedCapacity, setSelectedCapacity] = useState("1000");
@@ -85,7 +83,7 @@ const BuildYourBag = () => {
             {/* Bag Top Selection */}
             <Card className="p-6">
               <h2 className="text-2xl font-bold mb-4">Bag Top</h2>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {bagTops.map((top) => (
                   <button
                     key={top.id}
@@ -96,8 +94,8 @@ const BuildYourBag = () => {
                         : "border-border"
                     }`}
                   >
-                    <div className="aspect-square bg-muted rounded mb-2 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-foreground/10 rounded"></div>
+                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
+                      <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
                     </div>
                     <p className="text-sm font-medium text-center">{top.name}</p>
                   </button>
@@ -119,8 +117,8 @@ const BuildYourBag = () => {
                         : "border-border"
                     }`}
                   >
-                    <div className="aspect-square bg-muted rounded mb-2 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-foreground/10 rounded"></div>
+                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
+                      <img src={loop.image} alt={loop.name} className="w-full h-full object-contain" />
                     </div>
                     <p className="text-sm font-medium text-center">{loop.name}</p>
                   </button>
@@ -131,7 +129,7 @@ const BuildYourBag = () => {
             {/* Bag Bottom Selection */}
             <Card className="p-6">
               <h2 className="text-2xl font-bold mb-4">Bag Bottom</h2>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {bagBottoms.map((bottom) => (
                   <button
                     key={bottom.id}
@@ -142,8 +140,8 @@ const BuildYourBag = () => {
                         : "border-border"
                     }`}
                   >
-                    <div className="aspect-square bg-muted rounded mb-2 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-foreground/10 rounded"></div>
+                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
+                      <img src={bottom.image} alt={bottom.name} className="w-full h-full object-contain" />
                     </div>
                     <p className="text-sm font-medium text-center">{bottom.name}</p>
                   </button>
@@ -219,16 +217,17 @@ const BuildYourBag = () => {
               {/* Visual Preview */}
               <Card className="p-6">
                 <h3 className="text-lg font-bold mb-4">Your Bag Preview</h3>
-                <div className="aspect-square bg-muted rounded-lg flex items-center justify-center mb-4">
-                  <div className="text-center">
-                    <div className="w-32 h-48 bg-foreground/10 rounded mx-auto mb-4 relative">
-                      {/* Simple bag illustration */}
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-4 bg-foreground/20 rounded-t"></div>
-                      <div className="absolute -bottom-2 left-0 right-0 h-4 bg-foreground/20 rounded-b"></div>
-                    </div>
-                    <p className="text-sm text-muted-foreground">Safe Packaging</p>
-                  </div>
+                <div className="aspect-square bg-muted rounded-lg mb-4 overflow-hidden">
+                  <BagPreview3D
+                    selectedTop={selectedTop}
+                    selectedLoop={selectedLoop}
+                    selectedBottom={selectedBottom}
+                    selectedFabric={selectedFabric}
+                  />
                 </div>
+                <p className="text-sm text-muted-foreground text-center">
+                  Drag to rotate • Scroll to zoom
+                </p>
               </Card>
 
               {/* Configuration Summary */}
