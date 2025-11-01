@@ -71,7 +71,7 @@ const Index = () => {
         
         <div className="container mx-auto px-4 relative z-10 text-center">
           <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/10">
-            Manufacturer since 2005 • Made in USA
+            Manufacture since 1984
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
             We Manufacture FIBCs — Stocked Locally for Fast Delivery
@@ -81,9 +81,9 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/contact">Request a Quote — Available Now</Link>
+              <Link to="/industries">Industries we serve</Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary">
+            <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
               <Link to="/products">View Products</Link>
             </Button>
           </div>

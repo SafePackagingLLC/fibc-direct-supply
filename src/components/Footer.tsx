@@ -23,8 +23,8 @@ const Footer = () => {
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
                 <span>123 Manufacturing Drive<br />Industrial City, USA</span>
               </div>
-              <Button variant="outline" size="sm" asChild className="mt-4">
-                <Link to="/contact">Request a Quote</Link>
+              <Button size="sm" asChild className="mt-4">
+                <Link to="/contact">Contact us</Link>
               </Button>
             </div>
           </div>
@@ -45,9 +45,8 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Warehouses</h3>
             <div className="space-y-2 text-sm">
-              <div>Los Angeles, CA</div>
-              <div>Houston, TX</div>
-              <div>Chicago, IL</div>
+              <div>Phoenix, AZ</div>
+              <div>Austin, TX</div>
               <div>Newark, NJ</div>
             </div>
           </div>

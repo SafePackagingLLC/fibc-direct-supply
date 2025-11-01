@@ -27,7 +27,7 @@ const Contact = () => {
     e.preventDefault();
     toast({
       title: "Quote Request Submitted",
-      description: "Thanks! We'll review and reply within 1 business day.",
+      description: "Thanks! We'll review and reply within 2 business days.",
     });
     setFormData({
       companyName: "",
@@ -56,7 +56,7 @@ const Contact = () => {
             <div className="text-center mb-12">
               <h1 className="text-4xl font-bold mb-4">Request a Quote</h1>
               <p className="text-lg text-muted-foreground">
-                Get factory-direct pricing and rapid delivery. Fill out the form below and our team will respond within 1 business day.
+                Get factory-direct pricing and rapid delivery. Fill out the form below and our team will respond within 2 business days.
               </p>
             </div>
 
