@@ -1,33 +1,92 @@
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Wheat, Beaker, Mountain, Pill } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { 
+  Wheat, 
+  Beaker, 
+  HardHat, 
+  Apple, 
+  Pill, 
+  Recycle, 
+  Mountain, 
+  Sprout,
+  Building2,
+  Palette
+} from "lucide-react";
 
 const Industries = () => {
   const industries = [
     {
       icon: Wheat,
       title: "Agriculture",
-      description: "Bulk bags for grains, seeds, fertilizers, and agricultural products. Moisture-resistant options available.",
-      applications: ["Grain storage", "Fertilizer transport", "Seed packaging", "Animal feed"]
+      description: "Specialized bulk bags for grains, seeds, fertilizers, and feed with moisture protection and UV resistance.",
+      applications: ["Grain storage", "Fertilizer transport", "Seed packaging", "Animal feed"],
+      slug: "agriculture"
     },
     {
       icon: Beaker,
       title: "Chemicals",
-      description: "Safe handling of chemical powders and granules with appropriate liner and safety certifications.",
-      applications: ["Chemical powders", "Resins", "Pigments", "Industrial compounds"]
+      description: "Safe handling solutions for chemical powders with Type B, C, and D antistatic options for hazardous materials.",
+      applications: ["Chemical powders", "Resins", "Industrial compounds", "Hazardous materials"],
+      slug: "chemicals"
     },
     {
-      icon: Mountain,
-      title: "Mining",
-      description: "Heavy-duty bags for minerals, aggregates, and mining materials with high safety factors.",
-      applications: ["Mineral ores", "Sand & aggregates", "Metal powders", "Industrial minerals"]
+      icon: HardHat,
+      title: "Construction",
+      description: "Heavy-duty bags for cement, sand, gravel, and aggregates designed for demanding construction environments.",
+      applications: ["Cement & concrete", "Sand & gravel", "Aggregates", "Fly ash"],
+      slug: "construction"
+    },
+    {
+      icon: Apple,
+      title: "Food Processing",
+      description: "FDA-compliant, food-grade bags manufactured in cleanroom facilities for safe ingredient transport.",
+      applications: ["Flour & sugar", "Starches", "Food ingredients", "Bulk powders"],
+      slug: "food-processing"
     },
     {
       icon: Pill,
-      title: "Food & Pharma",
-      description: "FDA-compliant bags with food-grade liners for pharmaceutical and food industry applications.",
-      applications: ["Food ingredients", "Pharmaceutical powders", "Nutritional supplements", "Sugar & salt"]
+      title: "Pharmaceuticals",
+      description: "GMP-compliant pharmaceutical-grade bags for APIs and excipients with contamination-free transport.",
+      applications: ["Active ingredients", "Excipients", "Pharmaceutical powders", "Supplements"],
+      slug: "pharmaceuticals"
+    },
+    {
+      icon: Recycle,
+      title: "Recycling",
+      description: "Durable, reusable solutions for recyclable materials and waste management operations.",
+      applications: ["Plastic recycling", "Paper & cardboard", "Metal scrap", "Organic waste"],
+      slug: "recycling"
+    },
+    {
+      icon: Mountain,
+      title: "Minerals",
+      description: "Extra-strength bags for ores, coal, and mineral powders with abrasion-resistant construction.",
+      applications: ["Mineral ores", "Coal", "Metal powders", "Industrial minerals"],
+      slug: "minerals"
+    },
+    {
+      icon: Sprout,
+      title: "Fertilizers",
+      description: "Moisture-resistant bags with optional liners for granular and powdered fertilizer products.",
+      applications: ["NPK fertilizers", "Urea", "Potash", "Organic fertilizers"],
+      slug: "fertilizers"
+    },
+    {
+      icon: Building2,
+      title: "Cement",
+      description: "Seamless tubular designs that minimize dust leakage for cement and bulk powder applications.",
+      applications: ["Portland cement", "Fly ash", "Lime", "Gypsum"],
+      slug: "cement"
+    },
+    {
+      icon: Palette,
+      title: "Color Pigments",
+      description: "Specialized bags for fine pigment powders with dust containment and contamination prevention.",
+      applications: ["Industrial pigments", "Paint powders", "Dyes", "Color additives"],
+      slug: "color-pigments"
     }
   ];
 
@@ -35,43 +94,73 @@ const Industries = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      <section className="py-16">
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">Industries We Serve</h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Safe Packaging provides specialized FIBC solutions for diverse industries, each with unique requirements and certifications.
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Industries We Serve</h1>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+              Safe Packaging provides specialized FIBC solutions for diverse industries. Each sector has unique requirements for safety, compliance, and performance—we deliver exactly what you need.
             </p>
+            <Button size="lg" asChild>
+              <Link to="/build-your-bag">Build Custom Bag for Your Industry</Link>
+            </Button>
           </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-2 gap-8">
+      {/* Industries Grid */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry) => {
               const Icon = industry.icon;
               return (
-                <Card key={industry.title} className="hover:shadow-lg transition-shadow">
-                  <CardHeader>
-                    <div className="flex items-start gap-4">
-                      <div className="p-3 rounded-lg bg-primary/10">
-                        <Icon className="h-8 w-8 text-primary" />
+                <Link 
+                  key={industry.slug}
+                  to={`/industries/${industry.slug}`}
+                  className="block"
+                >
+                  <Card className="h-full hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer">
+                    <CardHeader>
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
+                          <Icon className="h-8 w-8 text-primary" />
+                        </div>
+                        <div>
+                          <h2 className="text-2xl font-bold mb-2">{industry.title}</h2>
+                          <p className="text-muted-foreground text-sm">{industry.description}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h2 className="text-2xl font-bold mb-2">{industry.title}</h2>
-                        <p className="text-muted-foreground">{industry.description}</p>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <h3 className="font-semibold mb-2">Common Applications:</h3>
-                    <ul className="grid grid-cols-2 gap-2">
-                      {industry.applications.map((app) => (
-                        <li key={app} className="text-sm text-muted-foreground">• {app}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                    </CardHeader>
+                    <CardContent>
+                      <h3 className="font-semibold mb-2 text-sm">Common Applications:</h3>
+                      <ul className="grid grid-cols-1 gap-1">
+                        {industry.applications.map((app) => (
+                          <li key={app} className="text-sm text-muted-foreground">
+                            • {app}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </Link>
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-muted">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-4">Don't See Your Industry?</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            We work with many specialized industries. Contact us to discuss your specific bulk bag requirements.
+          </p>
+          <Button size="lg" asChild>
+            <Link to="/contact">Contact Our Team</Link>
+          </Button>
         </div>
       </section>
 
