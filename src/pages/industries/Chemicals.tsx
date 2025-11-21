@@ -69,7 +69,7 @@ const Chemicals = () => {
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section - Split Layout with Image on Right */}
       <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4">
           {/* Back Button */}
@@ -79,25 +79,40 @@ const Chemicals = () => {
               Back to Industries
             </Link>
           </Button>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 rounded-lg bg-primary/10">
-              <Beaker className="h-10 w-10 text-primary" />
-            </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left Content */}
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
-              <h1 className="text-4xl md:text-5xl font-bold">Chemicals</h1>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <Beaker className="h-10 w-10 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
+                  <h1 className="text-4xl md:text-5xl font-bold">Chemicals</h1>
+                </div>
+              </div>
+              <p className="text-lg text-muted-foreground mb-8">
+                Specialized bulk bags engineered for safe handling of chemical powders, resins, and industrial compounds. Our antistatic options prevent dangerous static discharge when working with flammable materials.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button size="lg" asChild>
+                  <Link to="/build-your-bag">Build Custom Bag</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/contact">Request a Quote</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-            Specialized bulk bags engineered for safe handling of chemical powders, resins, and industrial compounds. Our antistatic options prevent dangerous static discharge when working with flammable materials.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <Link to="/build-your-bag">Build Custom Bag</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/contact">Request a Quote</Link>
-            </Button>
+            
+            {/* Right Image */}
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src={productStandard} 
+                alt="Chemical bulk bags" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>

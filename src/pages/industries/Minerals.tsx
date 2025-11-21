@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2, Mountain } from "lucide-react";
+import { CheckCircle2, Mountain, ArrowLeft } from "lucide-react";
 import productStandard from "@/assets/product-standard-fibc.jpg";
 
 const Minerals = () => {
@@ -68,30 +68,56 @@ const Minerals = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      
+      {/* Hero Section - Split Layout with Image on Right */}
       <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 rounded-lg bg-primary/10">
-              <Mountain className="h-10 w-10 text-primary" />
-            </div>
+          {/* Back Button */}
+          <Button variant="ghost" asChild className="mb-6 -ml-4">
+            <Link to="/industries" className="flex items-center gap-2">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Industries
+            </Link>
+          </Button>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left Content */}
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
-              <h1 className="text-4xl md:text-5xl font-bold">Minerals</h1>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <Mountain className="h-10 w-10 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
+                  <h1 className="text-4xl md:text-5xl font-bold">Minerals</h1>
+                </div>
+              </div>
+              <p className="text-lg text-muted-foreground mb-8">
+                Extra-strength bulk bags engineered for mineral ores, coal, metal powders, and industrial minerals. Built to handle abrasive materials and extreme weight loads with maximum safety.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button size="lg" asChild>
+                  <Link to="/build-your-bag">Build Custom Bag</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/contact">Request a Quote</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-            Extra-strength bulk bags engineered for mineral ores, coal, metal powders, and industrial minerals. Built to handle abrasive materials and extreme weight loads with maximum safety.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <Link to="/build-your-bag">Build Custom Bag</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/contact">Request a Quote</Link>
-            </Button>
+            
+            {/* Right Image */}
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src={productStandard} 
+                alt="Mineral bulk bags" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Industry Challenges Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Common Challenges We Solve</h2>
@@ -107,6 +133,8 @@ const Minerals = () => {
           </div>
         </div>
       </section>
+
+      {/* Products Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Recommended Products for Minerals</h2>
@@ -120,6 +148,8 @@ const Minerals = () => {
           </div>
         </div>
       </section>
+
+      {/* Features Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
@@ -135,6 +165,8 @@ const Minerals = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Need Heavy-Duty Mineral Bags?</h2>
@@ -151,6 +183,7 @@ const Minerals = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );

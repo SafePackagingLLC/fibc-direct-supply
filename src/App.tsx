@@ -20,7 +20,6 @@ import Pharmaceuticals from "./pages/industries/Pharmaceuticals";
 import Recycling from "./pages/industries/Recycling";
 import Minerals from "./pages/industries/Minerals";
 import Fertilizers from "./pages/industries/Fertilizers";
-import Cement from "./pages/industries/Cement";
 import ColorPigments from "./pages/industries/ColorPigments";
 
 const queryClient = new QueryClient();
@@ -44,7 +43,6 @@ const App = () => (
           <Route path="/industries/recycling" element={<Recycling />} />
           <Route path="/industries/minerals" element={<Minerals />} />
           <Route path="/industries/fertilizers" element={<Fertilizers />} />
-          <Route path="/industries/cement" element={<Cement />} />
           <Route path="/industries/color-pigments" element={<ColorPigments />} />
           
           <Route path="/build-your-bag" element={<BuildYourBag />} />

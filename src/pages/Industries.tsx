@@ -12,7 +12,6 @@ import {
   Recycle, 
   Mountain, 
   Sprout,
-  Building2,
   Palette
 } from "lucide-react";
 
@@ -34,9 +33,9 @@ const Industries = () => {
     },
     {
       icon: HardHat,
-      title: "Construction",
-      description: "Heavy-duty bags for cement, sand, gravel, and aggregates designed for demanding construction environments.",
-      applications: ["Cement & concrete", "Sand & gravel", "Aggregates", "Fly ash"],
+      title: "Construction & Cement",
+      description: "Heavy-duty bags for cement, Portland cement, fly ash, sand, gravel, and aggregates for construction sites.",
+      applications: ["Cement & concrete", "Sand & gravel", "Aggregates", "Fly ash", "Lime & gypsum"],
       slug: "construction"
     },
     {
@@ -73,13 +72,6 @@ const Industries = () => {
       description: "Moisture-resistant bags with optional liners for granular and powdered fertilizer products.",
       applications: ["NPK fertilizers", "Urea", "Potash", "Organic fertilizers"],
       slug: "fertilizers"
-    },
-    {
-      icon: Building2,
-      title: "Cement",
-      description: "Seamless tubular designs that minimize dust leakage for cement and bulk powder applications.",
-      applications: ["Portland cement", "Fly ash", "Lime", "Gypsum"],
-      slug: "cement"
     },
     {
       icon: Palette,

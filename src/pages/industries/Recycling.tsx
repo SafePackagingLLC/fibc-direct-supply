@@ -1,4 +1,3 @@
-// ===== RECYCLING.TSX =====
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -61,6 +60,8 @@ const Recycling = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      
+      {/* Hero Section - Split Layout with Image on Right */}
       <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4">
           {/* Back Button */}
@@ -70,28 +71,45 @@ const Recycling = () => {
               Back to Industries
             </Link>
           </Button>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 rounded-lg bg-primary/10">
-              <Recycle className="h-10 w-10 text-primary" />
-            </div>
+          
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left Content */}
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
-              <h1 className="text-4xl md:text-5xl font-bold">Recycling</h1>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <Recycle className="h-10 w-10 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
+                  <h1 className="text-4xl md:text-5xl font-bold">Recycling</h1>
+                </div>
+              </div>
+              <p className="text-lg text-muted-foreground mb-8">
+                Durable and reusable bulk bags designed for recycling operations. Handle plastic, paper, metal, and organic recyclables with cost-effective, long-lasting solutions.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button size="lg" asChild>
+                  <Link to="/build-your-bag">Build Custom Bag</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/contact">Request a Quote</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-            Durable and reusable bulk bags designed for recycling operations. Handle plastic, paper, metal, and organic recyclables with cost-effective, long-lasting solutions.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <Link to="/build-your-bag">Build Custom Bag</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/contact">Request a Quote</Link>
-            </Button>
+            
+            {/* Right Image */}
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src={productStandard} 
+                alt="Recycling bulk bags" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Industry Challenges Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Common Challenges We Solve</h2>
@@ -107,6 +125,8 @@ const Recycling = () => {
           </div>
         </div>
       </section>
+
+      {/* Products Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-4 text-center">Recommended Products for Recycling</h2>
@@ -120,6 +140,8 @@ const Recycling = () => {
           </div>
         </div>
       </section>
+
+      {/* Features Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
@@ -135,6 +157,8 @@ const Recycling = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Recycling Operation?</h2>
@@ -151,6 +175,7 @@ const Recycling = () => {
           </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );

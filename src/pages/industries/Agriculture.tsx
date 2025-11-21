@@ -4,70 +4,64 @@ import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2, Wheat, ArrowLeft } from "lucide-react";
+import { CheckCircle2, Sprout, ArrowLeft } from "lucide-react";
 import productStandard from "@/assets/product-standard-fibc.jpg";
 
-const Agriculture = () => {
+const Fertilizers = () => {
   const challenges = [
     {
-      problem: "Moisture Damage",
-      solution: "UV-stabilized bags with optional PE liners protect against moisture and extend product shelf life"
+      problem: "Moisture Sensitivity",
+      solution: "PE liners and moisture barriers protect hygroscopic fertilizers from humidity during storage and transport"
     },
     {
-      problem: "Product Contamination",
-      solution: "Food-grade materials and cleanroom manufacturing ensure your agricultural products stay pure"
+      problem: "Chemical Reactions",
+      solution: "Chemical-resistant materials prevent unwanted reactions and maintain fertilizer efficacy"
     },
     {
-      problem: "Storage Efficiency",
-      solution: "Baffle bags maintain cubic shape for optimized warehouse space and stable stacking"
+      problem: "Hygroscopic Materials",
+      solution: "Sealed construction with appropriate liners prevents moisture absorption in urea and other hygroscopic fertilizers"
     },
     {
-      problem: "Transportation Costs",
-      solution: "Lightweight yet durable construction reduces shipping costs while maintaining load integrity"
+      problem: "Corrosion Risk",
+      solution: "Corrosion-resistant materials and protective liners prevent degradation from acidic or alkaline fertilizers"
     }
   ];
 
   const products = [
     {
       title: "Standard FIBC Bag",
-      description: "General-purpose bulk bags for agricultural products",
-      specs: "1,000–2,000 kg capacity • 160–200 GSM • 4 lifting loops • UV stabilized • Optional PE liner",
+      description: "Reliable bulk storage for fertilizer products",
+      specs: "1,000–1,500 kg capacity • 160–200 GSM • UV stabilized • 4 corner loops • Optional PE liner",
       image: productStandard,
       stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "standard-fibc"
+      slug: "standard-fertilizer-fibc"
     },
     {
-      title: "Ventilated FIBC Bag",
-      description: "Enhanced airflow for perishable agricultural products",
-      specs: "500–1,000 kg capacity • 160–180 GSM • Ventilation strips • 4 lifting loops • Enhanced airflow",
+      title: "Lined FIBC Bag",
+      description: "Maximum moisture protection for hygroscopic fertilizers",
+      specs: "500–1,500 kg capacity • 160–180 GSM • PE liner • Moisture protection • Ideal for hygroscopic fertilizers",
       image: productStandard,
       stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "ventilated-fibc"
-    },
-    {
-      title: "Baffle FIBC Bag",
-      description: "Stackable bags maintaining cubic shape for efficient storage",
-      specs: "1,000–1,500 kg capacity • 180–200 GSM • Internal baffles • Maintains cubic shape • Optimized stacking",
-      image: productStandard,
-      stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "baffle-fibc"
+      slug: "lined-fertilizer-fibc"
     }
   ];
 
   const features = [
-    "UV protection for outdoor storage",
-    "Food-safe materials available",
-    "Moisture-resistant liners",
+    "Moisture-resistant PE liners",
+    "UV stabilization for outdoor storage",
+    "Chemical-resistant materials",
     "Dust-proof closures",
-    "5:1 or 6:1 safety factor",
-    "Customizable printing"
+    "Custom capacity options",
+    "Corrosion-resistant construction",
+    "Optional ventilation",
+    "Custom printing available"
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero Section */}
+      {/* Hero Section - Split Layout with Image on Right */}
       <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4">
           {/* Back Button */}
@@ -78,25 +72,39 @@ const Agriculture = () => {
             </Link>
           </Button>
           
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-3 rounded-lg bg-primary/10">
-              <Wheat className="h-10 w-10 text-primary" />
-            </div>
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Left Content */}
             <div>
-              <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
-              <h1 className="text-4xl md:text-5xl font-bold">Agriculture</h1>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 rounded-lg bg-primary/10">
+                  <Sprout className="h-10 w-10 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
+                  <h1 className="text-4xl md:text-5xl font-bold">Fertilizers</h1>
+                </div>
+              </div>
+              <p className="text-lg text-muted-foreground mb-8">
+                Moisture-resistant bulk bags designed for NPK fertilizers, urea, potash, and organic fertilizers. Protect hygroscopic materials from moisture with appropriate liners and sealed construction.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button size="lg" asChild>
+                  <Link to="/build-your-bag">Build Custom Bag</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link to="/contact">Request a Quote</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mb-8">
-            Bulk packaging solutions designed specifically for agricultural products including grains, seeds, fertilizers, and animal feed. Our bags protect your products from moisture, contamination, and UV damage.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Button size="lg" asChild>
-              <Link to="/build-your-bag">Build Custom Bag</Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link to="/contact">Request a Quote</Link>
-            </Button>
+            
+            {/* Right Image */}
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
+              <img 
+                src={productStandard} 
+                alt="Fertilizer bulk bags" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -121,9 +129,9 @@ const Agriculture = () => {
       {/* Products Section */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4 text-center">Recommended Products for Agriculture</h2>
+          <h2 className="text-3xl font-bold mb-4 text-center">Recommended Products for Fertilizers</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            These bulk bag solutions are specifically designed for agricultural applications. All products are in stock and ready to ship within 24-72 hours.
+            These bulk bags provide excellent moisture protection for all types of fertilizer products.
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {products.map((product) => (
@@ -137,7 +145,7 @@ const Agriculture = () => {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">Key Features for Agricultural Applications</h2>
+            <h2 className="text-3xl font-bold mb-8 text-center">Key Features for Fertilizer Applications</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
@@ -153,9 +161,9 @@ const Agriculture = () => {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Order?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Protect Your Fertilizers?</h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Get factory-direct pricing and fast delivery from our regional warehouses. Custom specifications available.
+            Get moisture-resistant bulk bags that keep your fertilizer products dry and effective during storage and transport.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
@@ -173,4 +181,4 @@ const Agriculture = () => {
   );
 };
 
-export default Agriculture;
+export default Fertilizers;
