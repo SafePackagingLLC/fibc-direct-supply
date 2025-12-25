@@ -26,7 +26,13 @@ const loopTypes = [
 const bagBottoms = [
   { id: "plain", name: "Plain Bottom", image: "/images/bag-parts/plain-bottom.png" },
   { id: "spout", name: "Spout Bottom", image: "/images/bag-parts/spout-bottom.png" },
-  { id: "open", name: "Full Open Bottom", image: "/images/bag-parts/open-bottom.png" },
+];
+
+const constructionTypes = [
+  { id: "4-panel", name: "4-Panel", image: "/images/bag-parts/4-panel.png" },
+  { id: "u-panel", name: "U-panel", image: "/images/bag-parts/u-panel.png" },
+  { id: "circular", name: "Circular", image: "/images/bag-parts/circular.png" },
+  { id: "baffled", name: "Baffled", image: "/images/bag-parts/baffled.png" },
 ];
 
 const fabricTypes = [
@@ -54,6 +60,7 @@ const BuildYourBag = () => {
   const [selectedTop, setSelectedTop] = useState("open-top");
   const [selectedLoop, setSelectedLoop] = useState("cross-corner");
   const [selectedBottom, setSelectedBottom] = useState("plain");
+  const [selectedConstruction, setSelectedConstruction] = useState("4-panel");
   const [selectedFabric, setSelectedFabric] = useState("standard");
   const [selectedLiner, setSelectedLiner] = useState("none");
   const [selectedCapacity, setSelectedCapacity] = useState("1000");
@@ -80,24 +87,24 @@ const BuildYourBag = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Configuration Panel */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Bag Top Selection */}
+            {/* Construction Selection */}
             <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Bag Top</h2>
+              <h2 className="text-2xl font-bold mb-4">Construction</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {bagTops.map((top) => (
+                {constructionTypes.map((construction) => (
                   <button
-                    key={top.id}
-                    onClick={() => setSelectedTop(top.id)}
+                    key={construction.id}
+                    onClick={() => setSelectedConstruction(construction.id)}
                     className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedTop === top.id
+                      selectedConstruction === construction.id
                         ? "border-primary bg-primary/5"
                         : "border-border"
                     }`}
                   >
                     <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
-                      <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
+                      <img src={construction.image} alt={construction.name} className="w-full h-full object-contain" />
                     </div>
-                    <p className="text-sm font-medium text-center">{top.name}</p>
+                    <p className="text-sm font-medium text-center">{construction.name}</p>
                   </button>
                 ))}
               </div>
@@ -126,10 +133,33 @@ const BuildYourBag = () => {
               </div>
             </Card>
 
+            {/* Bag Top Selection */}
+            <Card className="p-6">
+              <h2 className="text-2xl font-bold mb-4">Bag Top</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {bagTops.map((top) => (
+                  <button
+                    key={top.id}
+                    onClick={() => setSelectedTop(top.id)}
+                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
+                      selectedTop === top.id
+                        ? "border-primary bg-primary/5"
+                        : "border-border"
+                    }`}
+                  >
+                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
+                      <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
+                    </div>
+                    <p className="text-sm font-medium text-center">{top.name}</p>
+                  </button>
+                ))}
+              </div>
+            </Card>
+
             {/* Bag Bottom Selection */}
             <Card className="p-6">
               <h2 className="text-2xl font-bold mb-4">Bag Bottom</h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 {bagBottoms.map((bottom) => (
                   <button
                     key={bottom.id}
@@ -222,6 +252,7 @@ const BuildYourBag = () => {
                     selectedTop={selectedTop}
                     selectedLoop={selectedLoop}
                     selectedBottom={selectedBottom}
+                    selectedConstruction={selectedConstruction}
                     selectedFabric={selectedFabric}
                   />
                 </div>
@@ -235,15 +266,21 @@ const BuildYourBag = () => {
                 <h3 className="text-lg font-bold mb-4">Configuration</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-muted-foreground">Top:</span>
+                    <span className="text-muted-foreground">Construction:</span>
                     <span className="font-medium">
-                      {bagTops.find(t => t.id === selectedTop)?.name}
+                      {constructionTypes.find(c => c.id === selectedConstruction)?.name}
                     </span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Loops:</span>
                     <span className="font-medium">
                       {loopTypes.find(l => l.id === selectedLoop)?.name}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Top:</span>
+                    <span className="font-medium">
+                      {bagTops.find(t => t.id === selectedTop)?.name}
                     </span>
                   </div>
                   <div className="flex justify-between">
