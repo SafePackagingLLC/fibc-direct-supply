@@ -1,11 +1,9 @@
-import { useRef, useState, useMemo, useEffect } from "react";
+import { useRef, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Environment, useTexture } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 import * as THREE from "three";
-import logo from "@/assets/safe-packaging-logo.png";
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Eye, EyeOff } from "lucide-react";
-import { useLoader } from "@react-three/fiber";
+import { RotateCcw } from "lucide-react";
 
 interface BagPreview3DProps {
   selectedTop: string;
@@ -197,11 +195,9 @@ function Bag3DModel({
   selectedLoop, 
   selectedBottom, 
   selectedConstruction,
-  selectedFabric, 
-  showLogo 
-}: BagPreview3DProps & { showLogo: boolean }) {
+  selectedFabric
+}: BagPreview3DProps) {
   const bagRef = useRef<THREE.Group>(null);
-  const logoTexture = useLoader(THREE.TextureLoader, logo);
   
   // Gentle rotation animation
   useFrame((state) => {
@@ -501,139 +497,298 @@ function Bag3DModel({
     }
   };
 
-  // Loop configurations with realistic fabric straps
+  // Attachment point component - shows where loops connect to the bag
+  const AttachmentPoint = ({ position, rotation = [0, 0, 0] as [number, number, number] }: { position: [number, number, number]; rotation?: [number, number, number] }) => (
+    <group position={position} rotation={rotation}>
+      {/* Indented connection point */}
+      <mesh castShadow>
+        <boxGeometry args={[0.12, 0.04, 0.08]} />
+        <meshStandardMaterial color="#d4d4d4" roughness={0.8} />
+      </mesh>
+      {/* Stitching detail */}
+      <mesh position={[0, 0.025, 0]}>
+        <boxGeometry args={[0.14, 0.01, 0.1]} />
+        <meshStandardMaterial color="#a3a3a3" roughness={0.9} />
+      </mesh>
+    </group>
+  );
+
+  // Loop configurations with realistic fabric straps integrated into bag
   const BagLoops = () => {
     const topY = bagHeight / 2;
-    const cornerOffset = isCircular ? radius * 0.7 : bagWidth / 2 - 0.1;
+    const cornerOffset = isCircular ? radius * 0.7 : bagWidth / 2;
+    const strapOffset = 0.04; // How much straps are inset from edge
     
     switch (selectedLoop) {
       case "cross-corner":
-        // Cross-corner loops: straps cross over the top corners
+        // Cross-corner loops: straps that cross diagonally over top corners and run down the sides
         return (
           <group>
             {[
-              [cornerOffset, cornerOffset],
-              [cornerOffset, -cornerOffset],
-              [-cornerOffset, cornerOffset],
-              [-cornerOffset, -cornerOffset]
-            ].map(([x, z], i) => (
-              <group key={`loop-${i}`}>
-                {/* Loop ring at top */}
-                <LoopRing position={[x * 0.85, topY + 0.35, z * 0.85]} rotation={[Math.PI / 2, 0, Math.atan2(z, x)]} radius={0.1} />
-                {/* Straps going down to corners */}
-                <FabricStrap 
-                  start={[x * 0.85, topY + 0.25, z * 0.85]} 
-                  end={[x, topY - 0.3, z]} 
-                  curved 
-                />
-                <FabricStrap 
-                  start={[x, topY - 0.3, z]} 
-                  end={[x, -topY + 0.3, z]} 
-                />
-              </group>
-            ))}
+              { x: cornerOffset, z: cornerOffset, rotY: Math.PI / 4 },
+              { x: cornerOffset, z: -cornerOffset, rotY: -Math.PI / 4 },
+              { x: -cornerOffset, z: cornerOffset, rotY: -Math.PI / 4 },
+              { x: -cornerOffset, z: -cornerOffset, rotY: Math.PI / 4 }
+            ].map(({ x, z, rotY }, i) => {
+              const signX = x > 0 ? 1 : -1;
+              const signZ = z > 0 ? 1 : -1;
+              const insetX = x - signX * strapOffset;
+              const insetZ = z - signZ * strapOffset;
+              
+              return (
+                <group key={`loop-${i}`}>
+                  {/* Top attachment point on bag surface */}
+                  <AttachmentPoint 
+                    position={[insetX, topY + 0.02, insetZ]} 
+                    rotation={[0, rotY, 0]} 
+                  />
+                  
+                  {/* Bottom attachment point */}
+                  <AttachmentPoint 
+                    position={[insetX, -topY + 0.25, insetZ]} 
+                    rotation={[0, rotY, 0]} 
+                  />
+                  
+                  {/* Loop ring at top */}
+                  <LoopRing 
+                    position={[insetX * 0.75, topY + 0.32, insetZ * 0.75]} 
+                    rotation={[Math.PI / 2, 0, rotY]} 
+                    radius={0.1} 
+                  />
+                  
+                  {/* Strap from ring crossing over corner to attachment */}
+                  <FabricStrap 
+                    start={[insetX * 0.75, topY + 0.22, insetZ * 0.75]} 
+                    end={[insetX, topY + 0.02, insetZ]} 
+                    curved 
+                  />
+                  
+                  {/* Strap running down corner seam - flush with bag */}
+                  <FabricStrap 
+                    start={[insetX, topY + 0.02, insetZ]} 
+                    end={[insetX, -topY + 0.25, insetZ]} 
+                    width={0.07}
+                  />
+                </group>
+              );
+            })}
           </group>
         );
       
       case "corner-seam":
-        // Corner seam loops: straps sewn into corner seams
+        // Corner seam loops: straps sewn directly into vertical corner seams
         return (
           <group>
             {[
-              [cornerOffset, cornerOffset],
-              [cornerOffset, -cornerOffset],
-              [-cornerOffset, cornerOffset],
-              [-cornerOffset, -cornerOffset]
-            ].map(([x, z], i) => (
-              <group key={`loop-${i}`}>
-                {/* Loop ring at corner */}
-                <LoopRing position={[x, topY + 0.25, z]} rotation={[Math.PI / 2, 0, Math.atan2(z, x)]} radius={0.09} />
-                {/* Single strap going straight down the seam */}
-                <FabricStrap 
-                  start={[x, topY + 0.15, z]} 
-                  end={[x, -topY + 0.1, z]} 
-                  width={0.06}
-                />
-              </group>
-            ))}
+              { x: cornerOffset, z: cornerOffset, rotY: Math.PI / 4 },
+              { x: cornerOffset, z: -cornerOffset, rotY: -Math.PI / 4 },
+              { x: -cornerOffset, z: cornerOffset, rotY: -Math.PI / 4 },
+              { x: -cornerOffset, z: -cornerOffset, rotY: Math.PI / 4 }
+            ].map(({ x, z, rotY }, i) => {
+              const signX = x > 0 ? 1 : -1;
+              const signZ = z > 0 ? 1 : -1;
+              const insetX = x - signX * strapOffset;
+              const insetZ = z - signZ * strapOffset;
+              
+              return (
+                <group key={`loop-${i}`}>
+                  {/* Top attachment - integrated into corner seam */}
+                  <mesh position={[insetX, topY - 0.05, insetZ]} rotation={[0, rotY, 0]} castShadow>
+                    <boxGeometry args={[0.1, 0.12, 0.06]} />
+                    <meshStandardMaterial color="#c8c8c8" roughness={0.85} />
+                  </mesh>
+                  
+                  {/* Loop ring emerging from seam */}
+                  <LoopRing 
+                    position={[insetX, topY + 0.2, insetZ]} 
+                    rotation={[Math.PI / 2, 0, rotY]} 
+                    radius={0.09} 
+                  />
+                  
+                  {/* Short strap connecting seam to ring */}
+                  <FabricStrap 
+                    start={[insetX, topY - 0.05, insetZ]} 
+                    end={[insetX, topY + 0.12, insetZ]} 
+                    width={0.065}
+                    curved
+                  />
+                  
+                  {/* Strap running down the full corner seam - embedded in corner */}
+                  <FabricStrap 
+                    start={[insetX, topY - 0.05, insetZ]} 
+                    end={[insetX, -topY + 0.15, insetZ]} 
+                    width={0.055}
+                  />
+                  
+                  {/* Bottom attachment */}
+                  <mesh position={[insetX, -topY + 0.1, insetZ]} rotation={[0, rotY, 0]} castShadow>
+                    <boxGeometry args={[0.1, 0.1, 0.06]} />
+                    <meshStandardMaterial color="#c8c8c8" roughness={0.85} />
+                  </mesh>
+                </group>
+              );
+            })}
           </group>
         );
       
       case "stevedore":
-        // Stevedore straps: tunnel-style loops on two sides
+        // Stevedore straps: wide tunnel straps wrapped around the bag body
         return (
           <group>
-            {[1, -1].map((side, i) => (
-              <group key={`stevedore-${i}`}>
-                {/* Main tunnel strap */}
-                <mesh position={[side * (isCircular ? radius + 0.08 : bagWidth/2 + 0.06), topY * 0.3, 0]} castShadow>
-                  <boxGeometry args={[0.12, bagHeight * 0.65, 0.35]} />
-                  <meshStandardMaterial color="#1e40af" roughness={0.7} />
-                </mesh>
-                {/* Tunnel opening for forklift */}
-                <mesh position={[side * (isCircular ? radius + 0.12 : bagWidth/2 + 0.1), topY * 0.3, 0]} castShadow>
-                  <boxGeometry args={[0.04, bagHeight * 0.3, 0.28]} />
-                  <meshStandardMaterial color="#0f172a" roughness={0.9} />
-                </mesh>
-              </group>
-            ))}
+            {[1, -1].map((side, i) => {
+              const xPos = side * (isCircular ? radius : bagWidth/2);
+              
+              return (
+                <group key={`stevedore-${i}`}>
+                  {/* Main strap panel on bag side - flush against the bag */}
+                  <mesh position={[xPos - side * 0.01, 0, 0]} castShadow>
+                    <boxGeometry args={[0.08, bagHeight * 0.85, bagDepth * 0.6]} />
+                    <meshStandardMaterial color="#1e40af" roughness={0.7} />
+                  </mesh>
+                  
+                  {/* Tunnel/pocket for forklift tines */}
+                  <mesh position={[xPos + side * 0.04, topY * 0.2, 0]} castShadow>
+                    <boxGeometry args={[0.1, bagHeight * 0.35, bagDepth * 0.5]} />
+                    <meshStandardMaterial color="#1e40af" roughness={0.65} />
+                  </mesh>
+                  
+                  {/* Tunnel opening */}
+                  <mesh position={[xPos + side * 0.08, topY * 0.2, 0]}>
+                    <boxGeometry args={[0.02, bagHeight * 0.28, bagDepth * 0.42]} />
+                    <meshStandardMaterial color="#0a1628" roughness={0.95} />
+                  </mesh>
+                  
+                  {/* Top attachment/reinforcement */}
+                  <mesh position={[xPos, topY - 0.08, 0]} castShadow>
+                    <boxGeometry args={[0.12, 0.08, bagDepth * 0.65]} />
+                    <meshStandardMaterial color="#1a3a8f" roughness={0.75} />
+                  </mesh>
+                  
+                  {/* Bottom attachment */}
+                  <mesh position={[xPos, -topY + 0.08, 0]} castShadow>
+                    <boxGeometry args={[0.12, 0.08, bagDepth * 0.65]} />
+                    <meshStandardMaterial color="#1a3a8f" roughness={0.75} />
+                  </mesh>
+                </group>
+              );
+            })}
           </group>
         );
       
       case "sleeve":
-        // Sleeve lifts: cylindrical sleeves on sides
+        // Sleeve lifts: wide sleeves integrated into side panels
         return (
           <group>
-            {[1, -1].map((side, i) => (
-              <group key={`sleeve-${i}`}>
-                {/* Sleeve tube */}
-                <mesh 
-                  position={[side * (isCircular ? radius + 0.1 : bagWidth/2 + 0.08), topY * 0.4, 0]} 
-                  rotation={[Math.PI / 2, 0, 0]} 
-                  castShadow
-                >
-                  <cylinderGeometry args={[0.12, 0.12, bagDepth * 0.6, 16]} />
-                  <meshStandardMaterial color="#1e40af" roughness={0.65} />
-                </mesh>
-                {/* Sleeve reinforcement straps */}
-                <FabricStrap 
-                  start={[side * (isCircular ? radius : bagWidth/2), topY, 0]} 
-                  end={[side * (isCircular ? radius : bagWidth/2), -topY * 0.5, 0]} 
-                  width={0.1}
-                />
-              </group>
-            ))}
+            {[1, -1].map((side, i) => {
+              const xPos = side * (isCircular ? radius : bagWidth/2);
+              
+              return (
+                <group key={`sleeve-${i}`}>
+                  {/* Sleeve backing panel - sewn to bag */}
+                  <mesh position={[xPos - side * 0.02, topY * 0.35, 0]} castShadow>
+                    <boxGeometry args={[0.06, bagHeight * 0.55, bagDepth * 0.65]} />
+                    <meshStandardMaterial color="#1a3a8f" roughness={0.75} />
+                  </mesh>
+                  
+                  {/* Top attachment stitching */}
+                  <mesh position={[xPos, topY - 0.05, 0]} castShadow>
+                    <boxGeometry args={[0.1, 0.06, bagDepth * 0.7]} />
+                    <meshStandardMaterial color="#1e40af" roughness={0.7} />
+                  </mesh>
+                  
+                  {/* Sleeve tube - for forklift insertion */}
+                  <mesh 
+                    position={[xPos + side * 0.06, topY * 0.35, 0]} 
+                    rotation={[Math.PI / 2, 0, 0]} 
+                    castShadow
+                  >
+                    <cylinderGeometry args={[0.11, 0.11, bagDepth * 0.55, 16]} />
+                    <meshStandardMaterial color="#1e40af" roughness={0.65} />
+                  </mesh>
+                  
+                  {/* Sleeve opening darkness */}
+                  <mesh 
+                    position={[xPos + side * 0.06, topY * 0.35, bagDepth * 0.3]} 
+                    rotation={[Math.PI / 2, 0, 0]}
+                  >
+                    <cylinderGeometry args={[0.09, 0.09, 0.02, 16]} />
+                    <meshStandardMaterial color="#0a1628" roughness={0.95} />
+                  </mesh>
+                  <mesh 
+                    position={[xPos + side * 0.06, topY * 0.35, -bagDepth * 0.3]} 
+                    rotation={[Math.PI / 2, 0, 0]}
+                  >
+                    <cylinderGeometry args={[0.09, 0.09, 0.02, 16]} />
+                    <meshStandardMaterial color="#0a1628" roughness={0.95} />
+                  </mesh>
+                  
+                  {/* Bottom attachment */}
+                  <mesh position={[xPos, -topY * 0.15, 0]} castShadow>
+                    <boxGeometry args={[0.1, 0.06, bagDepth * 0.7]} />
+                    <meshStandardMaterial color="#1e40af" roughness={0.7} />
+                  </mesh>
+                </group>
+              );
+            })}
           </group>
         );
       
       case "single-point":
-        // Single point lift: central lifting point with 4 straps
+        // Single point lift: four corner straps converging to one central lifting ring
         return (
           <group>
-            {/* Central lifting ring */}
-            <LoopRing position={[0, topY + 0.5, 0]} rotation={[0, 0, 0]} radius={0.15} tube={0.03} />
+            {/* Central lifting ring at apex */}
+            <LoopRing position={[0, topY + 0.55, 0]} rotation={[0, 0, 0]} radius={0.14} tube={0.035} />
+            
+            {/* Reinforcement plate at center top */}
+            <mesh position={[0, topY + 0.02, 0]} castShadow>
+              <cylinderGeometry args={[0.2, 0.22, 0.04, 24]} />
+              <meshStandardMaterial color="#c8c8c8" roughness={0.8} />
+            </mesh>
             
             {/* Four straps converging to center */}
             {[
-              [cornerOffset * 0.8, cornerOffset * 0.8],
-              [cornerOffset * 0.8, -cornerOffset * 0.8],
-              [-cornerOffset * 0.8, cornerOffset * 0.8],
-              [-cornerOffset * 0.8, -cornerOffset * 0.8]
-            ].map(([x, z], i) => (
-              <group key={`strap-${i}`}>
-                {/* Angled strap to center */}
-                <FabricStrap 
-                  start={[x, topY + 0.05, z]} 
-                  end={[0, topY + 0.45, 0]} 
-                  curved
-                />
-                {/* Vertical strap down the bag */}
-                <FabricStrap 
-                  start={[x, topY + 0.05, z]} 
-                  end={[x, -topY + 0.2, z]} 
-                />
-              </group>
-            ))}
+              { x: cornerOffset * 0.9, z: cornerOffset * 0.9, rotY: Math.PI / 4 },
+              { x: cornerOffset * 0.9, z: -cornerOffset * 0.9, rotY: -Math.PI / 4 },
+              { x: -cornerOffset * 0.9, z: cornerOffset * 0.9, rotY: -Math.PI / 4 },
+              { x: -cornerOffset * 0.9, z: -cornerOffset * 0.9, rotY: Math.PI / 4 }
+            ].map(({ x, z, rotY }, i) => {
+              const signX = x > 0 ? 1 : -1;
+              const signZ = z > 0 ? 1 : -1;
+              const insetX = x - signX * strapOffset;
+              const insetZ = z - signZ * strapOffset;
+              
+              return (
+                <group key={`strap-${i}`}>
+                  {/* Attachment point at top corner */}
+                  <AttachmentPoint 
+                    position={[insetX, topY + 0.02, insetZ]} 
+                    rotation={[0, rotY, 0]} 
+                  />
+                  
+                  {/* Angled strap from corner to center ring */}
+                  <FabricStrap 
+                    start={[insetX, topY + 0.02, insetZ]} 
+                    end={[0, topY + 0.5, 0]} 
+                    curved
+                    width={0.065}
+                  />
+                  
+                  {/* Vertical strap down the corner of the bag */}
+                  <FabricStrap 
+                    start={[insetX, topY + 0.02, insetZ]} 
+                    end={[insetX, -topY + 0.25, insetZ]} 
+                    width={0.06}
+                  />
+                  
+                  {/* Bottom attachment point */}
+                  <AttachmentPoint 
+                    position={[insetX, -topY + 0.2, insetZ]} 
+                    rotation={[0, rotY, 0]} 
+                  />
+                </group>
+              );
+            })}
           </group>
         );
       
@@ -648,38 +803,17 @@ function Bag3DModel({
       <BagTop />
       <BagBottom />
       <BagLoops />
-      
-      {/* Logo on front face */}
-      {showLogo && (
-        <mesh 
-          position={isCircular ? [0, 0.3, radius + 0.01] : [0, 0.3, bagDepth/2 + 0.01]} 
-          rotation={[0, 0, 0]}
-        >
-          <planeGeometry args={[0.55, 0.28]} />
-          <meshStandardMaterial 
-            map={logoTexture} 
-            transparent 
-            opacity={0.95}
-            roughness={0.8}
-          />
-        </mesh>
-      )}
     </group>
   );
 }
 
 export default function BagPreview3D(props: BagPreview3DProps) {
   const controlsRef = useRef<any>(null);
-  const [showLogo, setShowLogo] = useState(true);
   
   const resetView = () => {
     if (controlsRef.current) {
       controlsRef.current.reset();
     }
-  };
-
-  const toggleLogo = () => {
-    setShowLogo(!showLogo);
   };
 
   return (
@@ -757,7 +891,7 @@ export default function BagPreview3D(props: BagPreview3DProps) {
           <meshBasicMaterial color="#f1f5f9" transparent opacity={0.5} />
         </mesh>
         
-        <Bag3DModel {...props} showLogo={showLogo} />
+        <Bag3DModel {...props} />
         
         <OrbitControls 
           ref={controlsRef}
@@ -776,18 +910,8 @@ export default function BagPreview3D(props: BagPreview3DProps) {
         />
       </Canvas>
       
-      {/* Control buttons */}
-      <div className="absolute bottom-4 right-4 flex gap-2">
-        <Button
-          onClick={toggleLogo}
-          size="sm"
-          variant="secondary"
-          className="shadow-lg hover:scale-105 transition-transform backdrop-blur-sm bg-background/80"
-          title={showLogo ? "Hide Logo" : "Show Logo"}
-        >
-          {showLogo ? <Eye className="h-4 w-4 mr-2" /> : <EyeOff className="h-4 w-4 mr-2" />}
-          Logo
-        </Button>
+      {/* Control button */}
+      <div className="absolute bottom-4 right-4">
         <Button
           onClick={resetView}
           size="sm"
