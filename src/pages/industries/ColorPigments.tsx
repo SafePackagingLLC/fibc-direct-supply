@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Palette, ArrowLeft } from "lucide-react";
 import productStandard from "@/assets/product-standard-fibc.jpg";
+import industryColorPigments from "@/assets/industry-color-pigments.jpg";
 
 const ColorPigments = () => {
   const challenges = [
@@ -100,7 +101,7 @@ const ColorPigments = () => {
             {/* Right Image */}
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <img 
-                src={productStandard} 
+                src={industryColorPigments} 
                 alt="Color pigment bulk bags" 
                 className="w-full h-full object-cover"
               />
