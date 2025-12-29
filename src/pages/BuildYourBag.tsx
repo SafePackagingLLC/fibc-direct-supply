@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import BagPreview3D from "@/components/BagPreview3D";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -84,9 +83,10 @@ const BuildYourBag = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Configuration Panel */}
-          <div className="lg:col-span-2 space-y-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Configuration Panel */}
+            <div className="lg:col-span-2 space-y-6">
             {/* Construction Selection */}
             <Card className="p-6">
               <h2 className="text-2xl font-bold mb-4">Construction</h2>
@@ -241,77 +241,60 @@ const BuildYourBag = () => {
             </Card>
           </div>
 
-          {/* Preview and Summary Panel */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-4 space-y-6">
-              {/* Visual Preview */}
-              <Card className="p-6">
-                <h3 className="text-lg font-bold mb-4">Your Bag Preview</h3>
-                <div className="aspect-square bg-muted rounded-lg mb-4 overflow-hidden">
-                  <BagPreview3D
-                    selectedTop={selectedTop}
-                    selectedLoop={selectedLoop}
-                    selectedBottom={selectedBottom}
-                    selectedConstruction={selectedConstruction}
-                    selectedFabric={selectedFabric}
-                  />
-                </div>
-                <p className="text-sm text-muted-foreground text-center">
-                  Drag to rotate • Scroll to zoom
-                </p>
-              </Card>
-
-              {/* Configuration Summary */}
-              <Card className="p-6">
-                <h3 className="text-lg font-bold mb-4">Configuration</h3>
-                <div className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Construction:</span>
-                    <span className="font-medium">
-                      {constructionTypes.find(c => c.id === selectedConstruction)?.name}
-                    </span>
+            {/* Configuration Summary Panel */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-4">
+                <Card className="p-6">
+                  <h3 className="text-xl font-bold mb-6">Your Configuration</h3>
+                  <div className="space-y-4 text-sm mb-6">
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Construction:</span>
+                      <span className="font-semibold">
+                        {constructionTypes.find(c => c.id === selectedConstruction)?.name}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Loops:</span>
+                      <span className="font-semibold">
+                        {loopTypes.find(l => l.id === selectedLoop)?.name}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Top:</span>
+                      <span className="font-semibold">
+                        {bagTops.find(t => t.id === selectedTop)?.name}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Bottom:</span>
+                      <span className="font-semibold">
+                        {bagBottoms.find(b => b.id === selectedBottom)?.name}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Fabric:</span>
+                      <span className="font-semibold">
+                        {fabricTypes.find(f => f.id === selectedFabric)?.name}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Liner:</span>
+                      <span className="font-semibold">
+                        {linerOptions.find(l => l.id === selectedLiner)?.name}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-muted-foreground">Capacity:</span>
+                      <span className="font-semibold">
+                        {capacities.find(c => c.id === selectedCapacity)?.name}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Loops:</span>
-                    <span className="font-medium">
-                      {loopTypes.find(l => l.id === selectedLoop)?.name}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Top:</span>
-                    <span className="font-medium">
-                      {bagTops.find(t => t.id === selectedTop)?.name}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Bottom:</span>
-                    <span className="font-medium">
-                      {bagBottoms.find(b => b.id === selectedBottom)?.name}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Fabric:</span>
-                    <span className="font-medium">
-                      {fabricTypes.find(f => f.id === selectedFabric)?.name}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Liner:</span>
-                    <span className="font-medium">
-                      {linerOptions.find(l => l.id === selectedLiner)?.name}
-                    </span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Capacity:</span>
-                    <span className="font-medium">
-                      {capacities.find(c => c.id === selectedCapacity)?.name}
-                    </span>
-                  </div>
-                </div>
-                <Button className="w-full mt-6" size="lg" asChild>
-                  <Link to="/contact">Request Quote</Link>
-                </Button>
-              </Card>
+                  <Button className="w-full" size="lg" asChild>
+                    <Link to="/contact">Request Quote</Link>
+                  </Button>
+                </Card>
+              </div>
             </div>
           </div>
         </div>
