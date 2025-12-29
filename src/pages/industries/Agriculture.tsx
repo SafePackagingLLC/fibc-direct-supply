@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Sprout, ArrowLeft } from "lucide-react";
 import productStandard from "@/assets/product-standard-fibc.jpg";
+import industryAgriculture from "@/assets/industry-agriculture.jpg";
 
 const Fertilizers = () => {
   const challenges = [
@@ -100,7 +101,7 @@ const Fertilizers = () => {
             {/* Right Image */}
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <img 
-                src={productStandard} 
+                src={industryAgriculture} 
                 alt="Fertilizer bulk bags" 
                 className="w-full h-full object-cover"
               />

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Recycle, ArrowLeft } from "lucide-react";
 import productStandard from "@/assets/product-standard-fibc.jpg";
+import industryRecycling from "@/assets/industry-recycling.jpg";
 
 const Recycling = () => {
   const challenges = [
@@ -100,7 +101,7 @@ const Recycling = () => {
             {/* Right Image */}
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <img 
-                src={productStandard} 
+                src={industryRecycling} 
                 alt="Recycling bulk bags" 
                 className="w-full h-full object-cover"
               />

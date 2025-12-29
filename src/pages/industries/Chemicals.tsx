@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle2, Beaker, ArrowLeft } from "lucide-react";
 import productStandard from "@/assets/product-standard-fibc.jpg";
+import industryChemicals from "@/assets/industry-chemicals.jpg";
 
 const Chemicals = () => {
   const challenges = [
@@ -108,7 +109,7 @@ const Chemicals = () => {
             {/* Right Image */}
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
               <img 
-                src={productStandard} 
+                src={industryChemicals} 
                 alt="Chemical bulk bags" 
                 className="w-full h-full object-cover"
               />
