@@ -83,219 +83,196 @@ const BuildYourBag = () => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Configuration Panel */}
-            <div className="lg:col-span-2 space-y-6">
-            {/* Construction Selection */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Construction</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {constructionTypes.map((construction) => (
-                  <button
-                    key={construction.id}
-                    onClick={() => setSelectedConstruction(construction.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedConstruction === construction.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
-                      <img src={construction.image} alt={construction.name} className="w-full h-full object-contain" />
-                    </div>
-                    <p className="text-sm font-medium text-center">{construction.name}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-
-            {/* Loop Type Selection */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Loops</h2>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-                {loopTypes.map((loop) => (
-                  <button
-                    key={loop.id}
-                    onClick={() => setSelectedLoop(loop.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedLoop === loop.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
-                      <img src={loop.image} alt={loop.name} className="w-full h-full object-contain" />
-                    </div>
-                    <p className="text-sm font-medium text-center">{loop.name}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-
-            {/* Bag Top Selection */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Bag Top</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {bagTops.map((top) => (
-                  <button
-                    key={top.id}
-                    onClick={() => setSelectedTop(top.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedTop === top.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
-                      <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
-                    </div>
-                    <p className="text-sm font-medium text-center">{top.name}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-
-            {/* Bag Bottom Selection */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Bag Bottom</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {bagBottoms.map((bottom) => (
-                  <button
-                    key={bottom.id}
-                    onClick={() => setSelectedBottom(bottom.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedBottom === bottom.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <div className="aspect-square bg-background rounded mb-2 flex items-center justify-center p-2">
-                      <img src={bottom.image} alt={bottom.name} className="w-full h-full object-contain" />
-                    </div>
-                    <p className="text-sm font-medium text-center">{bottom.name}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-
-            {/* Fabric Type */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Fabric Type</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {fabricTypes.map((fabric) => (
-                  <button
-                    key={fabric.id}
-                    onClick={() => setSelectedFabric(fabric.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedFabric === fabric.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <p className="font-medium mb-1">{fabric.name}</p>
-                    <p className="text-xs text-muted-foreground">{fabric.gsm}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-
-            {/* Liner Options */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Liner Options</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {linerOptions.map((liner) => (
-                  <button
-                    key={liner.id}
-                    onClick={() => setSelectedLiner(liner.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedLiner === liner.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <p className="font-medium">{liner.name}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-
-            {/* Capacity */}
-            <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-4">Capacity</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {capacities.map((capacity) => (
-                  <button
-                    key={capacity.id}
-                    onClick={() => setSelectedCapacity(capacity.id)}
-                    className={`p-4 rounded-lg border-2 transition-all hover:border-primary ${
-                      selectedCapacity === capacity.id
-                        ? "border-primary bg-primary/5"
-                        : "border-border"
-                    }`}
-                  >
-                    <p className="font-medium">{capacity.name}</p>
-                  </button>
-                ))}
-              </div>
-            </Card>
-          </div>
-
-            {/* Configuration Summary Panel */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-4">
-                <Card className="p-6">
-                  <h3 className="text-xl font-bold mb-6">Your Configuration</h3>
-                  <div className="space-y-4 text-sm mb-6">
-                    <div className="flex justify-between items-center pb-3 border-b">
-                      <span className="text-muted-foreground">Construction:</span>
-                      <span className="font-semibold">
-                        {constructionTypes.find(c => c.id === selectedConstruction)?.name}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b">
-                      <span className="text-muted-foreground">Loops:</span>
-                      <span className="font-semibold">
-                        {loopTypes.find(l => l.id === selectedLoop)?.name}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b">
-                      <span className="text-muted-foreground">Top:</span>
-                      <span className="font-semibold">
-                        {bagTops.find(t => t.id === selectedTop)?.name}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b">
-                      <span className="text-muted-foreground">Bottom:</span>
-                      <span className="font-semibold">
-                        {bagBottoms.find(b => b.id === selectedBottom)?.name}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b">
-                      <span className="text-muted-foreground">Fabric:</span>
-                      <span className="font-semibold">
-                        {fabricTypes.find(f => f.id === selectedFabric)?.name}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b">
-                      <span className="text-muted-foreground">Liner:</span>
-                      <span className="font-semibold">
-                        {linerOptions.find(l => l.id === selectedLiner)?.name}
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Capacity:</span>
-                      <span className="font-semibold">
-                        {capacities.find(c => c.id === selectedCapacity)?.name}
-                      </span>
-                    </div>
+        {/* Configuration Panel - Full Width */}
+        <div className="space-y-8 pb-32">
+          {/* Construction Selection */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Construction</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {constructionTypes.map((construction) => (
+                <button
+                  key={construction.id}
+                  onClick={() => setSelectedConstruction(construction.id)}
+                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedConstruction === construction.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
+                    <img src={construction.image} alt={construction.name} className="w-full h-full object-contain" />
                   </div>
-                  <Button className="w-full" size="lg" asChild>
-                    <Link to="/contact">Request Quote</Link>
-                  </Button>
-                </Card>
+                  <p className="text-sm font-semibold text-center">{construction.name}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          {/* Loop Type Selection */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Loops</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+              {loopTypes.map((loop) => (
+                <button
+                  key={loop.id}
+                  onClick={() => setSelectedLoop(loop.id)}
+                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedLoop === loop.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
+                    <img src={loop.image} alt={loop.name} className="w-full h-full object-contain" />
+                  </div>
+                  <p className="text-sm font-semibold text-center">{loop.name}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          {/* Bag Top Selection */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Bag Top</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {bagTops.map((top) => (
+                <button
+                  key={top.id}
+                  onClick={() => setSelectedTop(top.id)}
+                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedTop === top.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
+                    <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
+                  </div>
+                  <p className="text-sm font-semibold text-center">{top.name}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          {/* Bag Bottom Selection */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Bag Bottom</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {bagBottoms.map((bottom) => (
+                <button
+                  key={bottom.id}
+                  onClick={() => setSelectedBottom(bottom.id)}
+                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedBottom === bottom.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
+                    <img src={bottom.image} alt={bottom.name} className="w-full h-full object-contain" />
+                  </div>
+                  <p className="text-sm font-semibold text-center">{bottom.name}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          {/* Fabric Type */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Fabric Type</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {fabricTypes.map((fabric) => (
+                <button
+                  key={fabric.id}
+                  onClick={() => setSelectedFabric(fabric.id)}
+                  className={`p-6 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedFabric === fabric.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <p className="font-semibold mb-1">{fabric.name}</p>
+                  <p className="text-sm text-muted-foreground">{fabric.gsm}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          {/* Liner Options */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Liner Options</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {linerOptions.map((liner) => (
+                <button
+                  key={liner.id}
+                  onClick={() => setSelectedLiner(liner.id)}
+                  className={`p-6 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedLiner === liner.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <p className="font-semibold">{liner.name}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+
+          {/* Capacity */}
+          <Card className="p-6">
+            <h2 className="text-2xl font-bold mb-6">Capacity</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {capacities.map((capacity) => (
+                <button
+                  key={capacity.id}
+                  onClick={() => setSelectedCapacity(capacity.id)}
+                  className={`p-6 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
+                    selectedCapacity === capacity.id
+                      ? "border-primary bg-primary/5 shadow-md"
+                      : "border-border"
+                  }`}
+                >
+                  <p className="font-semibold">{capacity.name}</p>
+                </button>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
+
+      {/* Sticky Bottom Summary Bar */}
+      <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t shadow-lg z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">Construction:</span>
+                <span className="font-semibold">{constructionTypes.find(c => c.id === selectedConstruction)?.name}</span>
+              </div>
+              <div className="hidden sm:block h-4 w-px bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">Loops:</span>
+                <span className="font-semibold">{loopTypes.find(l => l.id === selectedLoop)?.name}</span>
+              </div>
+              <div className="hidden sm:block h-4 w-px bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">Top:</span>
+                <span className="font-semibold">{bagTops.find(t => t.id === selectedTop)?.name}</span>
+              </div>
+              <div className="hidden sm:block h-4 w-px bg-border" />
+              <div className="flex items-center gap-2">
+                <span className="text-muted-foreground">Bottom:</span>
+                <span className="font-semibold">{bagBottoms.find(b => b.id === selectedBottom)?.name}</span>
+              </div>
+              <div className="hidden lg:flex items-center gap-2">
+                <div className="h-4 w-px bg-border" />
+                <span className="text-muted-foreground">Capacity:</span>
+                <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
               </div>
             </div>
+            <Button size="lg" asChild className="shrink-0">
+              <Link to="/contact">Request Quote</Link>
+            </Button>
           </div>
         </div>
       </div>
