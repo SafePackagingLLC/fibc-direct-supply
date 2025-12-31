@@ -14,6 +14,7 @@ import {
   Sprout,
   Palette
 } from "lucide-react";
+import heroWarehouse from "@/assets/hero-warehouse.jpg";
 
 const Industries = () => {
   const industries = [
@@ -87,11 +88,22 @@ const Industries = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Industries We Serve</h1>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+      <section className="relative h-[50vh] min-h-[400px] flex items-center">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${heroWarehouse})` }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/40" />
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-2xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              Industries We Serve
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground mb-8">
               Safe Packaging provides specialized FIBC solutions for diverse industries. Each sector has unique requirements for safety, compliance, and performance—we deliver exactly what you need.
             </p>
             <Button size="lg" asChild>
