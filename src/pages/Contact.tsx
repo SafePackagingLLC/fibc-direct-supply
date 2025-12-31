@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,10 +7,28 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Package } from "lucide-react";
+import {
+  BagConfiguration,
+  bagTops,
+  loopTypes,
+  bagBottoms,
+  constructionTypes,
+  fabricTypes,
+  linerOptions,
+  capacities
+} from "./BuildYourBag";
+
+interface LocationState {
+  bagConfiguration?: BagConfiguration;
+}
 
 const Contact = () => {
+  const location = useLocation();
+  const state = location.state as LocationState;
+  const bagConfig = state?.bagConfiguration;
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     companyName: "",
@@ -59,6 +78,46 @@ const Contact = () => {
                 Get factory-direct pricing and rapid delivery. Fill out the form below and our team will respond within 2 business days.
               </p>
             </div>
+
+            {/* Bag Configuration Summary */}
+            {bagConfig && (
+              <Card className="p-6 mb-8 bg-primary/5 border-primary/20">
+                <div className="flex items-center gap-3 mb-4">
+                  <Package className="h-5 w-5 text-primary" />
+                  <h2 className="text-xl font-bold">Your Custom FIBC Configuration</h2>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">Construction:</span>
+                    <p className="font-semibold">{constructionTypes.find(c => c.id === bagConfig.construction)?.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Loops:</span>
+                    <p className="font-semibold">{loopTypes.find(l => l.id === bagConfig.loop)?.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Top:</span>
+                    <p className="font-semibold">{bagTops.find(t => t.id === bagConfig.top)?.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Bottom:</span>
+                    <p className="font-semibold">{bagBottoms.find(b => b.id === bagConfig.bottom)?.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Fabric:</span>
+                    <p className="font-semibold">{fabricTypes.find(f => f.id === bagConfig.fabric)?.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Liner:</span>
+                    <p className="font-semibold">{linerOptions.find(l => l.id === bagConfig.liner)?.name}</p>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Capacity:</span>
+                    <p className="font-semibold">{capacities.find(c => c.id === bagConfig.capacity)?.name}</p>
+                  </div>
+                </div>
+              </Card>
+            )}
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="flex items-start gap-3">

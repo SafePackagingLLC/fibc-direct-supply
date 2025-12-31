@@ -4,17 +4,17 @@ import { Card } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-// Bag configuration options
-const bagTops = [
+// Export configuration options for use in Contact page
+export const bagTops = [
   { id: "open-top", name: "Open Top", image: "/images/bag-parts/open-top.png" },
   { id: "spout-top", name: "Spout Top", image: "/images/bag-parts/spout-top.png" },
   { id: "flap-top", name: "Flap Top", image: "/images/bag-parts/flap-top.png" },
   { id: "duffle-top", name: "Duffle Top", image: "/images/bag-parts/duffle-top.png" },
 ];
 
-const loopTypes = [
+export const loopTypes = [
   { id: "cross-corner", name: "Cross-Corner Loops", image: "/images/bag-parts/loop-cross-corner.png" },
   { id: "corner-seam", name: "Corner Seam Loops", image: "/images/bag-parts/loop-corner-seam.png" },
   { id: "stevedore", name: "Stevedore Strap", image: "/images/bag-parts/loop-stevedore.png" },
@@ -22,40 +22,52 @@ const loopTypes = [
   { id: "single-point", name: "Single Point", image: "/images/bag-parts/loop-single-point.png" },
 ];
 
-const bagBottoms = [
+export const bagBottoms = [
   { id: "plain", name: "Plain Bottom", image: "/images/bag-parts/plain-bottom.png" },
   { id: "spout", name: "Spout Bottom", image: "/images/bag-parts/spout-bottom.png" },
 ];
 
-const constructionTypes = [
+export const constructionTypes = [
   { id: "4-panel", name: "4-Panel", image: "/images/bag-parts/4-panel.png" },
   { id: "u-panel", name: "U-panel", image: "/images/bag-parts/u-panel.png" },
   { id: "circular", name: "Circular", image: "/images/bag-parts/circular.png" },
   { id: "baffled", name: "Baffled", image: "/images/bag-parts/baffled.png" },
 ];
 
-const fabricTypes = [
+export const fabricTypes = [
   { id: "standard", name: "Standard PP", gsm: "150-180 GSM" },
   { id: "coated", name: "Coated Fabric", gsm: "180-200 GSM" },
   { id: "breathable", name: "Breathable", gsm: "160-180 GSM" },
   { id: "food-grade", name: "Food Grade", gsm: "180-220 GSM" },
 ];
 
-const linerOptions = [
+export const linerOptions = [
   { id: "none", name: "No Liner" },
   { id: "pe", name: "PE Liner" },
   { id: "aluminum", name: "Aluminum Barrier" },
   { id: "food-safe", name: "Food-Safe Liner" },
 ];
 
-const capacities = [
+export const capacities = [
   { id: "500", name: "500 kg" },
   { id: "1000", name: "1,000 kg" },
   { id: "1500", name: "1,500 kg" },
   { id: "2000", name: "2,000 kg" },
 ];
 
+export interface BagConfiguration {
+  top: string;
+  loop: string;
+  bottom: string;
+  construction: string;
+  fabric: string;
+  liner: string;
+  capacity: string;
+}
+
+
 const BuildYourBag = () => {
+  const navigate = useNavigate();
   const [selectedTop, setSelectedTop] = useState("open-top");
   const [selectedLoop, setSelectedLoop] = useState("cross-corner");
   const [selectedBottom, setSelectedBottom] = useState("plain");
@@ -63,6 +75,19 @@ const BuildYourBag = () => {
   const [selectedFabric, setSelectedFabric] = useState("standard");
   const [selectedLiner, setSelectedLiner] = useState("none");
   const [selectedCapacity, setSelectedCapacity] = useState("1000");
+
+  const handleRequestQuote = () => {
+    const configuration: BagConfiguration = {
+      top: selectedTop,
+      loop: selectedLoop,
+      bottom: selectedBottom,
+      construction: selectedConstruction,
+      fabric: selectedFabric,
+      liner: selectedLiner,
+      capacity: selectedCapacity,
+    };
+    navigate("/contact", { state: { bagConfiguration: configuration } });
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -270,8 +295,8 @@ const BuildYourBag = () => {
                 <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
               </div>
             </div>
-            <Button size="lg" asChild className="shrink-0">
-              <Link to="/contact">Request Quote</Link>
+            <Button size="lg" onClick={handleRequestQuote} className="shrink-0">
+              Request Quote
             </Button>
           </div>
         </div>
