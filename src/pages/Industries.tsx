@@ -104,7 +104,7 @@ const Industries = () => {
               Industries We Serve
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Safe Packaging provides specialized FIBC solutions for diverse industries. Each sector has unique requirements for safety, compliance, and performance—we deliver exactly what you need.
+              Specialized FIBC solutions for diverse industries—we deliver exactly what you need.
             </p>
             <Button size="lg" asChild>
               <Link to="/build-your-bag">Build Custom Bag for Your Industry</Link>
