@@ -291,6 +291,16 @@ const BuildYourBag = () => {
               </div>
               <div className="hidden lg:flex items-center gap-2">
                 <div className="h-4 w-px bg-border" />
+                <span className="text-muted-foreground">Fabric:</span>
+                <span className="font-semibold">{fabricTypes.find(f => f.id === selectedFabric)?.name}</span>
+              </div>
+              <div className="hidden lg:flex items-center gap-2">
+                <div className="h-4 w-px bg-border" />
+                <span className="text-muted-foreground">Liner:</span>
+                <span className="font-semibold">{linerOptions.find(l => l.id === selectedLiner)?.name}</span>
+              </div>
+              <div className="hidden lg:flex items-center gap-2">
+                <div className="h-4 w-px bg-border" />
                 <span className="text-muted-foreground">Capacity:</span>
                 <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
               </div>
