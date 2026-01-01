@@ -35,8 +35,6 @@ const Footer = () => {
             <nav className="space-y-2 text-sm">
               <Link to="/products" className="block hover:text-primary transition-colors">Products</Link>
               <Link to="/industries" className="block hover:text-primary transition-colors">Industries</Link>
-              <Link to="/resources" className="block hover:text-primary transition-colors">Resources</Link>
-              <Link to="/about" className="block hover:text-primary transition-colors">About</Link>
               <Link to="/contact" className="block hover:text-primary transition-colors">Contact</Link>
             </nav>
           </div>
@@ -51,9 +49,9 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Legal & Resources */}
+          {/* Legal */}
           <div>
-            <h3 className="font-bold text-lg mb-4">Legal & Resources</h3>
+            <h3 className="font-bold text-lg mb-4">Legal</h3>
             <nav className="space-y-2 text-sm">
               <a href="#" className="block hover:text-primary transition-colors">Privacy Policy</a>
               <a href="#" className="block hover:text-primary transition-colors">Terms of Service</a>
