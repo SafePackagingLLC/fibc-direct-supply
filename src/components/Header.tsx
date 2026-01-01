@@ -19,7 +19,7 @@ const Header = () => {
         : "bg-black border-black"
     }`}>
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="grid grid-cols-3 items-center">
           <Link 
             to="/" 
             className={`flex items-center gap-2 transition-colors ${
@@ -32,12 +32,12 @@ const Header = () => {
             <div>
               <div className="text-xl font-bold">SAFE PACKAGING</div>
               <div className={`text-xs ${isHomepage ? "text-muted-foreground" : "text-white/70"}`}>
-                Manufacturer of FIBCs
+                Manufacturer of FIBC & PP Woven Bags
               </div>
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center justify-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -57,9 +57,11 @@ const Header = () => {
             ))}
           </nav>
 
-          <Button asChild>
-            <Link to="/contact">Request a Quote</Link>
-          </Button>
+          <div className="flex justify-end">
+            <Button asChild>
+              <Link to="/contact">Request a Quote</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </header>
