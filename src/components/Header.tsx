@@ -8,8 +8,6 @@ const Header = () => {
   const navItems = [
     { label: "Industries We Serve", path: "/industries" },
     { label: "Build Your Bag", path: "/build-your-bag" },
-    { label: "Resources", path: "/resources" },
-    { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" },
   ];
 

@@ -5,7 +5,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
-import ResourceCard from "@/components/ResourceCard";
 import { CheckCircle2, Award, Zap, Settings } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -38,23 +37,6 @@ const Index = () => {
     }
   ];
 
-  const resources = [
-    {
-      title: "What is an FIBC?",
-      description: "A comprehensive introduction to Flexible Intermediate Bulk Containers and their applications.",
-      slug: "what-is-fibc"
-    },
-    {
-      title: "How to Choose an FIBC",
-      description: "Expert guidance on selecting the right bulk bag for your specific material and industry.",
-      slug: "choose-fibc"
-    },
-    {
-      title: "Delivery & Logistics",
-      description: "Learn how our local warehousing network enables rapid 24-72 hour delivery nationwide.",
-      slug: "delivery-logistics"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -168,28 +150,6 @@ const Index = () => {
                 <Badge variant="secondary">Food & Pharma</Badge>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Knowledge Center Preview */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">FIBC Knowledge Center</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Practical guides, spec sheets, and safety information from the manufacturer to help you choose the right bulk packaging solution.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {resources.map((resource) => (
-              <ResourceCard key={resource.slug} {...resource} />
-            ))}
-          </div>
-          <div className="text-center">
-            <Button asChild variant="outline">
-              <Link to="/resources">Browse All Resources</Link>
-            </Button>
           </div>
         </div>
       </section>
