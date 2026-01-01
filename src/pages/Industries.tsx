@@ -120,35 +120,29 @@ const Industries = () => {
             {industries.map((industry) => {
               const Icon = industry.icon;
               return (
-                <Link 
-                  key={industry.slug}
-                  to={`/industries/${industry.slug}`}
-                  className="block"
-                >
-                  <Card className="h-full hover:shadow-lg transition-all hover:scale-[1.02] cursor-pointer">
-                    <CardHeader>
-                      <div className="flex items-start gap-4">
-                        <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
-                          <Icon className="h-8 w-8 text-primary" />
-                        </div>
-                        <div>
-                          <h2 className="text-2xl font-bold mb-2">{industry.title}</h2>
-                          <p className="text-muted-foreground text-sm">{industry.description}</p>
-                        </div>
+                <Card key={industry.slug} className="h-full">
+                  <CardHeader>
+                    <div className="flex items-start gap-4">
+                      <div className="p-3 rounded-lg bg-primary/10 flex-shrink-0">
+                        <Icon className="h-8 w-8 text-primary" />
                       </div>
-                    </CardHeader>
-                    <CardContent>
-                      <h3 className="font-semibold mb-2 text-sm">Common Applications:</h3>
-                      <ul className="grid grid-cols-1 gap-1">
-                        {industry.applications.map((app) => (
-                          <li key={app} className="text-sm text-muted-foreground">
-                            • {app}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      <div>
+                        <h2 className="text-2xl font-bold mb-2">{industry.title}</h2>
+                        <p className="text-muted-foreground text-sm">{industry.description}</p>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <h3 className="font-semibold mb-2 text-sm">Common Applications:</h3>
+                    <ul className="grid grid-cols-1 gap-1">
+                      {industry.applications.map((app) => (
+                        <li key={app} className="text-sm text-muted-foreground">
+                          • {app}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>

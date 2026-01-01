@@ -79,41 +79,41 @@ const Contact = () => {
               </p>
             </div>
 
-            {/* Bag Configuration Summary */}
+            {/* Your Configuration Box Summary */}
             {bagConfig && (
-              <Card className="p-6 mb-8 bg-primary/5 border-primary/20">
-                <div className="flex items-center gap-3 mb-4">
-                  <Package className="h-5 w-5 text-primary" />
-                  <h2 className="text-xl font-bold">Your Custom FIBC Configuration</h2>
+              <Card className="p-6 mb-8 bg-primary/5 border-primary/20 shadow-md">
+                <div className="flex items-center gap-3 mb-6">
+                  <Package className="h-6 w-6 text-primary" />
+                  <h2 className="text-2xl font-bold">Your Configuration</h2>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                  <div>
-                    <span className="text-muted-foreground">Construction:</span>
-                    <p className="font-semibold">{constructionTypes.find(c => c.id === bagConfig.construction)?.name}</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Construction:</span>
+                    <p className="font-semibold text-base">{constructionTypes.find(c => c.id === bagConfig.construction)?.name}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Loops:</span>
-                    <p className="font-semibold">{loopTypes.find(l => l.id === bagConfig.loop)?.name}</p>
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Loops:</span>
+                    <p className="font-semibold text-base">{loopTypes.find(l => l.id === bagConfig.loop)?.name}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Top:</span>
-                    <p className="font-semibold">{bagTops.find(t => t.id === bagConfig.top)?.name}</p>
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Top:</span>
+                    <p className="font-semibold text-base">{bagTops.find(t => t.id === bagConfig.top)?.name}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Bottom:</span>
-                    <p className="font-semibold">{bagBottoms.find(b => b.id === bagConfig.bottom)?.name}</p>
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Bottom:</span>
+                    <p className="font-semibold text-base">{bagBottoms.find(b => b.id === bagConfig.bottom)?.name}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Fabric:</span>
-                    <p className="font-semibold">{fabricTypes.find(f => f.id === bagConfig.fabric)?.name}</p>
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Fabric:</span>
+                    <p className="font-semibold text-base">{fabricTypes.find(f => f.id === bagConfig.fabric)?.name}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Liner:</span>
-                    <p className="font-semibold">{linerOptions.find(l => l.id === bagConfig.liner)?.name}</p>
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Liner:</span>
+                    <p className="font-semibold text-base">{linerOptions.find(l => l.id === bagConfig.liner)?.name}</p>
                   </div>
-                  <div>
-                    <span className="text-muted-foreground">Capacity:</span>
-                    <p className="font-semibold">{capacities.find(c => c.id === bagConfig.capacity)?.name}</p>
+                  <div className="space-y-1">
+                    <span className="text-sm text-muted-foreground">Capacity:</span>
+                    <p className="font-semibold text-base">{capacities.find(c => c.id === bagConfig.capacity)?.name}</p>
                   </div>
                 </div>
               </Card>

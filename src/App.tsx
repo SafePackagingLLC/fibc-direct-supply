@@ -9,17 +9,6 @@ import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BuildYourBag from "./pages/BuildYourBag";
 
-// Import all individual industry pages
-import Agriculture from "./pages/industries/Agriculture";
-import Chemicals from "./pages/industries/Chemicals";
-import Construction from "./pages/industries/Construction";
-import FoodProcessing from "./pages/industries/FoodProcessing";
-import Pharmaceuticals from "./pages/industries/Pharmaceuticals";
-import Recycling from "./pages/industries/Recycling";
-import Minerals from "./pages/industries/Minerals";
-import Fertilizers from "./pages/industries/Fertilizers";
-import ColorPigments from "./pages/industries/ColorPigments";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -31,18 +20,6 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/industries" element={<Industries />} />
-          
-          {/* All Industry Pages */}
-          <Route path="/industries/agriculture" element={<Agriculture />} />
-          <Route path="/industries/chemicals" element={<Chemicals />} />
-          <Route path="/industries/construction" element={<Construction />} />
-          <Route path="/industries/food-processing" element={<FoodProcessing />} />
-          <Route path="/industries/pharmaceuticals" element={<Pharmaceuticals />} />
-          <Route path="/industries/recycling" element={<Recycling />} />
-          <Route path="/industries/minerals" element={<Minerals />} />
-          <Route path="/industries/fertilizers" element={<Fertilizers />} />
-          <Route path="/industries/color-pigments" element={<ColorPigments />} />
-          
           <Route path="/build-your-bag" element={<BuildYourBag />} />
           <Route path="/contact" element={<Contact />} />
           
