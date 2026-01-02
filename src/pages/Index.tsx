@@ -52,23 +52,25 @@ const Index = () => {
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/10">
-            Manufacture since 1984
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-            We Manufacture FIBCs — Stocked Locally for Fast Delivery
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-secondary-foreground/90">
-            Factory-direct FIBCs, certified and stocked in regional warehouses for 24–72 hour shipping. Custom sizes and liners available.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-2xl">
+            <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/10">
+              Manufacture since 1984
+            </Badge>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+              We Manufacture FIBCs Stocked Locally for Fast Delivery
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-secondary-foreground/90">
+              Factory-direct FIBCs, stocked in regional warehouses for 24–72 hour shipping. Custom sizes and liners available.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
             <Button size="lg" asChild>
               <NavLink to="/industries">Industries we serve</NavLink>
             </Button>
             <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
               <NavLink to="/products">View Products</NavLink>
             </Button>
+            </div>
           </div>
         </div>
       </section>
