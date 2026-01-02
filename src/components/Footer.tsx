@@ -14,15 +14,15 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>1-800-SAFE-PKG</span>
+                <span>1-602-730-2904</span>
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>sales@safepackaging.com</span>
+                <span>SafePackagingLLC@gmail.com</span>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>123 Manufacturing Drive<br />Industrial City, USA</span>
+                <span>Plot No. 08 Sector D-1, Phase-II<br />Karachi Export Processing Zone<br />Karachi - Pakistan</span>
               </div>
               <Button size="sm" asChild className="mt-4">
                 <NavLink to="/contact">Contact us</NavLink>
@@ -34,7 +34,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <NavLink to="/products" className="block hover:text-primary transition-colors">Products</NavLink>
+              <NavLink to="/build-your-bag" className="block hover:text-primary transition-colors">Build Your Bag</NavLink>
               <NavLink to="/industries" className="block hover:text-primary transition-colors">Industries</NavLink>
               <NavLink to="/contact" className="block hover:text-primary transition-colors">Contact</NavLink>
             </nav>

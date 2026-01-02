@@ -124,21 +124,21 @@ const Contact = () => {
                 <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-sm text-muted-foreground">1-800-SAFE-PKG</p>
+                  <p className="text-sm text-muted-foreground">1-602-730-2904</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-sm text-muted-foreground">sales@safepackaging.com</p>
+                  <p className="text-sm text-muted-foreground">SafePackagingLLC@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Address</h3>
-                  <p className="text-sm text-muted-foreground">123 Manufacturing Drive<br />Industrial City, USA</p>
+                  <p className="text-sm text-muted-foreground">Plot No. 08 Sector D-1, Phase-II<br />Karachi Export Processing Zone<br />Karachi - Pakistan</p>
                 </div>
               </div>
             </div>
