@@ -15,7 +15,7 @@ import {
   Sprout,
   Palette
 } from "lucide-react";
-import heroWarehouse from "@/assets/hero-warehouse.jpg";
+import heroWarehouse from "@/assets/hero-Industries.jpg";
 
 const Industries = () => {
   const industries = [
