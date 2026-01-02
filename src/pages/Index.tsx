@@ -55,7 +55,7 @@ const Index = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/10">
-              Manufacture since 1984
+              Manufacturer since 1984
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
               We Manufacture FIBCs Stocked Locally for Fast Delivery
@@ -68,7 +68,7 @@ const Index = () => {
               <NavLink to="/industries">Industries we serve</NavLink>
             </Button>
             <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
-              <NavLink to="/products">View Products</NavLink>
+              <NavLink to="/build-your-bag">Build Your Bag</NavLink>
             </Button>
             </div>
           </div>
