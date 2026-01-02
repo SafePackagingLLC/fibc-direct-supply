@@ -5,6 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
+import NavLink from "@/components/NavLink";
 import { CheckCircle2, Award, Zap, Settings } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
@@ -63,10 +64,10 @@ const Index = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <Link to="/industries">Industries we serve</Link>
+              <NavLink to="/industries">Industries we serve</NavLink>
             </Button>
             <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
-              <Link to="/products">View Products</Link>
+              <NavLink to="/products">View Products</NavLink>
             </Button>
           </div>
         </div>
@@ -116,7 +117,7 @@ const Index = () => {
                 Customize your FIBC bulk bag to match your capacity, liner, fabric, and loop needs.
               </p>
               <Button size="lg" asChild className="w-full sm:w-auto">
-                <Link to="/build-your-bag">Build Your Bag</Link>
+                <NavLink to="/build-your-bag">Build Your Bag</NavLink>
               </Button>
               <div className="mt-8 space-y-2 text-sm text-muted-foreground">
                 <p>• Standard FIBC</p>

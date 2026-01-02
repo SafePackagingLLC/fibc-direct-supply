@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import NavLink from "@/components/NavLink";
 
 // Export configuration options for use in Contact page
 export const bagTops = [
@@ -97,10 +98,10 @@ const BuildYourBag = () => {
         {/* Header */}
         <div className="mb-8">
           <Button variant="ghost" asChild className="mb-4">
-            <Link to="/">
+            <NavLink to="/">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
-            </Link>
+            </NavLink>
           </Button>
           <h1 className="text-4xl font-bold mb-2">Build Your Own FIBC Bag</h1>
           <p className="text-muted-foreground text-lg">

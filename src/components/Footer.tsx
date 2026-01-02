@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Package, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import NavLink from "./NavLink";
 
 const Footer = () => {
   return (
@@ -24,7 +25,7 @@ const Footer = () => {
                 <span>123 Manufacturing Drive<br />Industrial City, USA</span>
               </div>
               <Button size="sm" asChild className="mt-4">
-                <Link to="/contact">Contact us</Link>
+                <NavLink to="/contact">Contact us</NavLink>
               </Button>
             </div>
           </div>
@@ -33,9 +34,9 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <nav className="space-y-2 text-sm">
-              <Link to="/products" className="block hover:text-primary transition-colors">Products</Link>
-              <Link to="/industries" className="block hover:text-primary transition-colors">Industries</Link>
-              <Link to="/contact" className="block hover:text-primary transition-colors">Contact</Link>
+              <NavLink to="/products" className="block hover:text-primary transition-colors">Products</NavLink>
+              <NavLink to="/industries" className="block hover:text-primary transition-colors">Industries</NavLink>
+              <NavLink to="/contact" className="block hover:text-primary transition-colors">Contact</NavLink>
             </nav>
           </div>
 

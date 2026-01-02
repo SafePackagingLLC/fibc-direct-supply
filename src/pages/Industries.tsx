@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import NavLink from "@/components/NavLink";
 import { 
   Wheat, 
   Beaker, 
@@ -107,7 +108,7 @@ const Industries = () => {
               Specialized FIBC solutions for diverse industries—we deliver exactly what you need.
             </p>
             <Button size="lg" asChild>
-              <Link to="/build-your-bag">Build Custom Bag for Your Industry</Link>
+              <NavLink to="/build-your-bag">Build Custom Bag for Your Industry</NavLink>
             </Button>
           </div>
         </div>
@@ -157,7 +158,7 @@ const Industries = () => {
             We work with many specialized industries. Contact us to discuss your specific bulk bag requirements.
           </p>
           <Button size="lg" asChild>
-            <Link to="/contact">Contact Our Team</Link>
+            <NavLink to="/contact">Contact Our Team</NavLink>
           </Button>
         </div>
       </section>

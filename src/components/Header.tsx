@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Package } from "lucide-react";
+import NavLink from "./NavLink";
 
 const Header = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const Header = () => {
     }`}>
       <div className="container mx-auto px-4 py-4">
         <div className="grid grid-cols-3 items-center">
-          <Link 
+          <NavLink 
             to="/" 
             className={`flex items-center gap-2 transition-colors ${
               isHomepage 
@@ -35,11 +36,11 @@ const Header = () => {
                 Manufacturer of FIBC & PP Woven Bags
               </div>
             </div>
-          </Link>
+          </NavLink>
 
           <nav className="hidden md:flex items-center justify-center gap-8">
             {navItems.map((item) => (
-              <Link
+              <NavLink
                 key={item.path}
                 to={item.path}
                 className={`text-sm font-medium transition-colors ${
@@ -53,13 +54,13 @@ const Header = () => {
                 }`}
               >
                 {item.label}
-              </Link>
+              </NavLink>
             ))}
           </nav>
 
           <div className="flex justify-end">
             <Button asChild>
-              <Link to="/contact">Request a Quote</Link>
+              <NavLink to="/contact">Request a Quote</NavLink>
             </Button>
           </div>
         </div>
