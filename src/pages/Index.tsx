@@ -34,7 +34,7 @@ const Index = () => {
           <div className="absolute inset-0 bg-black/70"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 relative z-10 min-h-[600px] md:min-h-0 flex flex-col justify-between md:block py-12 md:py-0">
           <div className="max-w-2xl">
             <Badge variant="outline" className="mb-4 border-primary text-primary bg-primary/10">
               Manufacturer since 1984
@@ -42,10 +42,10 @@ const Index = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
               Bulk Bags Manufactured & Stocked for 24-72 Hour Delivery
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-secondary-foreground/90">
+            <p className="text-xl md:text-2xl mb-8 md:mb-8 text-secondary-foreground/90">
               Factory-direct FIBCs, stocked in regional warehouses for 24–72 hour shipping. Custom sizes and liners available.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-16 md:mt-0">
+            <div className="hidden md:flex flex-row gap-4">
               <Button size="lg" asChild>
                 <NavLink to="/industries">Industries we serve</NavLink>
               </Button>
@@ -53,6 +53,14 @@ const Index = () => {
                 <NavLink to="/build-your-bag">Build Your Bag</NavLink>
               </Button>
             </div>
+          </div>
+          <div className="flex flex-col gap-4 md:hidden max-w-2xl">
+            <Button size="lg" asChild>
+              <NavLink to="/industries">Industries we serve</NavLink>
+            </Button>
+            <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
+              <NavLink to="/build-your-bag">Build Your Bag</NavLink>
+            </Button>
           </div>
         </div>
       </section>
