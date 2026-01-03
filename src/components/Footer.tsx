@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Package, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import NavLink from "./NavLink";
@@ -14,11 +13,15 @@ const Footer = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>1-602-730-2904</span>
+                <a href="tel:1-602-730-2904" className="hover:text-primary transition-colors">
+                  1-602-730-2904
+                </a>
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>SafePackagingLLC@gmail.com</span>
+                <a href="mailto:SafePackagingLLC@gmail.com" className="hover:text-primary transition-colors">
+                  SafePackagingLLC@gmail.com
+                </a>
               </div>
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
