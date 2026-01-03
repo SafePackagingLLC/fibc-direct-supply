@@ -1,41 +1,23 @@
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProductCard from "@/components/ProductCard";
 import NavLink from "@/components/NavLink";
-import { CheckCircle2, Award, Zap, Settings } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { CheckCircle2, Factory, Zap, Settings, Wrench, Wheat, Beaker, HardHat, Apple, Pill, Recycle, Mountain, Sprout, Palette } from "lucide-react";
 import heroImage from "@/assets/hero-warehouse.jpg";
-import productStandard from "@/assets/product-standard-fibc.jpg";
-import productFoodGrade from "@/assets/product-food-grade.jpg";
 
 const Index = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
-
-  const products = [
-    {
-      title: "Standard FIBC",
-      description: "General-purpose bulk bags for industrial applications",
-      specs: "1,000-2,000 kg capacity • 150-200 GSM • Multiple liner options",
-      image: productStandard,
-      stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "standard-fibc"
-    },
-    {
-      title: "Food & Pharma Grade",
-      description: "FDA-compliant bags for food and pharmaceutical products",
-      specs: "500-1,500 kg capacity • Food-safe liners • Full certification",
-      image: productFoodGrade,
-      stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "food-pharma-fibc"
-    }
+  const industries = [
+    { icon: Wheat, name: "Agriculture" },
+    { icon: Beaker, name: "Chemicals" },
+    { icon: HardHat, name: "Construction" },
+    { icon: Apple, name: "Food Processing" },
+    { icon: Pill, name: "Pharmaceuticals" },
+    { icon: Recycle, name: "Recycling" },
+    { icon: Mountain, name: "Minerals" },
+    { icon: Sprout, name: "Fertilizers" },
+    { icon: Palette, name: "Color Pigments" },
   ];
 
 
@@ -44,7 +26,7 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[600px] flex items-center justify-center text-secondary-foreground">
+      <section className="relative min-h-[600px] flex items-center justify-center text-secondary-foreground" aria-label="Hero">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -58,18 +40,18 @@ const Index = () => {
               Manufacturer since 1984
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
-              We Manufacture FIBCs Stocked Locally for Fast Delivery
+              Bulk Bags Manufactured & Stocked for 24-72 Hour Delivery
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-secondary-foreground/90">
               Factory-direct FIBCs, stocked in regional warehouses for 24–72 hour shipping. Custom sizes and liners available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" asChild>
-              <NavLink to="/industries">Industries we serve</NavLink>
-            </Button>
-            <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
-              <NavLink to="/build-your-bag">Build Your Bag</NavLink>
-            </Button>
+              <Button size="lg" asChild>
+                <NavLink to="/industries">Industries we serve</NavLink>
+              </Button>
+              <Button size="lg" variant="outline" asChild className="border-secondary-foreground text-foreground hover:bg-secondary-foreground hover:text-secondary">
+                <NavLink to="/build-your-bag">Build Your Bag</NavLink>
+              </Button>
             </div>
           </div>
         </div>
@@ -78,7 +60,7 @@ const Index = () => {
       {/* Value Propositions */}
       <section className="py-16 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
                 <CheckCircle2 className="h-8 w-8 text-primary" />
@@ -88,10 +70,10 @@ const Index = () => {
             </div>
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                <Award className="h-8 w-8 text-primary" />
+                <Factory className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Certifications & Test Reports</h3>
-              <p className="text-muted-foreground">ISO certified • Food-grade • Electrostatic options available</p>
+              <h3 className="text-xl font-bold mb-2">Factory Direct Pricing</h3>
+              <p className="text-muted-foreground">No middleman — buy direct from the manufacturer and save</p>
             </div>
             <div className="text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
@@ -100,6 +82,13 @@ const Index = () => {
               <h3 className="text-xl font-bold mb-2">Fast Stocking</h3>
               <p className="text-muted-foreground">Regional warehouses for rapid delivery — 24 to 72 hours nationwide</p>
             </div>
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                <Wrench className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-bold mb-2">Full Customization</h3>
+              <p className="text-muted-foreground">Custom sizes, liners, printing, colors, and special features available</p>
+            </div>
           </div>
         </div>
       </section>
@@ -107,7 +96,7 @@ const Index = () => {
       {/* Product Overview */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Product Spec</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">Bulk Bags for Every Industry</h2>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Build Your Bag Panel */}
             <div className="bg-muted p-8 rounded-lg">
@@ -119,38 +108,32 @@ const Index = () => {
                 Customize your FIBC bulk bag to match your capacity, liner, fabric, and loop needs.
               </p>
               <Button size="lg" asChild className="w-full sm:w-auto">
-                <NavLink to="/build-your-bag">Build Your Bag</NavLink>
+                <NavLink to="/build-your-bag">Start Customizing</NavLink>
               </Button>
               <div className="mt-8 space-y-2 text-sm text-muted-foreground">
                 <p>• Standard FIBC</p>
-                <p>• Medical-grade</p>
-                <p>• Food & Pharma</p>
+                <p>• Food & Pharma grade</p>
                 <p>• Custom solutions</p>
               </div>
             </div>
 
-            {/* Right Side - Product Carousel */}
+            {/* Right Side - Industries Grid */}
             <div>
-              <Carousel
-                opts={{ loop: true }}
-                plugins={[plugin.current]}
-                className="w-full"
-              >
-                <CarouselContent>
-                  {products.map((product) => (
-                    <CarouselItem key={product.slug}>
-                      <ProductCard {...product} />
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="left-2" />
-                <CarouselNext className="right-2" />
-              </Carousel>
-              <div className="flex flex-wrap gap-2 mt-6 justify-center">
-                <Badge variant="secondary">Agriculture</Badge>
-                <Badge variant="secondary">Chemicals</Badge>
-                <Badge variant="secondary">Mining</Badge>
-                <Badge variant="secondary">Food & Pharma</Badge>
+              <h3 className="text-xl font-semibold mb-6 text-center">Industries We Serve</h3>
+              <div className="grid grid-cols-3 gap-4">
+                {industries.map((industry) => {
+                  const Icon = industry.icon;
+                  return (
+                    <NavLink
+                      key={industry.name}
+                      to="/industries"
+                      className="flex flex-col items-center p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors"
+                    >
+                      <Icon className="h-8 w-8 text-primary mb-2" />
+                      <span className="text-sm text-center">{industry.name}</span>
+                    </NavLink>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -165,19 +148,37 @@ const Index = () => {
             <AccordionItem value="item-1">
               <AccordionTrigger>Are you the manufacturer?</AccordionTrigger>
               <AccordionContent>
-                Yes — Safe Packaging manufactures our FIBCs in-house and controls QA from raw material to finished product.
+                Yes — Safe Packaging manufactures our FIBCs in-house with rigorous QA at every step, from raw material inspection to final product testing.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger>How quickly do you ship?</AccordionTrigger>
+              <AccordionTrigger>What is the lead time for orders?</AccordionTrigger>
               <AccordionContent>
-                Most in-stock items ship from regional warehouses within 24–72 hours. Custom orders: request a quote for lead time.
+                If we have your required product in stock, lead time is typically 5–7 business days. For custom or out-of-stock configurations, lead times vary by order — contact us for a quote.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger>Can I get test reports and certificates?</AccordionTrigger>
+              <AccordionTrigger>What is the minimum order quantity?</AccordionTrigger>
               <AccordionContent>
-                Yes — test reports and certificates are available on request and downloadable from product spec pages.
+                Our minimum order is typically 100–500 units depending on bag specifications. Contact us for specific MOQ details on your configuration.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>Can I get samples before placing a bulk order?</AccordionTrigger>
+              <AccordionContent>
+                Yes — we offer paid samples so you can evaluate quality before committing to a larger order. Sample costs are typically credited toward your first bulk purchase.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger>What customization options are available?</AccordionTrigger>
+              <AccordionContent>
+                We offer full customization including custom sizing, liner options, logo printing, fabric colors, and special features like dust-proof seams, UV resistance, and anti-static properties.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-6">
+              <AccordionTrigger>How do I request a quote?</AccordionTrigger>
+              <AccordionContent>
+                Use our Build Your Bag tool to configure your specs, then submit a quote request. Or contact us directly — we typically respond within 1–2 business days.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
