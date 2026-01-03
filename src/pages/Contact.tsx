@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Package } from "lucide-react";
+import { Phone, Mail, MapPin, Package, Loader2, Pencil } from "lucide-react";
 import {
   BagConfiguration,
   bagTops,
@@ -27,9 +27,12 @@ interface LocationState {
 
 const Contact = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const state = location.state as LocationState;
   const bagConfig = state?.bagConfiguration;
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     companyName: "",
     contactPerson: "",
@@ -42,8 +45,46 @@ const Contact = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.companyName.trim()) {
+      newErrors.companyName = "Company name is required";
+    }
+    if (!formData.contactPerson.trim()) {
+      newErrors.contactPerson = "Contact person is required";
+    }
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    }
+    if (!formData.product.trim()) {
+      newErrors.product = "Product of interest is required";
+    }
+    if (!formData.quantity.trim()) {
+      newErrors.quantity = "Quantity is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Simulate API call (replace with actual backend integration later)
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     toast({
       title: "Quote Request Submitted",
       description: "Thanks! We'll review and reply within 2 business days.",
@@ -59,10 +100,16 @@ const Contact = () => {
       deliveryDate: "",
       message: ""
     });
+    setErrors({});
+    setIsSubmitting(false);
   };
 
   const handleChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({ ...prev, [field]: "" }));
+    }
   };
 
   return (
@@ -82,9 +129,19 @@ const Contact = () => {
             {/* Your Configuration Box Summary */}
             {bagConfig && (
               <Card className="p-6 mb-8 bg-primary/5 border-primary/20 shadow-md">
-                <div className="flex items-center gap-3 mb-6">
-                  <Package className="h-6 w-6 text-primary" />
-                  <h2 className="text-2xl font-bold">Your Configuration</h2>
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <Package className="h-6 w-6 text-primary" />
+                    <h2 className="text-2xl font-bold">Your Configuration</h2>
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => navigate("/build-your-bag")}
+                  >
+                    <Pencil className="mr-2 h-4 w-4" />
+                    Edit
+                  </Button>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="space-y-1">
@@ -124,14 +181,18 @@ const Contact = () => {
                 <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Phone</h3>
-                  <p className="text-sm text-muted-foreground">1-602-730-2904</p>
+                  <a href="tel:1-602-730-2904" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    1-602-730-2904
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <p className="text-sm text-muted-foreground">SafePackagingLLC@gmail.com</p>
+                  <a href="mailto:SafePackagingLLC@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    SafePackagingLLC@gmail.com
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -149,19 +210,25 @@ const Contact = () => {
                   <Label htmlFor="companyName">Company Name *</Label>
                   <Input
                     id="companyName"
-                    required
                     value={formData.companyName}
                     onChange={(e) => handleChange("companyName", e.target.value)}
+                    className={errors.companyName ? "border-destructive" : ""}
                   />
+                  {errors.companyName && (
+                    <p className="text-sm text-destructive">{errors.companyName}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="contactPerson">Contact Person *</Label>
                   <Input
                     id="contactPerson"
-                    required
                     value={formData.contactPerson}
                     onChange={(e) => handleChange("contactPerson", e.target.value)}
+                    className={errors.contactPerson ? "border-destructive" : ""}
                   />
+                  {errors.contactPerson && (
+                    <p className="text-sm text-destructive">{errors.contactPerson}</p>
+                  )}
                 </div>
               </div>
 
@@ -171,48 +238,55 @@ const Contact = () => {
                   <Input
                     id="email"
                     type="email"
-                    required
                     value={formData.email}
                     onChange={(e) => handleChange("email", e.target.value)}
+                    className={errors.email ? "border-destructive" : ""}
                   />
+                  {errors.email && (
+                    <p className="text-sm text-destructive">{errors.email}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="phone">Phone *</Label>
                   <Input
                     id="phone"
                     type="tel"
-                    required
                     value={formData.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
+                    className={errors.phone ? "border-destructive" : ""}
                   />
+                  {errors.phone && (
+                    <p className="text-sm text-destructive">{errors.phone}</p>
+                  )}
                 </div>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="product">Product of Interest *</Label>
-                  <Select value={formData.product} onValueChange={(value) => handleChange("product", value)}>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a product" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="standard">Standard FIBC</SelectItem>
-                      <SelectItem value="food-pharma">Food & Pharma Grade</SelectItem>
-                      <SelectItem value="type-c">Type C Conductive</SelectItem>
-                      <SelectItem value="un-certified">UN Certified</SelectItem>
-                      <SelectItem value="custom">Custom Solution</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Input
+                    id="product"
+                    placeholder="e.g., Standard FIBC, Food Grade, Custom"
+                    value={formData.product}
+                    onChange={(e) => handleChange("product", e.target.value)}
+                    className={errors.product ? "border-destructive" : ""}
+                  />
+                  {errors.product && (
+                    <p className="text-sm text-destructive">{errors.product}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="quantity">Quantity *</Label>
                   <Input
                     id="quantity"
-                    required
                     placeholder="e.g., 1000 units"
                     value={formData.quantity}
                     onChange={(e) => handleChange("quantity", e.target.value)}
+                    className={errors.quantity ? "border-destructive" : ""}
                   />
+                  {errors.quantity && (
+                    <p className="text-sm text-destructive">{errors.quantity}</p>
+                  )}
                 </div>
               </div>
 
@@ -224,9 +298,8 @@ const Contact = () => {
                       <SelectValue placeholder="Select warehouse" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="la">Los Angeles, CA</SelectItem>
-                      <SelectItem value="houston">Houston, TX</SelectItem>
-                      <SelectItem value="chicago">Chicago, IL</SelectItem>
+                      <SelectItem value="phoenix">Phoenix, AZ</SelectItem>
+                      <SelectItem value="austin">Austin, TX</SelectItem>
                       <SelectItem value="newark">Newark, NJ</SelectItem>
                     </SelectContent>
                   </Select>
@@ -253,8 +326,15 @@ const Contact = () => {
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full">
-                Request Quote
+              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Request Quote"
+                )}
               </Button>
             </form>
           </div>
