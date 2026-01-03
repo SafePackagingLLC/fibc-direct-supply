@@ -120,7 +120,7 @@ const Index = () => {
             {/* Right Side - Industries Grid */}
             <div>
               <h3 className="text-xl font-semibold mb-6 text-center">Industries We Serve</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
                 {industries.map((industry) => {
                   const Icon = industry.icon;
                   return (
