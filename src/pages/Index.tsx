@@ -26,7 +26,7 @@ const Index = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-[600px] flex items-start md:items-center justify-center pt-8 md:pt-0 text-secondary-foreground" aria-label="Hero">
+      <section className="relative min-h-[600px] flex items-center justify-center text-secondary-foreground" aria-label="Hero">
         <div 
           className="absolute inset-0 bg-cover bg-right md:bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
@@ -45,7 +45,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl mb-8 text-secondary-foreground/90">
               Factory-direct FIBCs, stocked in regional warehouses for 24–72 hour shipping. Custom sizes and liners available.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 mt-16 md:mt-0">
               <Button size="lg" asChild>
                 <NavLink to="/industries">Industries we serve</NavLink>
               </Button>
