@@ -120,17 +120,17 @@ const Index = () => {
             {/* Right Side - Industries Grid */}
             <div>
               <h3 className="text-xl font-semibold mb-6 text-center">Industries We Serve</h3>
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                 {industries.map((industry) => {
                   const Icon = industry.icon;
                   return (
                     <NavLink
                       key={industry.name}
                       to="/industries"
-                      className="flex flex-col items-center p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors"
+                      className="flex flex-col items-center p-3 sm:p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors"
                     >
-                      <Icon className="h-8 w-8 text-primary mb-2" />
-                      <span className="text-sm text-center">{industry.name}</span>
+                      <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2" />
+                      <span className="text-xs sm:text-sm text-center">{industry.name}</span>
                     </NavLink>
                   );
                 })}
