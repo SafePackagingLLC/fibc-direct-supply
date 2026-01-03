@@ -127,7 +127,7 @@ const Index = () => {
                     <NavLink
                       key={industry.name}
                       to="/industries"
-                      className="flex flex-col items-center p-3 sm:p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors"
+                      className="flex flex-col items-center py-4 px-3 sm:p-4 rounded-lg bg-muted hover:bg-primary/10 transition-colors"
                     >
                       <Icon className="h-6 w-6 sm:h-8 sm:w-8 text-primary mb-2" />
                       <span className="text-xs sm:text-sm text-center">{industry.name}</span>
