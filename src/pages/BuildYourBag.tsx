@@ -6,6 +6,12 @@ import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import NavLink from "@/components/NavLink";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 // Export configuration options for use in Contact page
 export const bagTops = [
@@ -76,6 +82,7 @@ const BuildYourBag = () => {
   const [selectedFabric, setSelectedFabric] = useState("standard");
   const [selectedLiner, setSelectedLiner] = useState("none");
   const [selectedCapacity, setSelectedCapacity] = useState("1000");
+  const [showConfigDialog, setShowConfigDialog] = useState(false);
 
   const handleRequestQuote = () => {
     const configuration: BagConfiguration = {
@@ -271,14 +278,17 @@ const BuildYourBag = () => {
         <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-4">
             {/* Mobile: Show minimal info */}
-            <div className="flex flex-col sm:hidden text-sm">
+            <button 
+              onClick={() => setShowConfigDialog(true)}
+              className="flex flex-col sm:hidden text-sm text-left"
+            >
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-semibold">{constructionTypes.find(c => c.id === selectedConstruction)?.name}</span>
                 <span className="text-muted-foreground">•</span>
                 <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
               </div>
-              <span className="text-xs text-muted-foreground">Tap to see full config</span>
-            </div>
+              <span className="text-xs text-muted-foreground underline">Tap to see full config</span>
+            </button>
             
             {/* Tablet+ : Show more details */}
             <div className="hidden sm:flex flex-wrap items-center gap-x-4 lg:gap-x-6 gap-y-2 text-sm">
@@ -318,6 +328,45 @@ const BuildYourBag = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Config Dialog */}
+      <Dialog open={showConfigDialog} onOpenChange={setShowConfigDialog}>
+        <DialogContent className="max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Your Configuration</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-3 text-sm">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Construction:</span>
+              <span className="font-semibold">{constructionTypes.find(c => c.id === selectedConstruction)?.name}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Loops:</span>
+              <span className="font-semibold">{loopTypes.find(l => l.id === selectedLoop)?.name}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Top:</span>
+              <span className="font-semibold">{bagTops.find(t => t.id === selectedTop)?.name}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Bottom:</span>
+              <span className="font-semibold">{bagBottoms.find(b => b.id === selectedBottom)?.name}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Fabric:</span>
+              <span className="font-semibold">{fabricTypes.find(f => f.id === selectedFabric)?.name}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Liner:</span>
+              <span className="font-semibold">{linerOptions.find(l => l.id === selectedLiner)?.name}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">Capacity:</span>
+              <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>
