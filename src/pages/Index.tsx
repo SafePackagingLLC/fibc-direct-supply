@@ -28,7 +28,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-[600px] flex items-center justify-center text-secondary-foreground" aria-label="Hero">
         <div 
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-right md:bg-center"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
           <div className="absolute inset-0 bg-black/70"></div>
