@@ -126,7 +126,7 @@ const BuildYourBag = () => {
                   }`}
                 >
                   <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={construction.image} alt={construction.name} className="w-full h-full object-contain" />
+                    <img src={construction.image} alt={construction.name} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                   <p className="text-sm font-semibold text-center">{construction.name}</p>
                 </button>
@@ -149,7 +149,7 @@ const BuildYourBag = () => {
                   }`}
                 >
                   <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={loop.image} alt={loop.name} className="w-full h-full object-contain" />
+                    <img src={loop.image} alt={loop.name} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                   <p className="text-sm font-semibold text-center">{loop.name}</p>
                 </button>
@@ -172,7 +172,7 @@ const BuildYourBag = () => {
                   }`}
                 >
                   <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
+                    <img src={top.image} alt={top.name} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                   <p className="text-sm font-semibold text-center">{top.name}</p>
                 </button>
@@ -195,7 +195,7 @@ const BuildYourBag = () => {
                   }`}
                 >
                   <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={bottom.image} alt={bottom.name} className="w-full h-full object-contain" />
+                    <img src={bottom.image} alt={bottom.name} loading="lazy" className="w-full h-full object-contain" />
                   </div>
                   <p className="text-sm font-semibold text-center">{bottom.name}</p>
                 </button>
