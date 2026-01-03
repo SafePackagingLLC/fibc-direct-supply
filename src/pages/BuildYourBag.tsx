@@ -268,45 +268,51 @@ const BuildYourBag = () => {
 
       {/* Sticky Bottom Summary Bar */}
       <div className="sticky bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t shadow-lg z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+        <div className="container mx-auto px-4 py-3 sm:py-4">
+          <div className="flex items-center justify-between gap-4">
+            {/* Mobile: Show minimal info */}
+            <div className="flex flex-col sm:hidden text-sm">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="font-semibold">{constructionTypes.find(c => c.id === selectedConstruction)?.name}</span>
+                <span className="text-muted-foreground">•</span>
+                <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
+              </div>
+              <span className="text-xs text-muted-foreground">Tap to see full config</span>
+            </div>
+            
+            {/* Tablet+ : Show more details */}
+            <div className="hidden sm:flex flex-wrap items-center gap-x-4 lg:gap-x-6 gap-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <span className="text-muted-foreground">Construction:</span>
                 <span className="font-semibold">{constructionTypes.find(c => c.id === selectedConstruction)?.name}</span>
               </div>
-              <div className="hidden sm:block h-4 w-px bg-border" />
-              <div className="flex items-center gap-2">
+              <div className="hidden md:block h-4 w-px bg-border" />
+              <div className="hidden md:flex items-center gap-2">
                 <span className="text-muted-foreground">Loops:</span>
                 <span className="font-semibold">{loopTypes.find(l => l.id === selectedLoop)?.name}</span>
               </div>
-              <div className="hidden sm:block h-4 w-px bg-border" />
-              <div className="flex items-center gap-2">
+              <div className="hidden md:block h-4 w-px bg-border" />
+              <div className="hidden md:flex items-center gap-2">
                 <span className="text-muted-foreground">Top:</span>
                 <span className="font-semibold">{bagTops.find(t => t.id === selectedTop)?.name}</span>
               </div>
-              <div className="hidden sm:block h-4 w-px bg-border" />
-              <div className="flex items-center gap-2">
+              <div className="hidden lg:block h-4 w-px bg-border" />
+              <div className="hidden lg:flex items-center gap-2">
                 <span className="text-muted-foreground">Bottom:</span>
                 <span className="font-semibold">{bagBottoms.find(b => b.id === selectedBottom)?.name}</span>
               </div>
-              <div className="hidden lg:flex items-center gap-2">
+              <div className="hidden xl:flex items-center gap-2">
                 <div className="h-4 w-px bg-border" />
                 <span className="text-muted-foreground">Fabric:</span>
                 <span className="font-semibold">{fabricTypes.find(f => f.id === selectedFabric)?.name}</span>
               </div>
-              <div className="hidden lg:flex items-center gap-2">
-                <div className="h-4 w-px bg-border" />
-                <span className="text-muted-foreground">Liner:</span>
-                <span className="font-semibold">{linerOptions.find(l => l.id === selectedLiner)?.name}</span>
-              </div>
-              <div className="hidden lg:flex items-center gap-2">
+              <div className="hidden xl:flex items-center gap-2">
                 <div className="h-4 w-px bg-border" />
                 <span className="text-muted-foreground">Capacity:</span>
                 <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
               </div>
             </div>
-            <Button size="lg" onClick={handleRequestQuote} className="shrink-0">
+            <Button size="lg" onClick={handleRequestQuote} className="shrink-0 text-sm sm:text-base px-4 sm:px-6">
               Request Quote
             </Button>
           </div>

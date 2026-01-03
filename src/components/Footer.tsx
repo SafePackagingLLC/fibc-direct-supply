@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Contact */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
@@ -19,7 +19,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <a href="mailto:SafePackagingLLC@gmail.com" className="hover:text-primary transition-colors">
+                <a href="mailto:SafePackagingLLC@gmail.com" className="hover:text-primary transition-colors break-all">
                   SafePackagingLLC@gmail.com
                 </a>
               </div>
