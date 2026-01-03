@@ -57,9 +57,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">Legal</h3>
             <nav className="space-y-2 text-sm">
-              <a href="#" className="block hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="block hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="block hover:text-primary transition-colors">Sitemap</a>
+              <NavLink to="/privacy" className="block hover:text-primary transition-colors">Privacy Policy</NavLink>
             </nav>
           </div>
         </div>

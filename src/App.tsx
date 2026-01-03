@@ -8,6 +8,7 @@ import Industries from "./pages/Industries";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import BuildYourBag from "./pages/BuildYourBag";
+import Privacy from "./pages/Privacy";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -24,7 +25,8 @@ const App = () => (
           <Route path="/industries" element={<Industries />} />
           <Route path="/build-your-bag" element={<BuildYourBag />} />
           <Route path="/contact" element={<Contact />} />
-          
+          <Route path="/privacy" element={<Privacy />} />
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
