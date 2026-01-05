@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "@/lib/supabase";
+import emailjs from "@emailjs/browser";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -113,6 +114,37 @@ const Contact = () => {
       if (error) {
         throw error;
       }
+
+      // Send email notification via EmailJS
+      const emailParams = {
+        to_email: "SafePackagingLLC@gmail.com",
+        company_name: formData.companyName,
+        contact_person: formData.contactPerson,
+        email: formData.email,
+        phone: formData.phone,
+        product_of_interest: formData.product,
+        quantity: formData.quantity,
+        delivery_region: formData.deliveryRegion || "Not specified",
+        delivery_date: formData.deliveryDate || "Not specified",
+        message: formData.message || "No message",
+        form_type: bagConfig ? "Configured Quote (from Build Your Bag)" : "Direct Quote",
+        bag_configuration: bagConfig
+          ? `Construction: ${constructionTypes.find(c => c.id === bagConfig.construction)?.name || bagConfig.construction}
+Loops: ${loopTypes.find(l => l.id === bagConfig.loop)?.name || bagConfig.loop}
+Top: ${bagTops.find(t => t.id === bagConfig.top)?.name || bagConfig.top}
+Bottom: ${bagBottoms.find(b => b.id === bagConfig.bottom)?.name || bagConfig.bottom}
+Fabric: ${fabricTypes.find(f => f.id === bagConfig.fabric)?.name || bagConfig.fabric}
+Liner: ${linerOptions.find(l => l.id === bagConfig.liner)?.name || bagConfig.liner}
+Capacity: ${capacities.find(c => c.id === bagConfig.capacity)?.name || bagConfig.capacity}`
+          : "N/A - Direct quote request",
+      };
+
+      await emailjs.send(
+        "service_19ztaci",
+        "template_0je7xpp",
+        emailParams,
+        "JW8t_E7aqhIvi-jYZ"
+      );
 
       toast({
         title: "Quote Request Submitted",
