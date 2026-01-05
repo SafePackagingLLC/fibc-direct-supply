@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { supabase } from "@/lib/supabase";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -82,26 +83,63 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call (replace with actual backend integration later)
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const submissionData = {
+        company: formData.companyName,
+        contact_person: formData.contactPerson,
+        email: formData.email,
+        phone: formData.phone,
+        product_of_interest: formData.product,
+        quantity: formData.quantity,
+        delivery_region: formData.deliveryRegion || null,
+        delivery_date: formData.deliveryDate || null,
+        message: formData.message || null,
+        form_type: bagConfig ? "configured_quote" : "direct_quote",
+        ...(bagConfig && {
+          construction: bagConfig.construction,
+          loops: bagConfig.loop,
+          top: bagConfig.top,
+          bottom: bagConfig.bottom,
+          fabric: bagConfig.fabric,
+          liner: bagConfig.liner,
+          capacity: bagConfig.capacity,
+        }),
+      };
 
-    toast({
-      title: "Quote Request Submitted",
-      description: "Thanks! We'll review and reply within 2 business days.",
-    });
-    setFormData({
-      companyName: "",
-      contactPerson: "",
-      email: "",
-      phone: "",
-      product: "",
-      quantity: "",
-      deliveryRegion: "",
-      deliveryDate: "",
-      message: ""
-    });
-    setErrors({});
-    setIsSubmitting(false);
+      const { error } = await supabase
+        .from("form_submissions")
+        .insert([submissionData]);
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Quote Request Submitted",
+        description: "Thanks! We'll review and reply within 2 business days.",
+      });
+      setFormData({
+        companyName: "",
+        contactPerson: "",
+        email: "",
+        phone: "",
+        product: "",
+        quantity: "",
+        deliveryRegion: "",
+        deliveryDate: "",
+        message: ""
+      });
+      setErrors({});
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (field: string, value: string) => {
