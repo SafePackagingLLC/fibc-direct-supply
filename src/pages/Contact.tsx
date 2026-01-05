@@ -228,8 +228,8 @@ const Contact = () => {
                 <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-semibold mb-1">Email</h3>
-                  <a href="mailto:SafePackagingLLC@gmail.com" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    SafePackagingLLC@gmail.com
+                  <a href="mailto:Info@SafePackaging.org" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    Info@SafePackaging.org
                   </a>
                 </div>
               </div>

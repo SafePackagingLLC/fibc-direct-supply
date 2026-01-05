@@ -68,7 +68,7 @@ const Privacy = () => {
                   If you have any questions about this Privacy Policy or how we handle your data, please contact us:
                 </p>
                 <div className="text-muted-foreground space-y-1">
-                  <p>Email: <a href="mailto:SafePackagingLLC@gmail.com" className="text-primary hover:underline">SafePackagingLLC@gmail.com</a></p>
+                  <p>Email: <a href="mailto:Info@SafePackaging.org" className="text-primary hover:underline">Info@SafePackaging.org</a></p>
                   <p>Phone: <a href="tel:1-602-730-2904" className="text-primary hover:underline">1-602-730-2904</a></p>
                 </div>
               </section>
