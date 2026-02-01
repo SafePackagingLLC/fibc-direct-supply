@@ -1,108 +1,186 @@
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle2, Sprout, ArrowLeft } from "lucide-react";
-import productStandard from "@/assets/product-standard-fibc.jpg";
+import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2 } from "lucide-react";
 import industryAgriculture from "@/assets/industry-agriculture.jpg";
+import productStandard from "@/assets/product-standard-fibc.jpg";
 
-const Fertilizers = () => {
-  const challenges = [
+const Agriculture = () => {
+  const sectors = [
     {
-      problem: "Moisture Sensitivity",
-      solution: "PE liners and moisture barriers protect hygroscopic fertilizers from humidity during storage and transport"
-    },
-    {
-      problem: "Chemical Reactions",
-      solution: "Chemical-resistant materials prevent unwanted reactions and maintain fertilizer efficacy"
-    },
-    {
-      problem: "Hygroscopic Materials",
-      solution: "Sealed construction with appropriate liners prevents moisture absorption in urea and other hygroscopic fertilizers"
-    },
-    {
-      problem: "Corrosion Risk",
-      solution: "Corrosion-resistant materials and protective liners prevent degradation from acidic or alkaline fertilizers"
-    }
-  ];
-
-  const products = [
-    {
-      title: "Standard FIBC Bag",
-      description: "Reliable bulk storage for fertilizer products",
-      specs: "1,000–1,500 kg capacity • 160–200 GSM • UV stabilized • 4 corner loops • Optional PE liner",
+      id: "grains",
+      name: "Grains",
+      icon: Wheat,
+      headline: "Bulk Bags for Grain Storage & Transport",
+      description: "Store and transport wheat, corn, rice, barley, oats, and other cereal grains with confidence. Our grain bags are built for outdoor storage and high-volume handling.",
+      bagType: "Standard FIBC",
+      features: [
+        "UV-stabilized fabric for outdoor storage",
+        "Dust-proof top closures",
+        "Reinforced lifting loops for repeated use",
+        "Food-grade options available"
+      ],
+      specs: {
+        capacity: "1,500–2,000 kg",
+        dimensions: "35\" x 35\" x 45\" or 35\" x 35\" x 50\"",
+        material: "Woven polypropylene (160–200 GSM)"
+      },
       image: productStandard,
-      stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "standard-fertilizer-fibc"
+      color: {
+        bg: "bg-amber-50",
+        iconBg: "bg-amber-500",
+        accent: "text-amber-600",
+        border: "border-amber-200",
+        tableBg: "bg-amber-100"
+      }
     },
     {
-      title: "Lined FIBC Bag",
-      description: "Maximum moisture protection for hygroscopic fertilizers",
-      specs: "500–1,500 kg capacity • 160–180 GSM • PE liner • Moisture protection • Ideal for hygroscopic fertilizers",
+      id: "seeds",
+      name: "Seeds",
+      icon: Sprout,
+      headline: "Ventilated Bags for Seed Viability",
+      description: "Maintain seed viability with breathable bulk bags designed for airflow. Perfect for planting seeds, vegetable seeds, and seed stock that need moisture control.",
+      bagType: "Ventilated FIBC",
+      features: [
+        "Breathable fabric prevents moisture buildup",
+        "Maintains seed germination rates",
+        "Lightweight for easier handling",
+        "Optional inner liners for fine seeds"
+      ],
+      specs: {
+        capacity: "1,000–1,250 kg",
+        dimensions: "35\" x 35\" x 35\" or 35\" x 35\" x 42\"",
+        material: "Ventilated woven polypropylene"
+      },
       image: productStandard,
-      stockStatus: "In Stock — Ships 24-72 hrs",
-      slug: "lined-fertilizer-fibc"
+      color: {
+        bg: "bg-emerald-50",
+        iconBg: "bg-emerald-500",
+        accent: "text-emerald-600",
+        border: "border-emerald-200",
+        tableBg: "bg-emerald-100"
+      }
+    },
+    {
+      id: "feed",
+      name: "Animal Feed",
+      icon: Dog,
+      headline: "Food-Grade Bags for Feed Products",
+      description: "Safe, certified bulk bags for livestock feed, pet food ingredients, and feed supplements. Manufactured in clean facilities to prevent contamination.",
+      bagType: "Food-Grade FIBC",
+      features: [
+        "Food-grade certified materials",
+        "Clean-room manufacturing",
+        "Contamination-free guarantee",
+        "Full traceability documentation"
+      ],
+      specs: {
+        capacity: "1,000–1,500 kg",
+        dimensions: "35\" x 35\" x 40\" or 35\" x 35\" x 45\"",
+        material: "Food-grade woven polypropylene"
+      },
+      image: productStandard,
+      color: {
+        bg: "bg-sky-50",
+        iconBg: "bg-sky-500",
+        accent: "text-sky-600",
+        border: "border-sky-200",
+        tableBg: "bg-sky-100"
+      }
+    },
+    {
+      id: "produce",
+      name: "Fresh Produce",
+      icon: Apple,
+      headline: "Ventilated Bags for Root Vegetables & Produce",
+      description: "Extend shelf life for potatoes, onions, carrots, and other bulk produce. Open-weave construction provides maximum airflow to prevent spoilage.",
+      bagType: "Ventilated FIBC",
+      features: [
+        "Maximum airflow design",
+        "Gentle on produce surfaces",
+        "Reduces spoilage and waste",
+        "Easy filling and discharge"
+      ],
+      specs: {
+        capacity: "800–1,000 kg",
+        dimensions: "35\" x 35\" x 40\" or 37\" x 37\" x 45\"",
+        material: "Open-weave polypropylene"
+      },
+      image: productStandard,
+      color: {
+        bg: "bg-rose-50",
+        iconBg: "bg-rose-500",
+        accent: "text-rose-600",
+        border: "border-rose-200",
+        tableBg: "bg-rose-100"
+      }
     }
-  ];
-
-  const features = [
-    "Moisture-resistant PE liners",
-    "UV stabilization for outdoor storage",
-    "Chemical-resistant materials",
-    "Dust-proof closures",
-    "Custom capacity options",
-    "Corrosion-resistant construction",
-    "Optional ventilation",
-    "Custom printing available"
   ];
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      {/* Hero Section - Split Layout with Image on Right */}
-      <section className="py-16 bg-gradient-to-b from-muted/50 to-background">
+
+      {/* Hero Section */}
+      <section className="relative py-12 bg-gradient-to-b from-muted/50 to-background">
         <div className="container mx-auto px-4">
           {/* Back Button */}
-          <Button variant="ghost" asChild className="mb-6 -ml-4">
+          <Button variant="ghost" asChild className="mb-4 -ml-4">
             <Link to="/industries" className="flex items-center gap-2">
               <ArrowLeft className="h-4 w-4" />
               Back to Industries
             </Link>
           </Button>
-          
+
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left Content */}
             <div>
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 rounded-lg bg-primary/10">
-                  <Sprout className="h-10 w-10 text-primary" />
+                  <Wheat className="h-10 w-10 text-primary" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">Industry Solutions</p>
-                  <h1 className="text-4xl md:text-5xl font-bold">Fertilizers</h1>
+                  <h1 className="text-4xl md:text-5xl font-bold">Agriculture</h1>
                 </div>
               </div>
-              <p className="text-lg text-muted-foreground mb-8">
-                Moisture-resistant bulk bags designed for NPK fertilizers, urea, potash, and organic fertilizers. Protect hygroscopic materials from moisture with appropriate liners and sealed construction.
+              <p className="text-lg text-muted-foreground mb-6">
+                Bulk bags engineered for agricultural products—from grains and seeds to animal feed and fresh produce. Scroll to find the right solution for what you're storing.
               </p>
+
+              {/* Quick Nav */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {sectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <a
+                      key={sector.id}
+                      href={`#${sector.id}`}
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${sector.color.border} ${sector.color.bg} hover:shadow-md transition-all text-sm font-medium`}
+                    >
+                      <Icon className={`h-4 w-4 ${sector.color.accent}`} />
+                      {sector.name}
+                    </a>
+                  );
+                })}
+              </div>
+
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
-                  <Link to="/build-your-bag">Build Custom Bag</Link>
+                  <Link to="/contact">Request a Quote</Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
-                  <Link to="/contact">Request a Quote</Link>
+                  <Link to="/build-your-bag">Build Custom Bag</Link>
                 </Button>
               </div>
             </div>
-            
+
             {/* Right Image */}
-            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl">
-              <img 
-                src={industryAgriculture} 
-                alt="Fertilizer bulk bags" 
+            <div className="relative h-[350px] rounded-lg overflow-hidden shadow-xl">
+              <img
+                src={industryAgriculture}
+                alt="Agricultural bulk bags in use"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -110,68 +188,137 @@ const Fertilizers = () => {
         </div>
       </section>
 
-      {/* Industry Challenges Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Common Challenges We Solve</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {challenges.map((item, index) => (
-              <Card key={index}>
-                <CardContent className="pt-6">
-                  <h3 className="text-xl font-bold mb-2 text-primary">{item.problem}</h3>
-                  <p className="text-muted-foreground">{item.solution}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Transition from hero to first section */}
+      <div className={`h-16 bg-gradient-to-b from-background ${sectors[0].color.bg.replace('bg-', 'to-')}`} />
 
-      {/* Products Section */}
-      <section className="py-16 bg-muted">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-4 text-center">Recommended Products for Fertilizers</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            These bulk bags provide excellent moisture protection for all types of fertilizer products.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.slug} {...product} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Sector Sections */}
+      {sectors.map((sector, index) => {
+        const Icon = sector.icon;
 
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">Key Features for Fertilizer Applications</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-muted-foreground">{feature}</span>
+        return (
+          <section
+            key={sector.id}
+            id={sector.id}
+            className="relative"
+          >
+            {/* Gradient transition from previous section */}
+            {index > 0 && (
+              <div className={`h-24 bg-gradient-to-b ${sectors[index - 1].color.bg.replace('bg-', 'from-')} ${sector.color.bg.replace('bg-', 'to-')}`} />
+            )}
+
+            {/* Main Section Content */}
+            <div className={`${sector.color.bg} py-16`}>
+              <div className="container mx-auto px-4">
+                {/* Section Header - More Prominent */}
+                <div className="mb-12">
+                  <div className="flex items-center gap-5 mb-4">
+                    <div className={`p-5 rounded-2xl ${sector.color.iconBg} text-white shadow-xl`}>
+                      <Icon className="h-12 w-12" />
+                    </div>
+                    <div>
+                      <p className={`text-sm font-semibold uppercase tracking-wider ${sector.color.accent} mb-1`}>Agricultural Solutions</p>
+                      <h2 className="text-4xl md:text-5xl font-bold">{sector.name}</h2>
+                    </div>
+                  </div>
+                  <div className={`w-24 h-1.5 ${sector.color.iconBg} rounded-full mt-4`} />
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* CTA Section */}
+                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                  {/* Content */}
+                  <div>
+                    <h3 className={`text-2xl md:text-3xl font-bold mb-4`}>{sector.headline}</h3>
+                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{sector.description}</p>
+
+                    {/* Features - Card Style */}
+                    <div className="bg-white rounded-xl p-6 shadow-sm mb-8">
+                      <h4 className={`font-semibold mb-4 ${sector.color.accent}`}>Key Features</h4>
+                      <div className="grid sm:grid-cols-2 gap-4">
+                        {sector.features.map((feature) => (
+                          <div key={feature} className="flex items-start gap-3">
+                            <div className={`p-1 rounded-full ${sector.color.tableBg}`}>
+                              <CheckCircle2 className={`h-4 w-4 ${sector.color.accent}`} />
+                            </div>
+                            <span className="text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA Buttons - More Prominent */}
+                    <div className="flex flex-wrap gap-4">
+                      <Button size="lg" asChild className="shadow-lg">
+                        <Link to="/contact">Get a Quote</Link>
+                      </Button>
+                      <Button size="lg" variant="outline" asChild className="bg-white shadow-sm">
+                        <Link to="/build-your-bag">Customize This Bag</Link>
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Right Column - Image + Specs Card */}
+                  <div className="space-y-6">
+                    {/* Image */}
+                    <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                      <div className="aspect-[4/3]">
+                        <img
+                          src={sector.image}
+                          alt={sector.bagType}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      {/* Overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      {/* Bag type label */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <p className="text-white/80 text-sm mb-1">Recommended Bag</p>
+                        <p className="text-white text-2xl font-bold">{sector.bagType}</p>
+                      </div>
+                    </div>
+
+                    {/* Specs Card */}
+                    <div className={`bg-white rounded-xl overflow-hidden shadow-sm border ${sector.color.border}`}>
+                      <div className={`${sector.color.iconBg} px-6 py-4`}>
+                        <h4 className="font-semibold text-white">Specifications</h4>
+                      </div>
+                      <div className="divide-y">
+                        <div className="px-6 py-4 flex justify-between items-center">
+                          <span className="text-muted-foreground">Capacity</span>
+                          <span className="font-semibold">{sector.specs.capacity}</span>
+                        </div>
+                        <div className="px-6 py-4 flex justify-between items-center">
+                          <span className="text-muted-foreground">Dimensions</span>
+                          <span className="font-semibold">{sector.specs.dimensions}</span>
+                        </div>
+                        <div className="px-6 py-4 flex justify-between items-center">
+                          <span className="text-muted-foreground">Material</span>
+                          <span className="font-semibold">{sector.specs.material}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      })}
+
+      {/* Transition to CTA */}
+      <div className={`h-16 bg-gradient-to-b ${sectors[sectors.length - 1].color.bg.replace('bg-', 'from-')} to-primary`} />
+
+      {/* Custom Solution CTA */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Protect Your Fertilizers?</h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Get moisture-resistant bulk bags that keep your fertilizer products dry and effective during storage and transport.
+          <h2 className="text-3xl font-bold mb-3">Don't See Your Product?</h2>
+          <p className="text-lg mb-6 max-w-2xl mx-auto opacity-90">
+            We manufacture custom bulk bags for any agricultural application. Tell us what you're storing and we'll build the right solution.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" variant="secondary" asChild>
-              <Link to="/contact">Request a Quote</Link>
+              <Link to="/build-your-bag">Build Custom Bag</Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="bg-transparent border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-              <Link to="/build-your-bag">Build Custom Bag</Link>
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>
@@ -182,4 +329,4 @@ const Fertilizers = () => {
   );
 };
 
-export default Fertilizers;
+export default Agriculture;
