@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2, Package, Ruler } from "lucide-react";
+import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2, Package, Ruler, Clock, Bug, Leaf, Tractor } from "lucide-react";
 import industryAgriculture from "@/assets/industry-agriculture.jpg";
 import productStandard from "@/assets/product-standard-fibc.jpg";
 
@@ -312,6 +312,96 @@ const Agriculture = () => {
                         <p className="text-white text-lg font-semibold">{activeSector.bagType}</p>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Common Challenges Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Agricultural storage comes with unique challenges. Here's how our bulk bags are engineered to address them.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {/* Challenge 1 */}
+            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-amber-100 text-amber-600 flex-shrink-0">
+                  <Clock className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Harvest Time Crunch</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    When harvest hits, you need to move fast. Delays mean crop loss and missed market windows.
+                  </p>
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>Wide-mouth filling spouts for rapid loading in the field</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Challenge 2 */}
+            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
+                  <Bug className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Pest & Rodent Damage</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    Stored grain attracts insects and rodents that contaminate product and cause costly losses.
+                  </p>
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>Sealed construction with pest-resistant closures</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Challenge 3 */}
+            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-green-100 text-green-600 flex-shrink-0">
+                  <Leaf className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Seed Germination Loss</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    Poor storage conditions kill seeds before planting season, wasting expensive seed stock.
+                  </p>
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>Breathable ventilated bags maintain optimal seed viability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Challenge 4 */}
+            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
+                  <Tractor className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg mb-2">Rough Farm Handling</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    Forklifts, tractors, and outdoor conditions on farms are tough on packaging materials.
+                  </p>
+                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                    <CheckCircle2 className="h-4 w-4" />
+                    <span>Reinforced lift loops rated for repeated heavy use</span>
                   </div>
                 </div>
               </div>
