@@ -1,12 +1,19 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2 } from "lucide-react";
+import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2, Package, Ruler } from "lucide-react";
 import industryAgriculture from "@/assets/industry-agriculture.jpg";
 import productStandard from "@/assets/product-standard-fibc.jpg";
 
+const ROTATION_INTERVAL = 6000; // 6 seconds per tab
+
 const Agriculture = () => {
+  const [activeTab, setActiveTab] = useState("grains");
+  const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
   const sectors = [
     {
       id: "grains",
@@ -23,17 +30,10 @@ const Agriculture = () => {
       ],
       specs: {
         capacity: "1,500–2,000 kg",
-        dimensions: "35\" x 35\" x 45\" or 35\" x 35\" x 50\"",
+        dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Woven polypropylene (160–200 GSM)"
       },
       image: productStandard,
-      color: {
-        bg: "bg-amber-50",
-        iconBg: "bg-amber-500",
-        accent: "text-amber-600",
-        border: "border-amber-200",
-        tableBg: "bg-amber-100"
-      }
     },
     {
       id: "seeds",
@@ -50,17 +50,10 @@ const Agriculture = () => {
       ],
       specs: {
         capacity: "1,000–1,250 kg",
-        dimensions: "35\" x 35\" x 35\" or 35\" x 35\" x 42\"",
+        dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Ventilated woven polypropylene"
       },
       image: productStandard,
-      color: {
-        bg: "bg-emerald-50",
-        iconBg: "bg-emerald-500",
-        accent: "text-emerald-600",
-        border: "border-emerald-200",
-        tableBg: "bg-emerald-100"
-      }
     },
     {
       id: "feed",
@@ -77,17 +70,10 @@ const Agriculture = () => {
       ],
       specs: {
         capacity: "1,000–1,500 kg",
-        dimensions: "35\" x 35\" x 40\" or 35\" x 35\" x 45\"",
+        dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Food-grade woven polypropylene"
       },
       image: productStandard,
-      color: {
-        bg: "bg-sky-50",
-        iconBg: "bg-sky-500",
-        accent: "text-sky-600",
-        border: "border-sky-200",
-        tableBg: "bg-sky-100"
-      }
     },
     {
       id: "produce",
@@ -104,19 +90,48 @@ const Agriculture = () => {
       ],
       specs: {
         capacity: "800–1,000 kg",
-        dimensions: "35\" x 35\" x 40\" or 37\" x 37\" x 45\"",
+        dimensions: ["35\" x 35\" x 40\"", "37\" x 37\" x 45\""],
         material: "Open-weave polypropylene"
       },
       image: productStandard,
-      color: {
-        bg: "bg-rose-50",
-        iconBg: "bg-rose-500",
-        accent: "text-rose-600",
-        border: "border-rose-200",
-        tableBg: "bg-rose-100"
-      }
     }
   ];
+
+  const activeSector = sectors.find(s => s.id === activeTab) || sectors[0];
+  const ActiveIcon = activeSector.icon;
+
+  // Get next tab in rotation
+  const getNextTab = useCallback(() => {
+    const currentIndex = sectors.findIndex(s => s.id === activeTab);
+    const nextIndex = (currentIndex + 1) % sectors.length;
+    return sectors[nextIndex].id;
+  }, [activeTab, sectors]);
+
+  // Auto-rotate tabs
+  useEffect(() => {
+    if (isPaused) return;
+
+    const progressInterval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          setActiveTab(getNextTab());
+          return 0;
+        }
+        return prev + (100 / (ROTATION_INTERVAL / 50)); // Update every 50ms
+      });
+    }, 50);
+
+    return () => clearInterval(progressInterval);
+  }, [isPaused, getNextTab]);
+
+  // Handle manual tab click
+  const handleTabClick = (tabId: string) => {
+    setActiveTab(tabId);
+    setProgress(0);
+    setIsPaused(true);
+    // Resume auto-rotation after 10 seconds of inactivity
+    setTimeout(() => setIsPaused(false), 10000);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -146,25 +161,8 @@ const Agriculture = () => {
                 </div>
               </div>
               <p className="text-lg text-muted-foreground mb-6">
-                Bulk bags engineered for agricultural products—from grains and seeds to animal feed and fresh produce. Scroll to find the right solution for what you're storing.
+                Bulk bags engineered for agricultural products—from grains and seeds to animal feed and fresh produce. Select a category below to find the right solution.
               </p>
-
-              {/* Quick Nav */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {sectors.map((sector) => {
-                  const Icon = sector.icon;
-                  return (
-                    <a
-                      key={sector.id}
-                      href={`#${sector.id}`}
-                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${sector.color.border} ${sector.color.bg} hover:shadow-md transition-all text-sm font-medium`}
-                    >
-                      <Icon className={`h-4 w-4 ${sector.color.accent}`} />
-                      {sector.name}
-                    </a>
-                  );
-                })}
-              </div>
 
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild>
@@ -188,123 +186,139 @@ const Agriculture = () => {
         </div>
       </section>
 
-      {/* Transition from hero to first section */}
-      <div className={`h-16 bg-gradient-to-b from-background ${sectors[0].color.bg.replace('bg-', 'to-')}`} />
+      {/* Tabs Section */}
+      <section className="py-12 bg-muted/30">
+        <div className="container mx-auto px-4">
+          {/* Tab Navigation */}
+          <div className="flex flex-col items-center mb-12">
+            <p className="text-sm text-muted-foreground mb-4 font-medium">What are you storing?</p>
+            <div className="inline-flex bg-background border shadow-lg rounded-2xl p-2 gap-2">
+              {sectors.map((sector) => {
+                const Icon = sector.icon;
+                const isActive = activeTab === sector.id;
+                return (
+                  <button
+                    key={sector.id}
+                    onClick={() => handleTabClick(sector.id)}
+                    className={`relative inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-base font-medium transition-all overflow-hidden ${
+                      isActive
+                        ? "bg-primary text-primary-foreground shadow-lg"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    {/* Progress bar for active tab */}
+                    {isActive && (
+                      <div
+                        className="absolute bottom-0 left-0 h-1 bg-primary-foreground/40 transition-all duration-75"
+                        style={{ width: `${progress}%` }}
+                      />
+                    )}
+                    <Icon className={`h-5 w-5 ${isActive ? "" : "opacity-70"}`} />
+                    <span className="hidden sm:inline">{sector.name}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
 
-      {/* Sector Sections */}
-      {sectors.map((sector, index) => {
-        const Icon = sector.icon;
-
-        return (
-          <section
-            key={sector.id}
-            id={sector.id}
-            className="relative"
-          >
-            {/* Gradient transition from previous section */}
-            {index > 0 && (
-              <div className={`h-24 bg-gradient-to-b ${sectors[index - 1].color.bg.replace('bg-', 'from-')} ${sector.color.bg.replace('bg-', 'to-')}`} />
-            )}
-
-            {/* Main Section Content */}
-            <div className={`${sector.color.bg} py-16`}>
-              <div className="container mx-auto px-4">
-                {/* Section Header - More Prominent */}
-                <div className="mb-12">
-                  <div className="flex items-center gap-5 mb-4">
-                    <div className={`p-5 rounded-2xl ${sector.color.iconBg} text-white shadow-xl`}>
-                      <Icon className="h-12 w-12" />
-                    </div>
-                    <div>
-                      <p className={`text-sm font-semibold uppercase tracking-wider ${sector.color.accent} mb-1`}>Agricultural Solutions</p>
-                      <h2 className="text-4xl md:text-5xl font-bold">{sector.name}</h2>
-                    </div>
+          {/* Tab Content */}
+          <div className="bg-background rounded-2xl shadow-sm border p-8 md:p-12 overflow-hidden">
+            <div
+              key={activeTab}
+              className="grid lg:grid-cols-2 gap-12 items-start animate-fade-in"
+            >
+              {/* Left Content */}
+              <div>
+                <div className="flex items-center gap-5 mb-8">
+                  <div className="p-5 rounded-2xl bg-primary text-primary-foreground shadow-lg">
+                    <ActiveIcon className="h-10 w-10" />
                   </div>
-                  <div className={`w-24 h-1.5 ${sector.color.iconBg} rounded-full mt-4`} />
+                  <div>
+                    <p className="text-sm text-muted-foreground font-medium mb-1">Recommended Bag</p>
+                    <p className="text-xl font-bold text-primary">{activeSector.bagType}</p>
+                  </div>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
-                  {/* Content */}
-                  <div>
-                    <h3 className={`text-2xl md:text-3xl font-bold mb-4`}>{sector.headline}</h3>
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">{sector.description}</p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">{activeSector.headline}</h2>
+                <p className="text-muted-foreground mb-8 leading-relaxed">{activeSector.description}</p>
 
-                    {/* Features - Card Style */}
-                    <div className="bg-white rounded-xl p-6 shadow-sm mb-8">
-                      <h4 className={`font-semibold mb-4 ${sector.color.accent}`}>Key Features</h4>
-                      <div className="grid sm:grid-cols-2 gap-4">
-                        {sector.features.map((feature) => (
-                          <div key={feature} className="flex items-start gap-3">
-                            <div className={`p-1 rounded-full ${sector.color.tableBg}`}>
-                              <CheckCircle2 className={`h-4 w-4 ${sector.color.accent}`} />
-                            </div>
-                            <span className="text-sm">{feature}</span>
-                          </div>
+                {/* Features */}
+                <div className="space-y-3 mb-8">
+                  {activeSector.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <Button size="lg" asChild>
+                    <Link to="/contact">Get a Quote</Link>
+                  </Button>
+                  <Button size="lg" variant="outline" asChild>
+                    <Link to="/build-your-bag">Customize This Bag</Link>
+                  </Button>
+                </div>
+
+                {/* Specs Card */}
+                <div className="bg-muted/50 rounded-xl p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <Ruler className="h-5 w-5 text-primary" />
+                    </div>
+                    <h4 className="font-semibold">Specifications</h4>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-center pb-3 border-b">
+                      <span className="text-muted-foreground">Capacity</span>
+                      <span className="font-medium">{activeSector.specs.capacity}</span>
+                    </div>
+                    <div className="flex justify-between items-start pb-3 border-b">
+                      <span className="text-muted-foreground">Dimensions</span>
+                      <div className="flex flex-col gap-2 items-end">
+                        {activeSector.specs.dimensions.map((dim, index) => (
+                          <span key={index} className="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-sm font-medium">
+                            {dim}
+                          </span>
                         ))}
                       </div>
                     </div>
-
-                    {/* CTA Buttons - More Prominent */}
-                    <div className="flex flex-wrap gap-4">
-                      <Button size="lg" asChild className="shadow-lg">
-                        <Link to="/contact">Get a Quote</Link>
-                      </Button>
-                      <Button size="lg" variant="outline" asChild className="bg-white shadow-sm">
-                        <Link to="/build-your-bag">Customize This Bag</Link>
-                      </Button>
+                    <div className="flex justify-between items-center">
+                      <span className="text-muted-foreground">Material</span>
+                      <span className="font-medium">{activeSector.specs.material}</span>
                     </div>
                   </div>
+                </div>
+              </div>
 
-                  {/* Right Column - Image + Specs Card */}
-                  <div className="space-y-6">
-                    {/* Image */}
-                    <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                      <div className="aspect-[4/3]">
-                        <img
-                          src={sector.image}
-                          alt={sector.bagType}
-                          className="w-full h-full object-cover"
-                        />
+              {/* Right Column - Image */}
+              <div className="h-full">
+                <div className="relative rounded-2xl overflow-hidden h-full min-h-[400px] lg:min-h-[500px] bg-gradient-to-br from-primary/5 via-muted/50 to-primary/10">
+                  <img
+                    src={activeSector.image}
+                    alt={activeSector.bagType}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Badge overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-6">
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm">
+                        <Package className="h-5 w-5 text-white" />
                       </div>
-                      {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      {/* Bag type label */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <p className="text-white/80 text-sm mb-1">Recommended Bag</p>
-                        <p className="text-white text-2xl font-bold">{sector.bagType}</p>
-                      </div>
-                    </div>
-
-                    {/* Specs Card */}
-                    <div className={`bg-white rounded-xl overflow-hidden shadow-sm border ${sector.color.border}`}>
-                      <div className={`${sector.color.iconBg} px-6 py-4`}>
-                        <h4 className="font-semibold text-white">Specifications</h4>
-                      </div>
-                      <div className="divide-y">
-                        <div className="px-6 py-4 flex justify-between items-center">
-                          <span className="text-muted-foreground">Capacity</span>
-                          <span className="font-semibold">{sector.specs.capacity}</span>
-                        </div>
-                        <div className="px-6 py-4 flex justify-between items-center">
-                          <span className="text-muted-foreground">Dimensions</span>
-                          <span className="font-semibold">{sector.specs.dimensions}</span>
-                        </div>
-                        <div className="px-6 py-4 flex justify-between items-center">
-                          <span className="text-muted-foreground">Material</span>
-                          <span className="font-semibold">{sector.specs.material}</span>
-                        </div>
+                      <div>
+                        <p className="text-white/80 text-sm">Product Type</p>
+                        <p className="text-white text-lg font-semibold">{activeSector.bagType}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </section>
-        );
-      })}
-
-      {/* Transition to CTA */}
-      <div className={`h-16 bg-gradient-to-b ${sectors[sectors.length - 1].color.bg.replace('bg-', 'from-')} to-primary`} />
+          </div>
+        </div>
+      </section>
 
       {/* Custom Solution CTA */}
       <section className="py-16 bg-primary text-primary-foreground">
