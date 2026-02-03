@@ -8,6 +8,7 @@ A comprehensive reference guide on how FIBC bulk bags serve different industries
 1. [Agriculture](#agriculture)
 2. [Color Pigments](#color-pigments)
 3. [Chemicals](#chemicals)
+4. [Construction](#construction)
 
 ---
 
@@ -186,6 +187,73 @@ The chemical industry spans commodity chemicals, specialty chemicals, petrochemi
 
 ---
 
+## Construction
+
+### Industry Overview
+The construction industry uses FIBC bulk bags for cement, sand, aggregates, dry mix products, and gypsum. Key concerns include moisture protection for cement products, UV resistance for outdoor job site storage, heavy load capacity (up to 2,500 kg), and resistance to punctures from sharp aggregates.
+
+### Industry Size
+- Global construction market: ~$14 trillion (2025), projected $16+ trillion by 2030
+- Cement production: ~4.2 billion metric tons annually
+- Key regions: Asia-Pacific (65% of cement production), North America, Europe
+
+### Sub-Sectors & Recommended Bags
+
+| Sub-Sector | Products | Recommended Bag | Key Features |
+|------------|----------|-----------------|--------------|
+| **Cement & Portland** | Portland cement, fly ash, slag | Coated FIBC with PE Liner | Coated fabric blocks moisture, PE liner secondary barrier, UV-stabilized |
+| **Sand & Aggregates** | Sand, gravel, crushed stone | Heavy-Duty Standard FIBC | Extra-heavy 200–240 GSM, reinforced loops, full-open bottom discharge |
+| **Dry Mix Products** | Mortar, plaster, stucco, grout | Lined FIBC with Spout Top | Spout top/bottom for controlled fill/discharge, moisture protection |
+| **Gypsum & Calcium** | Gypsum powder, lime, calcium carbonate | Lined FIBC with Moisture Barrier | PE or foil liner, sealed closures, prevents caking/degradation |
+
+### Typical Specifications
+
+| Sub-Sector | Capacity | Dimensions | Material |
+|------------|----------|------------|----------|
+| Cement & Portland | 1,000–1,500 kg | 35" x 35" x 45" or 35" x 35" x 50" | Coated woven PP with PE liner (180–200 GSM) |
+| Sand & Aggregates | 1,500–2,500 kg | 37" x 37" x 50" or 37" x 37" x 55" | Heavy-duty woven PP (200–240 GSM) |
+| Dry Mix Products | 1,000–1,500 kg | 35" x 35" x 40" or 35" x 35" x 45" | Coated woven PP with PE liner (160–180 GSM) |
+| Gypsum & Calcium | 500–1,000 kg | 35" x 35" x 35" or 35" x 35" x 42" | Woven PP with foil or PE liner (160–180 GSM) |
+
+### Common Challenges & Solutions
+
+| Challenge | Description | Solution |
+|-----------|-------------|----------|
+| **Moisture Damage** | Cement hardens instantly, gypsum degrades, dry mix clumps when exposed to moisture | Coated bags with PE liners and sealed, dust-proof closures |
+| **UV Degradation** | Extended outdoor storage at job sites breaks down standard polypropylene | UV-stabilized fabric rated for 200–400+ hours outdoor exposure |
+| **Heavy Loads & Forklift Safety** | Bags up to 5,000 lbs; over 70% of forklift accidents are preventable | 5:1 or 6:1 safety factor with reinforced lift loops |
+| **Puncture & Abrasion** | Sharp aggregates, rough handling, forklift tines damage standard-weight bags | Heavy-duty 200–240 GSM fabric with abrasion resistance |
+
+### Critical Storage & Handling Information
+
+#### Cement Storage Requirements
+- **Primary concern**: Moisture absorption causes hardening and clumping
+- Store in covered, dry areas when possible
+- Stack max 2–3 bags high on pallets
+- Use within 3 months for best performance (cement shelf life)
+- Protect from rain, ground moisture, and high humidity
+
+#### Aggregate Handling
+- **Primary concern**: Heavy loads and abrasive materials
+- Bags can weigh 4,000–5,500 lbs when filled with sand/gravel
+- Use extra-heavy GSM fabric (200–240 GSM minimum)
+- Full-open bottom spouts speed up discharge
+- Consider bag liners for fine sand to prevent sifting
+
+#### Job Site Best Practices
+- Keep bags elevated on pallets (protects from ground moisture)
+- Cover outdoor storage with tarps during extended periods
+- Inspect lift loops before each use
+- Don't exceed stated SWL (Safe Working Load)
+
+### Key Certifications & Standards
+- UV stabilization rating (200–400+ hours for outdoor storage)
+- Safe Working Load (SWL) ratings for lift loop strength
+- 5:1 or 6:1 safety factor depending on application
+- ISO 21898 for flexible intermediate bulk containers
+
+---
+
 ## Quick Reference: Bag Type Selection Guide
 
 ### By Product Characteristic
@@ -213,6 +281,10 @@ The chemical industry spans commodity chemicals, specialty chemicals, petrochemi
 | Chemicals - Resins | Type D Anti-Static |
 | Chemicals - Hazmat | UN-Certified Type C/D |
 | Chemicals - Detergents | Coated FIBC with liner |
+| Construction - Cement | Coated FIBC with PE liner |
+| Construction - Aggregates | Heavy-Duty Standard FIBC (200+ GSM) |
+| Construction - Dry Mix | Lined FIBC with spout top |
+| Construction - Gypsum | Lined FIBC with moisture barrier |
 
 ---
 
@@ -235,6 +307,12 @@ The chemical industry spans commodity chemicals, specialty chemicals, petrochemi
 - [globalEDGE - Chemicals Industry Background](https://globaledge.msu.edu/industries/chemicals/background)
 - [Sigma-HSE - Electrostatic Hazards in Powder Facilities](https://sigma-hse.com/news-insights/electrostatic-hazards-powder-facility/)
 - [Elchemy - Sodium Hydroxide Storage Guidelines](https://elchemy.com/blogs/chemical-sourcing/sodium-hydroxide-storage-guidelines-according-to-u-s-osha-standards)
+
+### Construction
+- Industry knowledge on cement storage and moisture protection requirements
+- ISO 21898 - Flexible intermediate bulk containers (FIBCs) for non-dangerous goods
+- Material handling best practices for construction aggregates
+- UV stabilization standards for outdoor storage applications
 
 ---
 
