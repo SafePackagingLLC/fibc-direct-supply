@@ -11,6 +11,7 @@ A comprehensive reference guide on how FIBC bulk bags serve different industries
 4. [Construction](#construction)
 5. [Food Processing](#food-processing)
 6. [Pharmaceuticals](#pharmaceuticals)
+7. [Recycling](#recycling)
 
 ---
 
@@ -455,6 +456,122 @@ The pharmaceutical industry uses FIBC bulk bags for Active Pharmaceutical Ingred
 
 ---
 
+## Recycling
+
+### Industry Overview
+The recycling industry uses FIBC bulk bags for collecting, storing, and transporting recyclable materials including plastic pellets, metal scrap, textile waste, and electronic waste (e-waste). Key concerns include multi-trip durability (5-10 reuse cycles), puncture resistance for sharp materials, contamination control between material streams, and cost efficiency through reusability.
+
+### Industry Size
+- Global recycling market: ~$450 billion (2025), projected $600+ billion by 2030
+- E-waste generation: 53.6 million metric tons annually, only 17% formally recycled
+- Textile waste in US: 17 million tons annually, 85% goes to landfills
+- Plastic recycling: ~9% of all plastic ever produced has been recycled
+
+### Sub-Sectors & Recommended Bags
+
+| Sub-Sector | Products | Recommended Bag | Key Features |
+|------------|----------|-----------------|--------------|
+| **Plastic Recycling** | PP/PE/PET pellets, regrind flakes, post-consumer plastics | Baffle FIBC with PE Liner | Baffle design maintains shape, duffle top for loose materials, 6:1 SFR for multi-trip |
+| **Metal Recycling** | Ferrous (steel, iron) & non-ferrous (aluminum, copper, brass) scrap | Heavy-Duty Reinforced FIBC | 200+ GSM puncture-resistant fabric, reinforced bottom panel, reinforced lift loops |
+| **Textile & Clothing** | Wiping rags, shredded fabric, fiber reclamation, sorted garments | Ventilated FIBC with Duffle Top | Breathable panels prevent mold, extra-large capacity, color-coding for sorting |
+| **E-Waste / Electronics** | Circuit boards, shredded WEEE, precious metal concentrates | Type B/C Antistatic FIBC | Antistatic construction, puncture protection, contamination control liners |
+
+### Typical Specifications
+
+| Sub-Sector | Capacity | Dimensions | Material |
+|------------|----------|------------|----------|
+| Plastic Recycling | 500–1,500 kg | 35" x 35" x 40" or 37" x 37" x 45" | Woven PP with PE liner (160–180 GSM) |
+| Metal Recycling | 1,000–2,000 kg | 35" x 35" x 35" or 40" x 40" x 40" | Heavy-duty woven PP (200+ GSM) |
+| Textile & Clothing | 300–800 kg | 40" x 40" x 50" or 45" x 45" x 55" | Ventilated woven PP (140–160 GSM) |
+| E-Waste / Electronics | 500–1,000 kg | 35" x 35" x 35" or 35" x 35" x 40" | Antistatic woven PP with liner (160–180 GSM) |
+
+### Common Challenges & Solutions
+
+| Challenge | Description | Solution |
+|-----------|-------------|----------|
+| **Material Contamination** | Cross-contamination between material types degrades recyclate quality and market value | Dedicated bags per material stream, PE liners, color-coding for segregation |
+| **Sharp Edge Punctures** | Shredded metal and circuit boards tear standard bags, causing material loss | 200+ GSM puncture-resistant fabric with reinforced bottom panels |
+| **Weight Variability** | Metal scrap (up to 4,000+ lbs) vs. textiles (lightweight but bulky) require different designs | Range of SWL options from 300 kg to 2,000 kg, customized capacity ratings |
+| **Multi-Trip Durability** | Single-use bags drive up costs; recyclers need 5-10 reuse cycles for economic viability | 6:1 Safety Factor Ratio bags certified for multi-trip use |
+
+### FIBC Safety Factor Ratios for Recycling
+
+| Safety Factor | Classification | Reuse Capability | Typical Use |
+|---------------|---------------|------------------|-------------|
+| **5:1 SFR** | Single-trip | One-time use only | General materials, lower-cost applications |
+| **6:1 SFR** | Multi-trip | 5-10 reuse cycles | Recycling operations requiring cost efficiency |
+
+### Recycling Material Streams
+
+#### Plastic Recycling
+- **Materials**: PP/PE/PET pellets, regrind flakes, post-consumer plastics
+- **Processing**: Collected → Sorted by resin → Shredded/ground → Washed → Melted → Extruded into pellets
+- **Contamination concern**: Chemical contamination in recycled pellets, mixed resin types degrade quality
+- **Bag requirements**: Baffle bags for pelletized products (better stacking), duffle top for loose scrap
+
+#### Metal Recycling
+- **Ferrous metals**: Steel, iron, cast iron (magnetic, lower value: $150-300/ton)
+- **Non-ferrous metals**: Aluminum, copper, brass, zinc (non-magnetic, higher value: copper $3-4/lb)
+- **Processing**: Collected → Sorted (magnet test) → Shredded → Separated → Melted into ingots
+- **Bag requirements**: Heavy-duty construction, puncture-resistant for sharp shredded edges
+
+#### Textile & Clothing Recycling
+- **Categories**: 45% resold as secondhand apparel, 30% wiping/polishing cloths, 20% reprocessed fiber, 5% waste
+- **Grading system**: Up to 253 specific grades based on quality, category, seasonality, material
+- **End products**: Insulation (denim), furniture stuffing, automotive soundproofing, carpet padding
+- **Bag requirements**: Ventilated for moisture control, large capacity for bulky materials
+
+#### E-Waste / Electronics Recycling
+- **Components**: Circuit boards (PCBs), shredded WEEE, precious metal concentrates
+- **Precious metals**: Gold, silver, copper, palladium, platinum recoverable from circuit boards
+- **Processing**: Collected → Shredded → Magnetically separated → Eddy current separation → Smelting
+- **Bag requirements**: Antistatic (Type B/C) for sensitive components, puncture protection
+
+### Key Certifications & Standards
+
+#### R2 (Responsible Recycling)
+- Created by Sustainable Electronics Recycling International (SERI)
+- Covers environmental/health criteria, worker safety, data security, toxic material supervision
+- Requires ISO 14001 or RIOS environmental management system
+- EPA-recognized certification for electronics recyclers
+
+#### e-Stewards
+- Created by Basel Action Network (BAN) in 2009
+- Stricter standard: No hazardous e-waste export to developing nations
+- Requires ISO 14001 and NAID AAA certification
+- Prohibits forced or child labor in recycling chain
+
+#### ISO 14001
+- International environmental management system standard
+- Required foundation for both R2 and e-Stewards certification
+- Covers environmental policy, planning, implementation, monitoring
+
+#### ISRI Specifications
+- Institute of Scrap Recycling Industries grading standards
+- Defines grades for scrap metal, paper, plastic, electronics, textiles
+- Example: OCC 11 (Old Corrugated Cardboard Grade 11)
+
+### Best Practices for Recycling FIBCs
+
+#### Bag Selection
+- Match bag type to material: baffle for pellets, ventilated for textiles, heavy-duty for metals
+- Use 6:1 SFR bags for multi-trip operations to maximize cost efficiency
+- Color-code bags by material stream to prevent cross-contamination
+
+#### Reuse Guidelines
+- Reuse only within "closed loop" systems (same product, same application)
+- Inspect bags before each use: check lift loops, seams, fabric integrity
+- Clean and recondition bags between uses per FIBCA guidelines
+- Replace bags showing signs of wear, tears, or weakened lift loops
+
+#### Storage & Handling
+- Store empty bags in clean, dry areas
+- Keep different material stream bags separated
+- Document bag usage cycles to track remaining lifespan
+- Train operators on proper filling and lifting procedures
+
+---
+
 ## Quick Reference: Bag Type Selection Guide
 
 ### By Product Characteristic
@@ -494,6 +611,10 @@ The pharmaceutical industry uses FIBC bulk bags for Active Pharmaceutical Ingred
 | Pharmaceuticals - Excipients | Pharma-Grade FIBC with PE liner (clean-room) |
 | Pharmaceuticals - Nutraceuticals | Food-Grade FIBC (BRC/SQF) |
 | Pharmaceuticals - Intermediates | Type C/D Antistatic FIBC |
+| Recycling - Plastic | Baffle FIBC with PE liner (6:1 SFR) |
+| Recycling - Metal | Heavy-Duty Reinforced FIBC (200+ GSM) |
+| Recycling - Textile & Clothing | Ventilated FIBC with duffle top |
+| Recycling - E-Waste | Type B/C Antistatic FIBC |
 
 ---
 
@@ -540,6 +661,18 @@ The pharmaceutical industry uses FIBC bulk bags for Active Pharmaceutical Ingred
 - [ILC Dover - Pharmaceutical Powder Handling 101](https://www.ilcdover.com/en/company/news/pharmaceutical-powder-handling-101-safety-compliance-containment/)
 - FDA 21 CFR Parts 210, 211 - cGMP for Pharmaceuticals
 - ISO 14644-1 - Clean-room Classifications
+
+### Recycling
+- [Elway Industries - Recycling FIBCs](https://elwayinc.com/application/recycling/)
+- [Sah Polymers - Common Uses of FIBC Bags in Various Industries](https://sahpolymers.com/common-uses-of-fibc-bags-in-various-industries/)
+- [NSF - E-Waste Recycling Certification](https://www.nsf.org/sustainability/circularity-waste-materials-management/e-waste-recycling-certification)
+- [ERI - Understanding e-Stewards and R2 Certifications](https://eridirect.com/blog/2024/11/understanding-e-stewards-and-r2-certifications/)
+- [UNTHA - WEEE Shredding](https://www.untha.com/en/applications/weee)
+- [Okon Recycling - Ferrous vs Non-Ferrous Metal Recycling](https://www.okonrecycling.com/industrial-scrap-metal-recycling/steel-and-aluminum/difference-between-ferrous-non-ferrous-metal-recycling/)
+- [Royal Oak Recycling - OCC Cardboard Recycling](https://royaloakrecycling.com/what-we-buy/corrugated-cardboard-occ-recycling/)
+- [SMARTASN - Textile Recycling FAQs](https://www.smartasn.org/resources/frequently-asked-questions/)
+- [Trans-Americas Trading Company - Recycled Clothing Solutions](https://tranclo.com/)
+- [National Bulk Bag - Reuse and Recycle Guidelines for FIBC Bulk Bags](https://blog.nationalbulkbag.com/fibc-bulk-bags/reuse-and-recycle-guidelines-for-fibc-bulk-bags)
 
 ---
 
