@@ -12,6 +12,7 @@ A comprehensive reference guide on how FIBC bulk bags serve different industries
 5. [Food Processing](#food-processing)
 6. [Pharmaceuticals](#pharmaceuticals)
 7. [Recycling](#recycling)
+8. [Minerals](#minerals)
 
 ---
 
@@ -572,6 +573,122 @@ The recycling industry uses FIBC bulk bags for collecting, storing, and transpor
 
 ---
 
+## Minerals
+
+### Industry Overview
+The minerals industry uses FIBC bulk bags for calcium carbonate, silica sand, kaolin clay, talc, bentonite, and other industrial minerals. Key concerns include moisture protection (hygroscopic materials cake and degrade), fine powder dust control (respirable silica hazard), heavy density loads, and static buildup with combustible additives.
+
+### Industry Size
+- Global industrial minerals market: ~$200 billion (2025)
+- Calcium carbonate: ~$70 billion market, used in paper, plastics, paints, construction
+- Kaolin: ~$5 billion market, 40% used in paper industry
+- Silica sand: ~$10 billion market, glass and foundry applications
+- Talc: ~$3 billion market, plastics and cosmetics
+
+### Sub-Sectors & Recommended Bags
+
+| Sub-Sector | Products | Recommended Bag | Key Features |
+|------------|----------|-----------------|--------------|
+| **Calcium Carbonate** | GCC, PCC, limestone powder, chalk, lime | Coated FIBC with PE Liner | Coated fabric blocks moisture, PE liner secondary barrier, dust-proof seams |
+| **Silica Sand** | Industrial sand, quartz, glass sand, foundry sand | Heavy-Duty FIBC with Dust-Proof Closure | 200+ GSM for abrasives, dust-proof spouts, Type B available for combustible mixes |
+| **Kaolin / China Clay** | White clay for ceramics, paper, coatings, refractories | Lined FIBC with Sealed Closure | Moisture-resistant, sealed closures prevent contamination, preserves whiteness |
+| **Talc & Bentonite** | Talc for plastics/cosmetics, bentonite for drilling/foundry | Lined FIBC with Moisture Control | Strict moisture barrier, sift-proof for ultrafine powders, dust containment |
+
+### Typical Specifications
+
+| Sub-Sector | Capacity | Dimensions | Material |
+|------------|----------|------------|----------|
+| Calcium Carbonate | 1,000–1,500 kg | 35" x 35" x 45" or 35" x 35" x 50" | Coated woven PP with PE liner (180–200 GSM) |
+| Silica Sand | 1,000–2,000 kg | 35" x 35" x 40" or 37" x 37" x 45" | Heavy-duty woven PP (200–240 GSM) |
+| Kaolin / China Clay | 1,000–1,500 kg | 35" x 35" x 45" or 35" x 35" x 50" | Woven PP with PE liner (160–180 GSM) |
+| Talc & Bentonite | 500–1,500 kg | 35" x 35" x 40" or 35" x 35" x 45" | Woven PP with moisture-control liner (160–180 GSM) |
+
+### Common Challenges & Solutions
+
+| Challenge | Description | Solution |
+|-----------|-------------|----------|
+| **Fine Powder Dust** | Respirable crystalline silica is OSHA-regulated health hazard; airborne dust causes product loss | Dust-proof seams, spout closures, tight-weave fabric |
+| **Moisture Degradation** | CaCO3 cakes, bentonite loses swelling capacity, talc clumps when wet | PE/foil liners, coated fabric, sealed moisture barriers |
+| **Heavy Density Loads** | Minerals range 35-58 lb/cu ft bulk density, can exceed 2,000 kg per bag | 5:1 or 6:1 SFR, heavy-duty 200-240 GSM fabric, reinforced loops |
+| **Static & Dust Explosion** | Silica mixed with combustible resins (phenolic) can ignite; static during transfer | Type B antistatic bags when combustible additives present |
+
+### Material-Specific Handling Requirements
+
+#### Calcium Carbonate (CaCO3)
+- **Handling characteristics**: Sluggish adhesive powder that readily packs and cakes
+- **Bulk density**: 35-58 lb/cu ft (443-734 kg/m³)
+- **Key concerns**: Sticks in hoppers, flood-feeds into convey lines, builds up inside lines
+- **Solutions**: Aeration and direct contact vibration, short conveying lines, bulk bag dischargers with massagers
+
+#### Silica Sand
+- **Health hazard**: Respirable crystalline silica causes silicosis (OSHA regulated)
+- **Dust control**: Do not dry sweep; use water spray or HEPA vacuum
+- **Static risk**: Dry powders accumulate static charge—ignition source for flammable atmospheres
+- **Regulations**: OSHA 29 CFR 1910.1053; ASTM E 1132-99a
+
+#### Kaolin (China Clay)
+- **Critical property**: Whiteness and fine particle size determine commercial value
+- **Applications**: Paper coating (40%), ceramics (22%), paints, rubber, plastics
+- **Contamination risk**: Any discoloration ruins product value
+- **Storage**: Moisture-resistant containers with sealed closures
+
+#### Talc
+- **Handling characteristics**: Semi-free-flowing, hydrophobic, behaves like liquid when wet
+- **Storage requirements**: Extremely dry conditions; store 15-30°C in sealed containers
+- **Applications**: Plastics (stiffness, dimensional stability), cosmetics (moisture absorption)
+- **Key specs**: Particle size distribution, morphology, surface treatment
+
+#### Bentonite
+- **Swelling capacity**: Absorbs water and expands up to 8x volume
+- **Storage**: Must keep dry to maintain flowability and binding properties
+- **Applications**: Drilling mud, foundry binders, iron ore pelletizing, construction sealing
+- **Properties**: Thixotropic rheology, cation exchange capability
+
+### Key Certifications & Standards
+
+#### ISO 9001 - Quality Management Systems
+- Ensures operational processes meet customer and regulatory requirements
+- Streamlines mineral production and handling
+
+#### ISO 14001 - Environmental Management
+- Reduces environmental impact of mining and processing
+- Compliance with environmental regulations
+
+#### ISO 45001 - Occupational Health & Safety
+- Framework for identifying and mitigating workplace hazards
+- Critical for silica dust exposure management
+
+#### ISO 21898 - FIBC Standards
+- Lift performance standards for flexible intermediate bulk containers
+- Testing requirements for bag integrity
+
+#### OSHA Silica Standards (29 CFR 1910.1053)
+- Permissible Exposure Limit (PEL) for respirable crystalline silica
+- Requires exposure assessment, engineering controls, respiratory protection
+- Medical surveillance for exposed workers
+
+### Best Practices for Mineral FIBCs
+
+#### Dust Control
+- Use spout top/bottom designs to contain dust during filling/discharge
+- Install dust collection systems at loading/unloading stations
+- Never use compressed air to clean spilled silica
+- HEPA vacuum for spill cleanup
+
+#### Moisture Protection
+- Store bags in covered, dry areas
+- Use coated bags or liners for hygroscopic materials
+- Inspect bags for damage before filling
+- Seal closures immediately after filling
+
+#### Heavy Load Handling
+- Verify SWL rating matches product density
+- Use 5:1 or 6:1 safety factor for dense minerals
+- Inspect lift loops before each use
+- Don't exceed stacking recommendations
+
+---
+
 ## Quick Reference: Bag Type Selection Guide
 
 ### By Product Characteristic
@@ -615,6 +732,10 @@ The recycling industry uses FIBC bulk bags for collecting, storing, and transpor
 | Recycling - Metal | Heavy-Duty Reinforced FIBC (200+ GSM) |
 | Recycling - Textile & Clothing | Ventilated FIBC with duffle top |
 | Recycling - E-Waste | Type B/C Antistatic FIBC |
+| Minerals - Calcium Carbonate | Coated FIBC with PE liner |
+| Minerals - Silica Sand | Heavy-Duty FIBC with dust-proof closure (200+ GSM) |
+| Minerals - Kaolin / China Clay | Lined FIBC with sealed closure |
+| Minerals - Talc & Bentonite | Lined FIBC with moisture control |
 
 ---
 
@@ -673,6 +794,19 @@ The recycling industry uses FIBC bulk bags for collecting, storing, and transpor
 - [SMARTASN - Textile Recycling FAQs](https://www.smartasn.org/resources/frequently-asked-questions/)
 - [Trans-Americas Trading Company - Recycled Clothing Solutions](https://tranclo.com/)
 - [National Bulk Bag - Reuse and Recycle Guidelines for FIBC Bulk Bags](https://blog.nationalbulkbag.com/fibc-bulk-bags/reuse-and-recycle-guidelines-for-fibc-bulk-bags)
+
+### Minerals
+- [Cliffe Packaging - Benefits of FIBC Bulk Bags for the Mineral Industry](https://www.cliffepackaging.com/blog/fibc-bulk-bags-mineral-industry)
+- [Rishi FIBC - FIBC for Mining Industry](https://www.rishifibc.com/industries/mining/)
+- [Midwestern Bag - Bulk Bags for Mining Applications](https://midwesternbag.com/bulk-bags-mining/)
+- [Palmetto Industries - Mining Industry Bulk Bags](https://www.palmetto-industries.com/resources/industries-we-serve/mining/)
+- [Flexicon - Handling Bulk Calcium Carbonate Materials](https://www.flexicon.com/Materials-Handled/Calcium-Carbonate.html)
+- [U.S. Silica - Safety Data Sheet](https://www.ussilica.com/sites/default/files/2022-11/Silica%20OSHA%20GHS%20SDS%20(6-22).pdf)
+- [Imerys - Kaolin](https://www.imerys.com/minerals/kaolin)
+- [Imerys - Bentonite](https://www.imerys.com/minerals/bentonite)
+- [Palamatic Process - Talc Handling](https://www.palamaticprocess.com/en-us/powder-talc)
+- [Pacific Certifications - ISO Certification for Mining Industry](https://blog.pacificcert.com/iso-certification-mining-and-industry-quarrying/)
+- OSHA 29 CFR 1910.1053 - Respirable Crystalline Silica Standards
 
 ---
 
