@@ -13,6 +13,7 @@ A comprehensive reference guide on how FIBC bulk bags serve different industries
 6. [Pharmaceuticals](#pharmaceuticals)
 7. [Recycling](#recycling)
 8. [Minerals](#minerals)
+9. [Fertilizers](#fertilizers)
 
 ---
 
@@ -689,6 +690,161 @@ The minerals industry uses FIBC bulk bags for calcium carbonate, silica sand, ka
 
 ---
 
+## Fertilizers
+
+### Industry Overview
+The fertilizer industry uses FIBC bulk bags for nitrogen fertilizers (urea, ammonium sulfate, ammonium nitrate), phosphate fertilizers (DAP, MAP, TSP), potash/potassium products (MOP, SOP), and organic/blended fertilizers. Key concerns include moisture protection for hygroscopic materials, chemical compatibility, oxidizer safety for ammonium nitrate, and static control for combustible organic dusts.
+
+### Industry Size
+- Global fertilizer market: ~$200 billion (2025)
+- Nitrogen fertilizers: ~45% of market (urea is largest segment)
+- Phosphate fertilizers: ~25% of market
+- Potash/Potassium: ~20% of market
+- Major producers: Canada (potash), Russia, China, US, Morocco (phosphate)
+
+### Sub-Sectors & Recommended Bags
+
+| Sub-Sector | Products | Recommended Bag | Key Features |
+|------------|----------|-----------------|--------------|
+| **Nitrogen Fertilizers** | Urea (46-0-0), ammonium sulfate, ammonium nitrate | Lined FIBC with PE Moisture Barrier | PE liner prevents moisture ingress, sealed closures, dust-proof seams |
+| **Phosphate Fertilizers** | DAP (18-46-0), MAP (11-52-0), TSP, rock phosphate | Chemical-Resistant FIBC with Liner | Chemical-resistant PP, protective liner, moisture barrier |
+| **Potash (Potassium)** | MOP/KCl (0-0-60), SOP, potassium nitrate | Sealed FIBC with Moisture Control | Strict moisture barrier, corrosion-resistant loops, BOPP lamination |
+| **Organic & NPK Blends** | Composted manure, pelletized organics, custom NPK | Type C/D Antistatic FIBC | Antistatic for combustible dusts, BOPP lamination, ventilated options |
+
+### Typical Specifications
+
+| Sub-Sector | Capacity | Dimensions | Material |
+|------------|----------|------------|----------|
+| Nitrogen Fertilizers | 1,000–1,500 kg | 35" x 35" x 45" or 35" x 35" x 50" | Woven PP with PE liner (160–180 GSM) |
+| Phosphate Fertilizers | 1,000–1,500 kg | 35" x 35" x 45" or 35" x 35" x 50" | Chemical-resistant woven PP with liner (160–180 GSM) |
+| Potash (Potassium) | 1,000–2,000 kg | 35" x 35" x 45" or 37" x 37" x 50" | BOPP laminated woven PP (160–200 GSM) |
+| Organic & NPK Blends | 500–1,500 kg | 35" x 35" x 40" or 35" x 35" x 50" | Antistatic woven PP with BOPP option (160–180 GSM) |
+
+### Common Challenges & Solutions
+
+| Challenge | Description | Solution |
+|-----------|-------------|----------|
+| **Hygroscopic Caking** | Urea/potash absorb moisture causing lumps and flow problems; up to 30-40% caking in humid conditions | PE liners, sealed closures, storage at <60% RH |
+| **Oxidizer Hazards** | Ammonium nitrate is DOT Class 5.1 Oxidizer; explosion risk if contaminated or confined under heat | Separate storage, OSHA 1910.109 compliance, proper ventilation and labeling |
+| **Chemical Corrosion** | Acidic phosphates and corrosive potash degrade bag materials and metal equipment | Chemical-resistant PP, protective liners, corrosion-resistant lift loops |
+| **Static Ignition** | Fine fertilizer dusts and organic amendments create combustible atmospheres | Type C (grounded) or Type D (dissipative) antistatic bags |
+
+### Critical Relative Humidity (CRH) Values
+
+| Fertilizer | CRH at 30°C | Storage Requirement |
+|------------|-------------|---------------------|
+| Urea | 73% | Maintain storage <60% RH |
+| Ammonium Nitrate | 59% | Separate storage, ventilated |
+| Urea + AN Mix | **18%** | NEVER store together |
+| Potassium Chloride (MOP) | ~65% | Strict moisture control |
+| Ammonium Sulfate | 79% | Standard moisture protection |
+
+### Ammonium Nitrate Safety Requirements
+
+#### Regulatory Classification
+- **DOT**: Class 5 Oxidizer, Division 5.1, UN1942, PG III
+- **Definition**: Not more than 0.2% total combustible material
+- **Hazard**: Not combustible itself, but accelerates burning of combustible materials
+
+#### OSHA 29 CFR 1910.109(i) Requirements
+- Applies to storage of 1,000 lbs or more
+- Storage buildings shall not have basements
+- Buildings shall not be over one story in height
+- Adequate ventilation required (self-ventilating in fire event)
+- Minimum 1-hour fire-resistance rating firewalls from incompatible materials
+
+#### NFPA 400 Requirements
+- Blends with ≥60% AN by weight treated as 100% FGAN
+- Automatic sprinkler protection per NFPA 13 Extra Hazard (Group 1)
+- Only water-based suppression systems permitted
+- NFPA 704 placard required with "DO NOT FIGHT FIRE. EXPLOSION HAZARD."
+
+#### Separation Requirements
+Must be separated from:
+- Organic chemicals
+- Acids and corrosive materials
+- Compressed flammable gases
+- Flammable and combustible materials
+- Fuels and reactive chemicals
+
+### Urea Storage Best Practices
+
+#### Moisture Control
+- Storage relative humidity must be maintained below 60%
+- Ideal: 35±5% RH at 27°C (81°F)
+- Use dehumidifiers or moisture-absorbing packets in enclosed spaces
+- Ensure proper air circulation to dissipate heat and moisture
+
+#### Packaging Requirements
+- Moisture-proof bags required (PE inner bag + PP outer bag)
+- Airtight containers minimize exposure to air and humidity
+- Fresh product should "pile set" for 10-12 hours before bagging to minimize bag set (caking)
+
+#### Signs of Degradation
+- Hard, lumpy urea (moisture absorption)
+- Strong ammonia odor (nitrogen loss)
+- Yellow/brown discoloration (contamination or heat exposure)
+- Degraded urea may lose 10-15% nitrogen content
+
+### Potash Handling Considerations
+
+#### Corrosion Issues
+- MOP/KCl is particularly corrosive to metal parts
+- Lift loops and equipment need protection
+- Metal components should be coated or made of corrosion-resistant materials
+
+#### Storage Conditions
+- Relative humidity must be strictly controlled below 65%
+- Temperature should be maintained between 10-30°C
+- In high humidity regions, caking rate can reach 30-40% after 1 month
+- FIFO (First In, First Out) rotation recommended
+
+### Key Certifications & Standards
+
+#### OSHA 29 CFR 1910.109
+- Ammonium nitrate storage requirements
+- Applies to quantities of 1,000 lbs or more
+- Building construction and separation requirements
+
+#### DOT Hazmat (49 CFR)
+- Class 5.1 Oxidizer transport regulations
+- Packaging must comply with interstate commerce specifications
+- HME (Hazardous Materials Endorsement) required for drivers
+
+#### NFPA 400
+- Hazardous Materials Code
+- Chapter 11 specifically addresses ammonium nitrate
+- Sprinkler and suppression requirements
+
+#### ISO 21898
+- FIBC standards and lift performance testing
+- Quality assurance for bulk bag integrity
+
+#### UV Stabilization
+- 200-400+ hours recommended for outdoor/farm storage
+- Essential for multi-season warehouse storage
+
+### Best Practices for Fertilizer FIBCs
+
+#### Moisture Protection
+- Use PE liners for all hygroscopic fertilizers
+- Seal closures immediately after filling
+- Store in covered, dry areas when possible
+- Monitor storage humidity levels
+
+#### Chemical Compatibility
+- Match liner material to fertilizer chemistry
+- Use chemical-resistant PP for acidic products
+- Protect metal components from corrosive products
+
+#### Safety Compliance
+- Maintain proper separation for oxidizers
+- Follow OSHA/NFPA requirements for AN
+- Use antistatic bags for combustible dusts
+- Ensure adequate ventilation in storage areas
+
+---
+
 ## Quick Reference: Bag Type Selection Guide
 
 ### By Product Characteristic
@@ -736,6 +892,10 @@ The minerals industry uses FIBC bulk bags for calcium carbonate, silica sand, ka
 | Minerals - Silica Sand | Heavy-Duty FIBC with dust-proof closure (200+ GSM) |
 | Minerals - Kaolin / China Clay | Lined FIBC with sealed closure |
 | Minerals - Talc & Bentonite | Lined FIBC with moisture control |
+| Fertilizers - Nitrogen (Urea) | Lined FIBC with PE moisture barrier |
+| Fertilizers - Phosphate (DAP/MAP) | Chemical-resistant FIBC with liner |
+| Fertilizers - Potash (MOP/SOP) | Sealed FIBC with moisture control, BOPP |
+| Fertilizers - Organic & NPK | Type C/D Antistatic FIBC |
 
 ---
 
@@ -807,6 +967,21 @@ The minerals industry uses FIBC bulk bags for calcium carbonate, silica sand, ka
 - [Palamatic Process - Talc Handling](https://www.palamaticprocess.com/en-us/powder-talc)
 - [Pacific Certifications - ISO Certification for Mining Industry](https://blog.pacificcert.com/iso-certification-mining-and-industry-quarrying/)
 - OSHA 29 CFR 1910.1053 - Respirable Crystalline Silica Standards
+
+### Fertilizers
+- [Ferrier Industrial - Custom FIBC for Fertilizer Operations](https://ferrierindustrial.com/custom-fibc-for-fertilizer-operations/)
+- [XIFA Group - Fertilizer Packaging Types](https://xifagroup.com/blog/agricultural-bags/what-are-the-format-types-for-fertilizer-packaging/)
+- [XIFA Group - Best Packaging Materials for Fertilizer](https://xifagroup.com/blog/agricultural-bags/best-packaging-materials-for-fertilizer/)
+- [FerTech Inform - Urea Caking and How to Prevent It](https://fertechinform.org/knowledgebase/urea-caking-and-how-to-prevent-it/)
+- [Yara - Physical Properties of Fertilizers](https://www.yara.us/about-yara/fertilizer-handling-and-safety/physical-properties-of-fertilizers/)
+- [Bry-Air - Solutions for Fertilizer Storage](https://www.bryair.com/industry/fertilizer-storage/)
+- [OSHA - Ammonium Nitrate Storage Requirements](https://www.osha.gov/laws-regs/standardinterpretations/2014-12-03)
+- [TFI/ARA - Ammonium Nitrate Safety Guidelines](https://www.tfi.org/wp-content/uploads/2024/01/tfi-ara_ammonium_nitrate_guidelines_final_for_print_-_may_17_-_km_0.pdf)
+- [CF Industries - Ammonium Nitrate Safety Data Sheet](https://www.cfindustries.com/globalassets/cf-industries/media/documents/safety-data-sheets/an---north-america/amtrate-an----updated-address-4-june-2024.pdf)
+- [Connover Packaging - How to Store Fertilizer Safely](https://connoverpackaging.com/blog/how-to-store-fertilizer-safely-with-fertilizer-bags/)
+- OSHA 29 CFR 1910.109 - Ammonium Nitrate Storage
+- NFPA 400 - Hazardous Materials Code
+- DOT 49 CFR - Hazmat Transportation Regulations
 
 ---
 
