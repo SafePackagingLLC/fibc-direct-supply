@@ -124,13 +124,11 @@ const Pharmaceuticals = () => {
     return () => clearInterval(progressInterval);
   }, [isPaused, getNextTab]);
 
-  // Handle manual tab click
+  // Handle manual tab click - stops auto-rotation permanently
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
     setProgress(0);
     setIsPaused(true);
-    // Resume auto-rotation after 10 seconds of inactivity
-    setTimeout(() => setIsPaused(false), 10000);
   };
 
   return (
