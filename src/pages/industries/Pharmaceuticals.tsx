@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Pill, ArrowLeft, FlaskConical, Tablets, Sparkles, Beaker, CheckCircle2, Package, Ruler, ShieldX, Zap, Droplets, FileWarning } from "lucide-react";
-import productFoodGrade from "@/assets/product-food-grade.jpg";
 import industryPharmaceuticals from "@/assets/industry-pharmaceuticals.jpg";
+import pharmaContext from "@/assets/bags/pharma-context.jpg";
+import foodGradeContext from "@/assets/bags/food-grade-context.jpg";
+import antistaticFibc from "@/assets/bags/antistatic-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +35,7 @@ const Pharmaceuticals = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Pharma-grade PP with barrier liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: pharmaContext,
     },
     {
       id: "excipients",
@@ -53,7 +55,7 @@ const Pharmaceuticals = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Clean-room PP with PE liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: pharmaContext,
     },
     {
       id: "nutraceuticals",
@@ -73,7 +75,7 @@ const Pharmaceuticals = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Food-grade PP with PE liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: foodGradeContext,
     },
     {
       id: "intermediates",
@@ -93,7 +95,7 @@ const Pharmaceuticals = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 40\""],
         material: "Antistatic PP with conductive liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: antistaticFibc,
     }
   ];
 

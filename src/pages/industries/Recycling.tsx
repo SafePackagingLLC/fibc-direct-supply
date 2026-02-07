@@ -4,8 +4,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Recycle, ArrowLeft, Package, Wrench, Shirt, Cpu, CheckCircle2, Ruler, Trash2, Zap, Scale, RotateCcw } from "lucide-react";
-import productStandard from "@/assets/product-standard-fibc.jpg";
 import industryRecycling from "@/assets/industry-recycling.jpg";
+import baffleFibc from "@/assets/bags/baffle-fibc.jpg";
+import constructionContext from "@/assets/bags/construction-context.jpg";
+import ventilatedContext from "@/assets/bags/ventilated-context.jpg";
+import antistaticFibc from "@/assets/bags/antistatic-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +36,7 @@ const Recycling = () => {
         dimensions: ["35\" x 35\" x 40\"", "37\" x 37\" x 45\""],
         material: "Woven PP with PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: baffleFibc,
     },
     {
       id: "metal",
@@ -53,7 +56,7 @@ const Recycling = () => {
         dimensions: ["35\" x 35\" x 35\"", "40\" x 40\" x 40\""],
         material: "Heavy-duty woven PP (200+ GSM)"
       },
-      image: productStandard,
+      image: constructionContext,
     },
     {
       id: "textile",
@@ -73,7 +76,7 @@ const Recycling = () => {
         dimensions: ["40\" x 40\" x 50\"", "45\" x 45\" x 55\""],
         material: "Ventilated woven PP (140–160 GSM)"
       },
-      image: productStandard,
+      image: ventilatedContext,
     },
     {
       id: "ewaste",
@@ -93,7 +96,7 @@ const Recycling = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 40\""],
         material: "Antistatic woven PP with liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: antistaticFibc,
     }
   ];
 

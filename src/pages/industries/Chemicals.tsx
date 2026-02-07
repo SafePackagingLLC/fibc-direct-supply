@@ -4,8 +4,11 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Beaker, ArrowLeft, Hexagon, FlaskRound, AlertTriangle, Sparkles, CheckCircle2, Package, Ruler, Zap, FileCheck, FlaskConical, Droplets } from "lucide-react";
-import productStandard from "@/assets/product-standard-fibc.jpg";
 import industryChemicals from "@/assets/industry-chemicals.jpg";
+import antistaticFibc from "@/assets/bags/antistatic-fibc.jpg";
+import linedFibc from "@/assets/bags/lined-fibc.jpg";
+import unCertifiedFibc from "@/assets/bags/un-certified-fibc.jpg";
+import coatedFibc from "@/assets/bags/coated-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +36,7 @@ const Chemicals = () => {
         dimensions: ["35\" x 35\" x 45\"", "37\" x 37\" x 50\""],
         material: "Anti-static woven PP (180–200 GSM)"
       },
-      image: productStandard,
+      image: antistaticFibc,
     },
     {
       id: "caustic",
@@ -53,7 +56,7 @@ const Chemicals = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Woven PP with PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     },
     {
       id: "hazardous",
@@ -73,7 +76,7 @@ const Chemicals = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "UN-certified anti-static PP (200–220 GSM)"
       },
-      image: productStandard,
+      image: unCertifiedFibc,
     },
     {
       id: "detergents",
@@ -93,7 +96,7 @@ const Chemicals = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 50\""],
         material: "Coated woven PP with PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: coatedFibc,
     }
   ];
 

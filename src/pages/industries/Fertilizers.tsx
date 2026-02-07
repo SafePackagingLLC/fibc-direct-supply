@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Sprout, ArrowLeft, Atom, CircleDot, Gem, Leaf, CheckCircle2, Ruler, Droplets, AlertTriangle, FlaskConical, Zap } from "lucide-react";
-import productStandard from "@/assets/product-standard-fibc.jpg";
 import industryFertilizers from "@/assets/industry-fertilizers.jpg";
+import linedFibc from "@/assets/bags/lined-fibc.jpg";
+import coatedFibc from "@/assets/bags/coated-fibc.jpg";
+import antistaticFibc from "@/assets/bags/antistatic-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +35,7 @@ const Fertilizers = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Woven PP with PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     },
     {
       id: "phosphate",
@@ -53,7 +55,7 @@ const Fertilizers = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Chemical-resistant woven PP with liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     },
     {
       id: "potash",
@@ -73,7 +75,7 @@ const Fertilizers = () => {
         dimensions: ["35\" x 35\" x 45\"", "37\" x 37\" x 50\""],
         material: "BOPP laminated woven PP (160–200 GSM)"
       },
-      image: productStandard,
+      image: coatedFibc,
     },
     {
       id: "organic",
@@ -93,7 +95,7 @@ const Fertilizers = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 50\""],
         material: "Antistatic woven PP with BOPP option (160–180 GSM)"
       },
-      image: productStandard,
+      image: antistaticFibc,
     }
   ];
 

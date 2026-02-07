@@ -4,8 +4,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Apple, ArrowLeft, Wheat, Candy, Milk, Leaf, CheckCircle2, Package, Ruler, ShieldAlert, Bug, Droplets, AlertTriangle } from "lucide-react";
-import productFoodGrade from "@/assets/product-food-grade.jpg";
 import industryFoodProcessing from "@/assets/industry-food-processing.jpg";
+import foodGradeContext from "@/assets/bags/food-grade-context.jpg";
+import linedFibc from "@/assets/bags/lined-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +34,7 @@ const FoodProcessing = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Food-grade woven PP with PE liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: foodGradeContext,
     },
     {
       id: "sugar",
@@ -53,7 +54,7 @@ const FoodProcessing = () => {
         dimensions: ["35\" x 35\" x 45\"", "37\" x 37\" x 50\""],
         material: "Coated woven PP with moisture barrier (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: linedFibc,
     },
     {
       id: "dairy",
@@ -73,7 +74,7 @@ const FoodProcessing = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Clean-room PP with PE liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: foodGradeContext,
     },
     {
       id: "spices",
@@ -93,7 +94,7 @@ const FoodProcessing = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 40\""],
         material: "Food-grade PP with foil or PE liner (160–180 GSM)"
       },
-      image: productFoodGrade,
+      image: linedFibc,
     }
   ];
 

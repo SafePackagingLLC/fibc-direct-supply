@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Mountain, ArrowLeft, Layers, Gem, Droplets, Sparkles, CheckCircle2, Ruler, Wind, Droplet, Weight, Zap } from "lucide-react";
-import productStandard from "@/assets/product-standard-fibc.jpg";
 import industryMinerals from "@/assets/industry-minerals.jpg";
+import coatedFibc from "@/assets/bags/coated-fibc.jpg";
+import constructionContext from "@/assets/bags/construction-context.jpg";
+import linedFibc from "@/assets/bags/lined-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +35,7 @@ const Minerals = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Coated woven PP with PE liner (180–200 GSM)"
       },
-      image: productStandard,
+      image: coatedFibc,
     },
     {
       id: "silica",
@@ -53,7 +55,7 @@ const Minerals = () => {
         dimensions: ["35\" x 35\" x 40\"", "37\" x 37\" x 45\""],
         material: "Heavy-duty woven PP (200–240 GSM)"
       },
-      image: productStandard,
+      image: constructionContext,
     },
     {
       id: "kaolin",
@@ -73,7 +75,7 @@ const Minerals = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Woven PP with PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     },
     {
       id: "talc",
@@ -93,7 +95,7 @@ const Minerals = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Woven PP with moisture-control liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     }
   ];
 

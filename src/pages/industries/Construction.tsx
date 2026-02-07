@@ -4,8 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { HardHat, ArrowLeft, Container, Mountain, Hammer, Layers, CheckCircle2, Package, Ruler, Droplets, Sun, Weight, Shield } from "lucide-react";
-import productStandard from "@/assets/product-standard-fibc.jpg";
 import industryConstruction from "@/assets/industry-construction.jpg";
+import coatedFibc from "@/assets/bags/coated-fibc.jpg";
+import constructionContext from "@/assets/bags/construction-context.jpg";
+import linedFibc from "@/assets/bags/lined-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +35,7 @@ const Construction = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Coated woven PP with PE liner (180–200 GSM)"
       },
-      image: productStandard,
+      image: coatedFibc,
     },
     {
       id: "aggregates",
@@ -53,7 +55,7 @@ const Construction = () => {
         dimensions: ["37\" x 37\" x 50\"", "37\" x 37\" x 55\""],
         material: "Heavy-duty woven PP (200–240 GSM)"
       },
-      image: productStandard,
+      image: constructionContext,
     },
     {
       id: "drymix",
@@ -73,7 +75,7 @@ const Construction = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Coated woven PP with PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     },
     {
       id: "gypsum",
@@ -93,7 +95,7 @@ const Construction = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Woven PP with foil or PE liner (160–180 GSM)"
       },
-      image: productStandard,
+      image: linedFibc,
     }
   ];
 

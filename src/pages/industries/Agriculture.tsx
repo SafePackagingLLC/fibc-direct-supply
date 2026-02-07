@@ -5,7 +5,9 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2, Package, Ruler, Clock, Bug, Leaf, Tractor } from "lucide-react";
 import industryAgriculture from "@/assets/industry-agriculture.jpg";
-import productStandard from "@/assets/product-standard-fibc.jpg";
+import grainElevatorContext from "@/assets/bags/grain-elevator-context.jpg";
+import ventilatedContext from "@/assets/bags/ventilated-context.jpg";
+import foodGradeContext from "@/assets/bags/food-grade-context.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -33,7 +35,7 @@ const Agriculture = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Woven polypropylene (160–200 GSM)"
       },
-      image: productStandard,
+      image: grainElevatorContext,
     },
     {
       id: "seeds",
@@ -53,7 +55,7 @@ const Agriculture = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Ventilated woven polypropylene"
       },
-      image: productStandard,
+      image: ventilatedContext,
     },
     {
       id: "feed",
@@ -73,7 +75,7 @@ const Agriculture = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Food-grade woven polypropylene"
       },
-      image: productStandard,
+      image: foodGradeContext,
     },
     {
       id: "produce",
@@ -93,7 +95,7 @@ const Agriculture = () => {
         dimensions: ["35\" x 35\" x 40\"", "37\" x 37\" x 45\""],
         material: "Open-weave polypropylene"
       },
-      image: productStandard,
+      image: ventilatedContext,
     }
   ];
 
