@@ -22,63 +22,63 @@ const Industries = () => {
       icon: Wheat,
       title: "Agriculture",
       description: "Specialized bulk bags for grains, seeds, fertilizers, and feed with moisture protection and UV resistance.",
-      applications: ["Grain storage", "Fertilizer transport", "Seed packaging", "Animal feed"],
+      applications: ["Grains", "Seeds", "Animal Feed", "Fresh Produce"],
       slug: "agriculture"
     },
     {
       icon: Beaker,
       title: "Chemicals",
       description: "Safe handling solutions for chemical powders with Type B, C, and D antistatic options for hazardous materials.",
-      applications: ["Chemical powders", "Resins", "Industrial compounds", "Hazardous materials"],
+      applications: ["Resins & Polymers", "Caustic & Corrosives", "Hazardous Materials", "Detergents & Surfactants"],
       slug: "chemicals"
     },
     {
       icon: HardHat,
       title: "Construction & Cement",
       description: "Heavy-duty bags for cement, Portland cement, fly ash, sand, gravel, and aggregates for construction sites.",
-      applications: ["Cement & concrete", "Sand & gravel", "Aggregates", "Fly ash", "Lime & gypsum"],
+      applications: ["Cement & Portland", "Sand & Aggregates", "Dry Mix Products", "Gypsum & Calcium"],
       slug: "construction"
     },
     {
       icon: Apple,
       title: "Food Processing",
       description: "FDA-compliant, food-grade bags manufactured in cleanroom facilities for safe ingredient transport.",
-      applications: ["Flour & sugar", "Starches", "Food ingredients", "Bulk powders"],
+      applications: ["Flour & Grains", "Sugar & Sweeteners", "Dairy Powders", "Spices & Seasonings"],
       slug: "food-processing"
     },
     {
       icon: Pill,
       title: "Pharmaceuticals",
       description: "GMP-compliant pharmaceutical-grade bags for APIs and excipients with contamination-free transport.",
-      applications: ["Active ingredients", "Excipients", "Pharmaceutical powders", "Supplements"],
+      applications: ["APIs", "Excipients", "Nutraceuticals", "Intermediates"],
       slug: "pharmaceuticals"
     },
     {
       icon: Recycle,
       title: "Recycling",
       description: "Durable, reusable solutions for recyclable materials and waste management operations.",
-      applications: ["Plastic recycling", "Paper & cardboard", "Metal scrap", "Organic waste"],
+      applications: ["Plastic", "Metal", "Textile", "E-Waste"],
       slug: "recycling"
     },
     {
       icon: Mountain,
       title: "Minerals",
       description: "Extra-strength bags for ores, coal, and mineral powders with abrasion-resistant construction.",
-      applications: ["Mineral ores", "Coal", "Metal powders", "Industrial minerals"],
+      applications: ["Calcite", "Silica Sand", "Kaolin Clay", "Talc & Bentonite"],
       slug: "minerals"
     },
     {
       icon: Sprout,
       title: "Fertilizers",
       description: "Moisture-resistant bags with optional liners for granular and powdered fertilizer products.",
-      applications: ["NPK fertilizers", "Urea", "Potash", "Organic fertilizers"],
+      applications: ["Nitrogen", "Phosphate", "Potash", "Organic & NPK"],
       slug: "fertilizers"
     },
     {
       icon: Palette,
       title: "Color Pigments",
       description: "Specialized bags for fine pigment powders with dust containment and contamination prevention.",
-      applications: ["Industrial pigments", "Paint powders", "Dyes", "Color additives"],
+      applications: ["Titanium Dioxide", "Iron Oxide", "Carbon Black", "Organic Pigments"],
       slug: "color-pigments"
     }
   ];

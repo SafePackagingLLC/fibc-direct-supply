@@ -19,9 +19,9 @@ const Minerals = () => {
   const sectors = [
     {
       id: "calcium",
-      name: "CalciumIte",
+      name: "Calcite",
       icon: Layers,
-      headline: "Moisture-Barrier Bags for Calcium Ite & Limestone",
+      headline: "Moisture-Barrier Bags for Calcite & Limestone",
       description: "Calcium carbonate (GCC, PCC), limestone powder, chalk, and lime are sluggish, adhesive powders that readily pack and cake when exposed to moisture. Our coated bags with PE liners and dust-proof seams protect these hygroscopic materials and ensure consistent discharge.",
       bagType: "Coated FIBC with PE Liner",
       features: [
