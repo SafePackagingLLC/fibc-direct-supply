@@ -2,8 +2,8 @@ name: Supabase Keep Alive
 
 on:
   schedule:
-    # Run every Saturday at midnight UTC
-    - cron: '0 0 * * 6'
+    # Run every 3 days (Mon, Thu, Sun) at midnight UTC
+    - cron: '0 0 */3 * *'
   workflow_dispatch:
     # Allow manual triggering
 
@@ -15,14 +15,16 @@ jobs:
       - name: Query Supabase Database
         run: |
           echo "Querying Supabase database to prevent inactivity pause..."
+          echo "Timestamp: $(date -u)"
 
-          # Perform an actual database query (SELECT from form_submissions)
+          # Query 1: SELECT via REST API
+          echo ""
+          echo "--- Query 1: SELECT from form_submissions ---"
           response=$(curl -s -w "\n%{http_code}" \
             "${{ secrets.SUPABASE_URL }}/rest/v1/form_submissions?select=id&limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
 
-          # Extract HTTP status code (last line)
           http_code=$(echo "$response" | tail -n 1)
           body=$(echo "$response" | head -n -1)
 
@@ -30,9 +32,53 @@ jobs:
           echo "HTTP status code: $http_code"
 
           if [ "$http_code" -eq 200 ]; then
-            echo "Success! Database query completed."
-            echo "Supabase project activity registered - will not be paused."
+            echo "Query 1 succeeded."
           else
-            echo "Error: Database query failed with status code: $http_code"
+            echo "Warning: Query 1 failed with status $http_code"
+          fi
+
+          # Query 2: Use PostgREST health endpoint to confirm DB is reachable
+          echo ""
+          echo "--- Query 2: PostgREST health check ---"
+          health_response=$(curl -s -w "\n%{http_code}" \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
+
+          health_code=$(echo "$health_response" | tail -n 1)
+          echo "Health check HTTP status: $health_code"
+
+          # Query 3: Write + delete a keepalive row to guarantee real DB activity
+          echo ""
+          echo "--- Query 3: INSERT keepalive ping ---"
+          write_response=$(curl -s -w "\n%{http_code}" \
+            -X POST "${{ secrets.SUPABASE_URL }}/rest/v1/keepalive_ping" \
+            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=representation" \
+            -d "{\"pinged_at\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\"}")
+
+          write_code=$(echo "$write_response" | tail -n 1)
+          write_body=$(echo "$write_response" | head -n -1)
+
+          echo "Response body: $write_body"
+          echo "HTTP status code: $write_code"
+
+          if [ "$write_code" -eq 201 ]; then
+            echo "Query 3 succeeded — write activity registered."
+          else
+            echo "Warning: Query 3 failed with status $write_code"
+            echo "You may need to create the keepalive_ping table in Supabase."
+            echo "Run: CREATE TABLE keepalive_ping (id serial primary key, pinged_at timestamptz default now());"
+            echo "Then disable RLS or add an INSERT policy for the anon role."
+          fi
+
+          # Final result
+          echo ""
+          if [ "$http_code" -eq 200 ] || [ "$write_code" -eq 201 ]; then
+            echo "SUCCESS: Supabase activity registered — project will not be paused."
+          else
+            echo "FAILURE: No queries succeeded. Check your secrets and table permissions."
             exit 1
           fi
