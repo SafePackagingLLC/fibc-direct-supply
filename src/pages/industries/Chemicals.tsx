@@ -139,7 +139,7 @@ const Chemicals = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-12 bg-gradient-to-b from-muted/50 to-background">
+      <section className="relative py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <Button variant="ghost" asChild className="mb-4 -ml-4">
@@ -188,7 +188,7 @@ const Chemicals = () => {
       </section>
 
       {/* Tabs Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Tab Navigation */}
           <div className="flex flex-col items-center mb-12">
@@ -322,28 +322,28 @@ const Chemicals = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
               Chemical handling requires specialized packaging to address safety, compliance, and product integrity challenges.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Static Ignition & Explosion</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Static Ignition & Explosion</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Fine chemical powders generate static electricity during movement, which can ignite flammable materials or atmospheres.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Type C (grounded) and Type D (ground-free) anti-static bags</span>
                   </div>
@@ -352,17 +352,17 @@ const Chemicals = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
                   <FileCheck className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">UN Certification Requirements</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">UN Certification Requirements</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Hazardous materials require 6:1 safety factor bags that pass drop, topple, tear, stacking, and vibration tests annually.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>UN-certified bags for Packaging Groups II & III</span>
                   </div>
@@ -371,17 +371,17 @@ const Chemicals = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
                   <FlaskConical className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Chemical Reactivity</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Chemical Reactivity</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Corrosive chemicals attack incompatible materials. Wrong liner choice can cause catastrophic bag failure and hazmat incidents.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Chemical-resistant PE and PP liners matched to your product</span>
                   </div>
@@ -390,17 +390,17 @@ const Chemicals = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
                   <Droplets className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Moisture Degradation</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Moisture Degradation</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Hygroscopic chemicals absorb moisture from air, causing clumping, reduced flowability, and chemical degradation.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Coated bags with PE or aluminum foil moisture barriers</span>
                   </div>

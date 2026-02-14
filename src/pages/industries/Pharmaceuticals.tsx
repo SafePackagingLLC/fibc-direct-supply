@@ -138,7 +138,7 @@ const Pharmaceuticals = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-12 bg-gradient-to-b from-muted/50 to-background">
+      <section className="relative py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <Button variant="ghost" asChild className="mb-4 -ml-4">
@@ -187,7 +187,7 @@ const Pharmaceuticals = () => {
       </section>
 
       {/* Tabs Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Tab Navigation */}
           <div className="flex flex-col items-center mb-12">
@@ -321,28 +321,28 @@ const Pharmaceuticals = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
               Pharmaceutical packaging demands zero compromise. Here's how our bags protect your products and compliance.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
                   <ShieldX className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Cross-Contamination</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Cross-Contamination</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Even trace-level API releases can compromise entire batches or cause serious patient harm.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Clean-room bags with dust-proof seams</span>
                   </div>
@@ -351,17 +351,17 @@ const Pharmaceuticals = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Static Discharge</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Static Discharge</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Pharmaceutical powders generate static during transfer, creating ignition and handling risks.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Type C/D antistatic bags dissipate charges safely</span>
                   </div>
@@ -370,17 +370,17 @@ const Pharmaceuticals = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
                   <Droplets className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Potency & Stability Loss</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Potency & Stability Loss</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     APIs degrade when exposed to moisture, oxygen, or light—losing therapeutic effectiveness.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>EVOH/foil barrier liners with sealed closures</span>
                   </div>
@@ -389,17 +389,17 @@ const Pharmaceuticals = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
                   <FileWarning className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Documentation Gaps</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Documentation Gaps</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Missing Certificates of Analysis or GMP records can delay or destroy shipments at customs.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Full CoA, batch records, and lot traceability</span>
                   </div>

@@ -138,7 +138,7 @@ const ColorPigments = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-12 bg-gradient-to-b from-muted/50 to-background">
+      <section className="relative py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <Button variant="ghost" asChild className="mb-4 -ml-4">
@@ -187,7 +187,7 @@ const ColorPigments = () => {
       </section>
 
       {/* Tabs Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Tab Navigation */}
           <div className="flex flex-col items-center mb-12">
@@ -321,28 +321,28 @@ const ColorPigments = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
               Pigment handling presents unique safety and quality challenges. Here's how our specialized bags address them.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Static Discharge & Ignition</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Static Discharge & Ignition</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Fine pigment powders generate static electricity during movement. Carbon black is combustible and can ignite from a single spark.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Type C & Type D anti-static bags dissipate charges safely</span>
                   </div>
@@ -351,17 +351,17 @@ const ColorPigments = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-purple-100 text-purple-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-purple-500/20 text-purple-400 flex-shrink-0">
                   <Palette className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Cross-Contamination</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Cross-Contamination</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Even trace amounts of one color contaminating another ruins entire batches—especially critical for automotive coating tolerances.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Single-use liners and dedicated bags per color batch</span>
                   </div>
@@ -370,17 +370,17 @@ const ColorPigments = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
                   <ShieldAlert className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Regulatory Compliance</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Regulatory Compliance</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     TiO2 is now classified as a suspected carcinogen in the EU. Proper containment and dust control are mandatory requirements.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Sealed construction with dust-proof closures for compliance</span>
                   </div>
@@ -389,17 +389,17 @@ const ColorPigments = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
                   <Wind className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Fine Particle Leakage</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Fine Particle Leakage</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Ultra-fine pigment particles escape through standard weave fabric, causing product loss and facility contamination.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Tight-weave seamless construction with PE or foil liners</span>
                   </div>

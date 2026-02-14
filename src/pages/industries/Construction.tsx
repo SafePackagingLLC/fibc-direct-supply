@@ -138,7 +138,7 @@ const Construction = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative py-12 bg-gradient-to-b from-muted/50 to-background">
+      <section className="relative py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Back Button */}
           <Button variant="ghost" asChild className="mb-4 -ml-4">
@@ -187,7 +187,7 @@ const Construction = () => {
       </section>
 
       {/* Tabs Section */}
-      <section className="py-12 bg-muted/30">
+      <section className="py-12 bg-amber-50/50">
         <div className="container mx-auto px-4">
           {/* Tab Navigation */}
           <div className="flex flex-col items-center mb-12">
@@ -321,28 +321,28 @@ const Construction = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-background">
+      <section className="py-16 bg-slate-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
+            <p className="text-slate-300 max-w-2xl mx-auto">
               Construction sites demand tough, reliable packaging. Here's how our bags handle the harshest conditions.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
                   <Droplets className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Moisture Damage</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Moisture Damage</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Cement hardens instantly, gypsum degrades, and dry mix clumps when exposed to even minor moisture.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Coated bags with PE liners and sealed closures</span>
                   </div>
@@ -351,17 +351,17 @@ const Construction = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
                   <Sun className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">UV Degradation</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">UV Degradation</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Extended outdoor storage at job sites breaks down standard polypropylene, weakening bags over time.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>UV-stabilized fabric rated for 200-400+ hours</span>
                   </div>
@@ -370,17 +370,17 @@ const Construction = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
                   <Weight className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Heavy Loads & Forklift Safety</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Heavy Loads & Forklift Safety</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Bags up to 5,000 lbs require proper safety factors. Over 70% of forklift accidents are preventable.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>5:1 or 6:1 safety factor with reinforced lift loops</span>
                   </div>
@@ -389,17 +389,17 @@ const Construction = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border/50">
+            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
                   <Shield className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2">Puncture & Abrasion</h3>
-                  <p className="text-muted-foreground text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2 text-white">Puncture & Abrasion</h3>
+                  <p className="text-slate-400 text-sm mb-3">
                     Sharp aggregates, rough handling, and forklift tines can puncture or tear standard-weight bags.
                   </p>
-                  <div className="flex items-center gap-2 text-primary text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Heavy-duty 200-240 GSM fabric, abrasion-resistant</span>
                   </div>
