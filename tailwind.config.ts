@@ -99,6 +99,16 @@ export default {
             transform: "scale(1)",
             opacity: "1"
           }
+        },
+        "tab-crossfade": {
+          "0%": {
+            opacity: "0",
+            transform: "scale(0.98)"
+          },
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)"
+          }
         }
       },
       animation: {
@@ -106,6 +116,7 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
+        "tab-crossfade": "tab-crossfade 0.35s ease-out",
       },
     },
   },

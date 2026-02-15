@@ -4,10 +4,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Wheat, ArrowLeft, Sprout, Dog, Apple, CheckCircle2, Package, Ruler, Clock, Bug, Leaf, Tractor } from "lucide-react";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import ResourceCard from "@/components/ResourceCard";
 import industryAgriculture from "@/assets/industry-agriculture.jpg";
 import grainElevatorContext from "@/assets/bags/grain-elevator-context.jpg";
 import ventilatedContext from "@/assets/bags/ventilated-context.jpg";
 import foodGradeContext from "@/assets/bags/food-grade-context.jpg";
+import outdoorStorageContext from "@/assets/bags/outdoor-storage-context.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -55,7 +58,7 @@ const Agriculture = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Ventilated woven polypropylene"
       },
-      image: ventilatedContext,
+      image: outdoorStorageContext,
     },
     {
       id: "feed",
@@ -225,7 +228,7 @@ const Agriculture = () => {
           <div className="bg-white rounded-2xl shadow-sm border border-amber-200/50 p-8 md:p-12 overflow-hidden">
             <div
               key={activeTab}
-              className="grid lg:grid-cols-2 gap-12 items-start animate-fade-in"
+              className="grid lg:grid-cols-2 gap-12 items-start animate-tab-crossfade"
             >
               {/* Left Content */}
               <div>
@@ -321,28 +324,28 @@ const Agriculture = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-amber-50/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Agricultural storage comes with unique challenges. Here's how our bulk bags are engineered to address them.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-amber-500/20 text-amber-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-amber-100 text-amber-600 flex-shrink-0">
                   <Clock className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Harvest Time Crunch</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Harvest Time Crunch</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     When harvest hits, you need to move fast. Delays mean crop loss and missed market windows.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Wide-mouth filling spouts for rapid loading in the field</span>
                   </div>
@@ -351,17 +354,17 @@ const Agriculture = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
                   <Bug className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Pest & Rodent Damage</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Pest & Rodent Damage</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Stored grain attracts insects and rodents that contaminate product and cause costly losses.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Sealed construction with pest-resistant closures</span>
                   </div>
@@ -370,17 +373,17 @@ const Agriculture = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-green-500/20 text-green-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-green-100 text-green-600 flex-shrink-0">
                   <Leaf className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Seed Germination Loss</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Seed Germination Loss</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Poor storage conditions kill seeds before planting season, wasting expensive seed stock.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Breathable ventilated bags maintain optimal seed viability</span>
                   </div>
@@ -389,17 +392,17 @@ const Agriculture = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
                   <Tractor className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Rough Farm Handling</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Rough Farm Handling</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Forklifts, tractors, and outdoor conditions on farms are tough on packaging materials.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Reinforced lift loops rated for repeated heavy use</span>
                   </div>
@@ -411,7 +414,7 @@ const Agriculture = () => {
       </section>
 
       {/* Certifications Banner */}
-      <section className="py-12 bg-stone-100 border-y">
+      <section className="py-12 bg-amber-50/50 border-y">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h3 className="text-xl font-semibold mb-2">Agriculture & Food Safety Standards</h3>
@@ -442,6 +445,84 @@ const Agriculture = () => {
               <div className="text-2xl font-bold text-primary">OSHA</div>
               <div className="text-sm text-muted-foreground">Workplace Safety</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Compare Our Agriculture Bags</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Not sure which bag is right? Compare specifications across all four agricultural product categories.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-amber-200/50 shadow-sm">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-amber-50/50">
+                  <TableHead className="font-semibold">Bag Type</TableHead>
+                  <TableHead className="font-semibold">Best For</TableHead>
+                  <TableHead className="font-semibold">Capacity</TableHead>
+                  <TableHead className="font-semibold">Key Feature</TableHead>
+                  <TableHead className="font-semibold">Material</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <TableRow
+                      key={sector.id}
+                      className="cursor-pointer hover:bg-amber-50/30 transition-colors"
+                      onClick={() => handleTabClick(sector.id)}
+                    >
+                      <TableCell className="font-medium">
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-4 w-4 text-primary" />
+                          {sector.bagType}
+                        </div>
+                      </TableCell>
+                      <TableCell>{sector.name}</TableCell>
+                      <TableCell>{sector.specs.capacity}</TableCell>
+                      <TableCell>{sector.features[0]}</TableCell>
+                      <TableCell className="text-muted-foreground text-sm">{sector.specs.material}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-amber-50/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Helpful Resources</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Learn more about selecting, customizing, and using bulk bags for agricultural products.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <ResourceCard
+              title="What is an FIBC?"
+              description="A comprehensive introduction to Flexible Intermediate Bulk Containers and their applications."
+              slug="what-is-fibc"
+            />
+            <ResourceCard
+              title="How to Choose an FIBC for Your Material"
+              description="Expert guidance on selecting the right bulk bag based on your product's properties."
+              slug="choose-fibc"
+            />
+            <ResourceCard
+              title="FIBC Liner Types Explained"
+              description="Compare PE, EVOH, and laminated liners to find the best moisture protection."
+              slug="liner-types"
+            />
           </div>
         </div>
       </section>
