@@ -4,7 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Mountain, ArrowLeft, Layers, Gem, Droplets, Sparkles, CheckCircle2, Ruler, Wind, Droplet, Weight, Zap } from "lucide-react";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import ResourceCard from "@/components/ResourceCard";
 import industryMinerals from "@/assets/industry-minerals.jpg";
+import standardFibc from "@/assets/bags/standard-fibc.jpg";
 import coatedFibc from "@/assets/bags/coated-fibc.jpg";
 import constructionContext from "@/assets/bags/construction-context.jpg";
 import linedFibc from "@/assets/bags/lined-fibc.jpg";
@@ -12,7 +15,7 @@ import linedFibc from "@/assets/bags/lined-fibc.jpg";
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
 const Minerals = () => {
-  const [activeTab, setActiveTab] = useState("ite");
+  const [activeTab, setActiveTab] = useState("calcium");
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -95,7 +98,7 @@ const Minerals = () => {
         dimensions: ["35\" x 35\" x 40\"", "35\" x 35\" x 45\""],
         material: "Woven PP with moisture-control liner (160–180 GSM)"
       },
-      image: linedFibc,
+      image: standardFibc,
     }
   ];
 
@@ -225,7 +228,7 @@ const Minerals = () => {
           <div className="bg-background rounded-2xl shadow-sm border p-8 md:p-12 overflow-hidden">
             <div
               key={activeTab}
-              className="grid lg:grid-cols-2 gap-12 items-start animate-fade-in"
+              className="grid lg:grid-cols-2 gap-12 items-start animate-tab-crossfade"
             >
               {/* Left Content */}
               <div>
@@ -321,28 +324,28 @@ const Minerals = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-amber-50/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Industrial minerals demand specialized handling. Here's how our bags protect product quality and worker safety.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
                   <Wind className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Fine Powder Dust</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Fine Powder Dust</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Respirable silica is a serious health hazard. Airborne mineral dust causes product loss and environmental issues.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Dust-proof seams and spout closures</span>
                   </div>
@@ -351,17 +354,17 @@ const Minerals = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
                   <Droplet className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Moisture Degradation</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Moisture Degradation</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Calcium carbonate cakes, bentonite loses swelling capacity, talc clumps when exposed to moisture.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>PE/foil liners with coated fabric barriers</span>
                   </div>
@@ -370,17 +373,17 @@ const Minerals = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
                   <Weight className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Heavy Density Loads</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Heavy Density Loads</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Minerals range 35-58 lb/cu ft bulk density, often exceeding 2,000 kg per bag.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>5:1 or 6:1 SFR with 200-240 GSM fabric</span>
                   </div>
@@ -389,17 +392,17 @@ const Minerals = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Static & Dust Explosion</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Static & Dust Explosion</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Silica mixed with combustible resins can ignite. Static buildup during transfer creates ignition risk.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Type B antistatic bags for combustible mixes</span>
                   </div>
@@ -411,7 +414,7 @@ const Minerals = () => {
       </section>
 
       {/* Certifications Banner */}
-      <section className="py-12 bg-muted/30 border-y">
+      <section className="py-12 bg-amber-50/50 border-y">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h3 className="text-xl font-semibold mb-2">Mineral Industry Compliance Standards</h3>
@@ -442,6 +445,84 @@ const Minerals = () => {
               <div className="text-2xl font-bold text-primary">OSHA</div>
               <div className="text-sm text-muted-foreground">Silica Compliant</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Compare Our Mineral Bags</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Not sure which bag is right? Compare specifications across all four fertilizer product categories.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-amber-200/50 shadow-sm">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-amber-50/50">
+                  <TableHead className="font-semibold">Bag Type</TableHead>
+                  <TableHead className="font-semibold">Best For</TableHead>
+                  <TableHead className="font-semibold">Capacity</TableHead>
+                  <TableHead className="font-semibold">Key Feature</TableHead>
+                  <TableHead className="font-semibold">Material</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <TableRow
+                      key={sector.id}
+                      className="cursor-pointer hover:bg-amber-50/30 transition-colors"
+                      onClick={() => handleTabClick(sector.id)}
+                    >
+                      <TableCell className="font-medium">
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-4 w-4 text-primary" />
+                          {sector.bagType}
+                        </div>
+                      </TableCell>
+                      <TableCell>{sector.name}</TableCell>
+                      <TableCell>{sector.specs.capacity}</TableCell>
+                      <TableCell>{sector.features[0]}</TableCell>
+                      <TableCell className="text-muted-foreground text-sm">{sector.specs.material}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-amber-50/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Helpful Resources</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Learn more about selecting, customizing, and using bulk bags for mineral products.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <ResourceCard
+              title="What is an FIBC?"
+              description="A comprehensive introduction to Flexible Intermediate Bulk Containers and their applications."
+              slug="what-is-fibc"
+            />
+            <ResourceCard
+              title="How to Choose an FIBC for Your Material"
+              description="Expert guidance on selecting the right bulk bag based on your product's properties."
+              slug="choose-fibc"
+            />
+            <ResourceCard
+              title="FIBC Liner Types Explained"
+              description="Compare PE, EVOH, and laminated liners to find the best moisture protection."
+              slug="liner-types"
+            />
           </div>
         </div>
       </section>

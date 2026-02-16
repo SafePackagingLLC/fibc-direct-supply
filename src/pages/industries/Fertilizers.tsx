@@ -4,7 +4,10 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Sprout, ArrowLeft, Atom, CircleDot, Gem, Leaf, CheckCircle2, Ruler, Droplets, AlertTriangle, FlaskConical, Zap } from "lucide-react";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import ResourceCard from "@/components/ResourceCard";
 import industryFertilizers from "@/assets/industry-fertilizers.jpg";
+import outdoorStorageContext from "@/assets/bags/outdoor-storage-context.jpg";
 import linedFibc from "@/assets/bags/lined-fibc.jpg";
 import coatedFibc from "@/assets/bags/coated-fibc.jpg";
 import antistaticFibc from "@/assets/bags/antistatic-fibc.jpg";
@@ -55,7 +58,7 @@ const Fertilizers = () => {
         dimensions: ["35\" x 35\" x 45\"", "35\" x 35\" x 50\""],
         material: "Chemical-resistant woven PP with liner (160–180 GSM)"
       },
-      image: linedFibc,
+      image: outdoorStorageContext,
     },
     {
       id: "potash",
@@ -225,7 +228,7 @@ const Fertilizers = () => {
           <div className="bg-background rounded-2xl shadow-sm border p-8 md:p-12 overflow-hidden">
             <div
               key={activeTab}
-              className="grid lg:grid-cols-2 gap-12 items-start animate-fade-in"
+              className="grid lg:grid-cols-2 gap-12 items-start animate-tab-crossfade"
             >
               {/* Left Content */}
               <div>
@@ -321,28 +324,28 @@ const Fertilizers = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-amber-50/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Fertilizers demand strict moisture control and chemical compatibility. Here's how our bags protect product quality and ensure safe handling.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
                   <Droplets className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Hygroscopic Caking</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Hygroscopic Caking</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Urea and potash absorb atmospheric moisture causing lumps, flow problems, and up to 30-40% caking rates.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>PE liners with sealed closures at &lt;60% RH</span>
                   </div>
@@ -351,17 +354,17 @@ const Fertilizers = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
                   <AlertTriangle className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Oxidizer Hazards</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Oxidizer Hazards</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Ammonium nitrate is a Class 5 Oxidizer with explosion risk if contaminated or confined under heat.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>OSHA 1910.109 compliant storage & labeling</span>
                   </div>
@@ -370,17 +373,17 @@ const Fertilizers = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
                   <FlaskConical className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Chemical Corrosion</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Chemical Corrosion</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Acidic phosphates and corrosive potash degrade bag materials and metal lift equipment over time.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Chemical-resistant PP with protective liners</span>
                   </div>
@@ -389,17 +392,17 @@ const Fertilizers = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Static Ignition</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Static Ignition</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Fine fertilizer dusts and organic amendments create combustible atmospheres during handling.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Type C/D antistatic bags dissipate charges</span>
                   </div>
@@ -411,7 +414,7 @@ const Fertilizers = () => {
       </section>
 
       {/* Certifications Banner */}
-      <section className="py-12 bg-muted/30 border-y">
+      <section className="py-12 bg-amber-50/50 border-y">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h3 className="text-xl font-semibold mb-2">Fertilizer Industry Compliance Standards</h3>
@@ -442,6 +445,84 @@ const Fertilizers = () => {
               <div className="text-2xl font-bold text-primary">UV 400+</div>
               <div className="text-sm text-muted-foreground">Outdoor Storage</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Compare Our Fertilizer Bags</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Not sure which bag is right? Compare specifications across all four fertilizer product categories.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-amber-200/50 shadow-sm">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-amber-50/50">
+                  <TableHead className="font-semibold">Bag Type</TableHead>
+                  <TableHead className="font-semibold">Best For</TableHead>
+                  <TableHead className="font-semibold">Capacity</TableHead>
+                  <TableHead className="font-semibold">Key Feature</TableHead>
+                  <TableHead className="font-semibold">Material</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <TableRow
+                      key={sector.id}
+                      className="cursor-pointer hover:bg-amber-50/30 transition-colors"
+                      onClick={() => handleTabClick(sector.id)}
+                    >
+                      <TableCell className="font-medium">
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-4 w-4 text-primary" />
+                          {sector.bagType}
+                        </div>
+                      </TableCell>
+                      <TableCell>{sector.name}</TableCell>
+                      <TableCell>{sector.specs.capacity}</TableCell>
+                      <TableCell>{sector.features[0]}</TableCell>
+                      <TableCell className="text-muted-foreground text-sm">{sector.specs.material}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-amber-50/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Helpful Resources</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Learn more about selecting, customizing, and using bulk bags for fertilizer products.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <ResourceCard
+              title="What is an FIBC?"
+              description="A comprehensive introduction to Flexible Intermediate Bulk Containers and their applications."
+              slug="what-is-fibc"
+            />
+            <ResourceCard
+              title="How to Choose an FIBC for Your Material"
+              description="Expert guidance on selecting the right bulk bag based on your product's properties."
+              slug="choose-fibc"
+            />
+            <ResourceCard
+              title="FIBC Liner Types Explained"
+              description="Compare PE, EVOH, and laminated liners to find the best moisture protection."
+              slug="liner-types"
+            />
           </div>
         </div>
       </section>

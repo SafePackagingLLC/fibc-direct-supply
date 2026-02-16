@@ -4,10 +4,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { HardHat, ArrowLeft, Container, Mountain, Hammer, Layers, CheckCircle2, Package, Ruler, Droplets, Sun, Weight, Shield } from "lucide-react";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import ResourceCard from "@/components/ResourceCard";
 import industryConstruction from "@/assets/industry-construction.jpg";
 import coatedFibc from "@/assets/bags/coated-fibc.jpg";
 import constructionContext from "@/assets/bags/construction-context.jpg";
 import linedFibc from "@/assets/bags/lined-fibc.jpg";
+import standardFibc from "@/assets/bags/standard-fibc.jpg";
 
 const ROTATION_INTERVAL = 6000; // 6 seconds per tab
 
@@ -95,7 +98,7 @@ const Construction = () => {
         dimensions: ["35\" x 35\" x 35\"", "35\" x 35\" x 42\""],
         material: "Woven PP with foil or PE liner (160–180 GSM)"
       },
-      image: linedFibc,
+      image: standardFibc,
     }
   ];
 
@@ -225,7 +228,7 @@ const Construction = () => {
           <div className="bg-background rounded-2xl shadow-sm border p-8 md:p-12 overflow-hidden">
             <div
               key={activeTab}
-              className="grid lg:grid-cols-2 gap-12 items-start animate-fade-in"
+              className="grid lg:grid-cols-2 gap-12 items-start animate-tab-crossfade"
             >
               {/* Left Content */}
               <div>
@@ -321,28 +324,28 @@ const Construction = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-amber-50/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Construction sites demand tough, reliable packaging. Here's how our bags handle the harshest conditions.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
                   <Droplets className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Moisture Damage</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Moisture Damage</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Cement hardens instantly, gypsum degrades, and dry mix clumps when exposed to even minor moisture.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Coated bags with PE liners and sealed closures</span>
                   </div>
@@ -351,17 +354,17 @@ const Construction = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
                   <Sun className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">UV Degradation</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">UV Degradation</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Extended outdoor storage at job sites breaks down standard polypropylene, weakening bags over time.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>UV-stabilized fabric rated for 200-400+ hours</span>
                   </div>
@@ -370,17 +373,17 @@ const Construction = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
                   <Weight className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Heavy Loads & Forklift Safety</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Heavy Loads & Forklift Safety</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Bags up to 5,000 lbs require proper safety factors. Over 70% of forklift accidents are preventable.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>5:1 or 6:1 safety factor with reinforced lift loops</span>
                   </div>
@@ -389,23 +392,101 @@ const Construction = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-orange-500/20 text-orange-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-orange-100 text-orange-600 flex-shrink-0">
                   <Shield className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Puncture & Abrasion</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Puncture & Abrasion</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Sharp aggregates, rough handling, and forklift tines can puncture or tear standard-weight bags.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Heavy-duty 200-240 GSM fabric, abrasion-resistant</span>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Compare Our Construction Bags</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Not sure which bag is right? Compare specifications across all four chemical product categories.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-amber-200/50 shadow-sm">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-amber-50/50">
+                  <TableHead className="font-semibold">Bag Type</TableHead>
+                  <TableHead className="font-semibold">Best For</TableHead>
+                  <TableHead className="font-semibold">Capacity</TableHead>
+                  <TableHead className="font-semibold">Key Feature</TableHead>
+                  <TableHead className="font-semibold">Material</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <TableRow
+                      key={sector.id}
+                      className="cursor-pointer hover:bg-amber-50/30 transition-colors"
+                      onClick={() => handleTabClick(sector.id)}
+                    >
+                      <TableCell className="font-medium">
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-4 w-4 text-primary" />
+                          {sector.bagType}
+                        </div>
+                      </TableCell>
+                      <TableCell>{sector.name}</TableCell>
+                      <TableCell>{sector.specs.capacity}</TableCell>
+                      <TableCell>{sector.features[0]}</TableCell>
+                      <TableCell className="text-muted-foreground text-sm">{sector.specs.material}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-amber-50/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Helpful Resources</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Learn more about selecting, customizing, and using bulk bags for construction materials.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <ResourceCard
+              title="What is an FIBC?"
+              description="A comprehensive introduction to Flexible Intermediate Bulk Containers and their applications."
+              slug="what-is-fibc"
+            />
+            <ResourceCard
+              title="How to Choose an FIBC for Your Material"
+              description="Expert guidance on selecting the right bulk bag based on your product's properties."
+              slug="choose-fibc"
+            />
+            <ResourceCard
+              title="FIBC Liner Types Explained"
+              description="Compare PE, EVOH, and laminated liners to find the best moisture protection."
+              slug="liner-types"
+            />
           </div>
         </div>
       </section>

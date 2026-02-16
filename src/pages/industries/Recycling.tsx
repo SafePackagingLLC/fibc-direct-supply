@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Recycle, ArrowLeft, Package, Wrench, Shirt, Cpu, CheckCircle2, Ruler, Trash2, Zap, Scale, RotateCcw } from "lucide-react";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "@/components/ui/table";
+import ResourceCard from "@/components/ResourceCard";
 import industryRecycling from "@/assets/industry-recycling.jpg";
 import baffleFibc from "@/assets/bags/baffle-fibc.jpg";
 import constructionContext from "@/assets/bags/construction-context.jpg";
@@ -226,7 +228,7 @@ const Recycling = () => {
           <div className="bg-background rounded-2xl shadow-sm border p-8 md:p-12 overflow-hidden">
             <div
               key={activeTab}
-              className="grid lg:grid-cols-2 gap-12 items-start animate-fade-in"
+              className="grid lg:grid-cols-2 gap-12 items-start animate-tab-crossfade"
             >
               {/* Left Content */}
               <div>
@@ -322,28 +324,28 @@ const Recycling = () => {
       </section>
 
       {/* Common Challenges Section */}
-      <section className="py-16 bg-slate-900">
+      <section className="py-16 bg-amber-50/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-3 text-white">Common Challenges We Solve</h2>
-            <p className="text-slate-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-3">Common Challenges We Solve</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               Recycling operations demand durability and cost efficiency. Here's how our bags maximize reuse cycles and minimize material loss.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Challenge 1 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-red-500/20 text-red-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-red-100 text-red-600 flex-shrink-0">
                   <Trash2 className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Material Contamination</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Material Contamination</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Cross-contamination between material types degrades recyclate quality and reduces market value.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Dedicated bags with liners & color-coding</span>
                   </div>
@@ -352,17 +354,17 @@ const Recycling = () => {
             </div>
 
             {/* Challenge 2 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-yellow-500/20 text-yellow-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-yellow-100 text-yellow-600 flex-shrink-0">
                   <Zap className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Sharp Edge Punctures</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Sharp Edge Punctures</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Shredded metal and circuit boards tear standard bags, causing material loss and safety hazards.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>200+ GSM fabric with reinforced bottom panels</span>
                   </div>
@@ -371,17 +373,17 @@ const Recycling = () => {
             </div>
 
             {/* Challenge 3 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-blue-100 text-blue-600 flex-shrink-0">
                   <Scale className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Weight Variability</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Weight Variability</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Metal scrap (4,000+ lbs) vs. textiles (lightweight/bulky) require different capacity designs.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>Customized SWL from 300 kg to 2,000 kg</span>
                   </div>
@@ -390,17 +392,17 @@ const Recycling = () => {
             </div>
 
             {/* Challenge 4 */}
-            <div className="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+            <div className="bg-white rounded-2xl p-6 border border-amber-200/50 shadow-sm">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-green-500/20 text-green-400 flex-shrink-0">
+                <div className="p-3 rounded-xl bg-green-100 text-green-600 flex-shrink-0">
                   <RotateCcw className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-lg mb-2 text-white">Multi-Trip Durability</h3>
-                  <p className="text-slate-400 text-sm mb-3">
+                  <h3 className="font-semibold text-lg mb-2">Multi-Trip Durability</h3>
+                  <p className="text-muted-foreground text-sm mb-3">
                     Single-use bags drive up costs—recyclers need 5-10 reuse cycles for economic viability.
                   </p>
-                  <div className="flex items-center gap-2 text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-2 text-emerald-600 text-sm font-medium">
                     <CheckCircle2 className="h-4 w-4" />
                     <span>6:1 Safety Factor for multi-trip certification</span>
                   </div>
@@ -412,7 +414,7 @@ const Recycling = () => {
       </section>
 
       {/* Certifications Banner */}
-      <section className="py-12 bg-muted/30 border-y">
+      <section className="py-12 bg-amber-50/50 border-y">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
             <h3 className="text-xl font-semibold mb-2">Recycling Industry Compliance Standards</h3>
@@ -443,6 +445,84 @@ const Recycling = () => {
               <div className="text-2xl font-bold text-primary">6:1 SFR</div>
               <div className="text-sm text-muted-foreground">Multi-Trip Certified</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Table */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Compare Our Recycling Bags</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Not sure which bag is right? Compare specifications across all four pharmaceutical product categories.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto overflow-x-auto rounded-2xl border border-amber-200/50 shadow-sm">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-amber-50/50">
+                  <TableHead className="font-semibold">Bag Type</TableHead>
+                  <TableHead className="font-semibold">Best For</TableHead>
+                  <TableHead className="font-semibold">Capacity</TableHead>
+                  <TableHead className="font-semibold">Key Feature</TableHead>
+                  <TableHead className="font-semibold">Material</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sectors.map((sector) => {
+                  const Icon = sector.icon;
+                  return (
+                    <TableRow
+                      key={sector.id}
+                      className="cursor-pointer hover:bg-amber-50/30 transition-colors"
+                      onClick={() => handleTabClick(sector.id)}
+                    >
+                      <TableCell className="font-medium">
+                        <div className="flex items-center gap-2">
+                          <Icon className="h-4 w-4 text-primary" />
+                          {sector.bagType}
+                        </div>
+                      </TableCell>
+                      <TableCell>{sector.name}</TableCell>
+                      <TableCell>{sector.specs.capacity}</TableCell>
+                      <TableCell>{sector.features[0]}</TableCell>
+                      <TableCell className="text-muted-foreground text-sm">{sector.specs.material}</TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      <section className="py-16 bg-amber-50/50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Helpful Resources</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Learn more about selecting, customizing, and using bulk bags for recycling operations.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <ResourceCard
+              title="What is an FIBC?"
+              description="A comprehensive introduction to Flexible Intermediate Bulk Containers and their applications."
+              slug="what-is-fibc"
+            />
+            <ResourceCard
+              title="How to Choose an FIBC for Your Material"
+              description="Expert guidance on selecting the right bulk bag based on your product's properties."
+              slug="choose-fibc"
+            />
+            <ResourceCard
+              title="FIBC Liner Types Explained"
+              description="Compare PE, EVOH, and laminated liners to find the best moisture protection."
+              slug="liner-types"
+            />
           </div>
         </div>
       </section>
