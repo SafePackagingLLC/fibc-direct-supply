@@ -224,9 +224,9 @@ const Contact = () => {
                       <SelectValue placeholder="Select warehouse" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="la">Los Angeles, CA</SelectItem>
+                      <SelectItem value="phoenix">Phoenix, AZ</SelectItem>
+                      <SelectItem value="austin">Austin, TX</SelectItem>
                       <SelectItem value="houston">Houston, TX</SelectItem>
-                      <SelectItem value="chicago">Chicago, IL</SelectItem>
                       <SelectItem value="newark">Newark, NJ</SelectItem>
                     </SelectContent>
                   </Select>

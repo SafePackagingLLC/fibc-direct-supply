@@ -74,7 +74,7 @@ const About = () => {
             <div>
               <h2 className="text-2xl font-bold mb-4">Regional Warehouse Network</h2>
               <p className="text-muted-foreground">
-                To serve our customers better, we maintain strategically located warehouses in Los Angeles, Houston, Chicago, 
+                To serve our customers better, we maintain strategically located warehouses in Phoenix, Austin, Houston,
                 and Newark. This network allows us to provide rapid 24-72 hour delivery to most locations across the United States, 
                 reducing lead times and ensuring you have the materials you need when you need them.
               </p>
