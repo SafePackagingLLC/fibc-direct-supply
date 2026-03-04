@@ -370,6 +370,7 @@ Capacity: ${capacities.find(c => c.id === bagConfig.capacity)?.name || bagConfig
                     <SelectContent>
                       <SelectItem value="phoenix">Phoenix, AZ</SelectItem>
                       <SelectItem value="austin">Austin, TX</SelectItem>
+                      <SelectItem value="houston">Houston, TX</SelectItem>
                       <SelectItem value="newark">Newark, NJ</SelectItem>
                     </SelectContent>
                   </Select>

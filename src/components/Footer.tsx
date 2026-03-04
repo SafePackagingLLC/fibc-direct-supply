@@ -49,6 +49,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div>Phoenix, AZ</div>
               <div>Austin, TX</div>
+              <div>Houston, TX</div>
               <div>Newark, NJ</div>
             </div>
           </div>
