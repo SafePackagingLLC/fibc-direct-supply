@@ -51,7 +51,7 @@ export const fabricTypes = [
 export const linerOptions = [
   { id: "none", name: "No Liner" },
   { id: "pe", name: "PE Liner" },
-  { id: "aluminum", name: "Aluminum Barrier" },
+  // { id: "aluminum", name: "Aluminum Barrier" }, // Temporarily removed — restore after ~2 weeks
   { id: "food-safe", name: "Food-Safe Liner" },
 ];
 
