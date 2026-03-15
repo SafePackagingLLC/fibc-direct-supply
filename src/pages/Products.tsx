@@ -5,6 +5,7 @@ import ProductCard from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import productStandard from "@/assets/product-standard-fibc.jpg";
 import productFoodGrade from "@/assets/product-food-grade.jpg";
+import { PRICING_CONFIG } from "@/data/pricingConfig";
 
 interface Product {
   title: string;
@@ -13,6 +14,15 @@ interface Product {
   image: string;
   stockStatus: string;
   slug: string;
+  startingAt?: number;
+  atQty?: number;
+  quoteParams?: string;
+}
+
+function productPricing(slug: string): { startingAt: number; atQty: number; quoteParams: string } | undefined {
+  const entry = (PRICING_CONFIG.productStartingAt as Record<string, { price: number; atQty: number; quoteParams: string }>)[slug];
+  if (!entry) return undefined;
+  return { startingAt: entry.price, atQty: entry.atQty, quoteParams: entry.quoteParams };
 }
 
 interface Industry {
@@ -35,7 +45,8 @@ const Products = () => {
           specs: "1,000–2,000 kg capacity • 160–200 GSM • 4 lifting loops • UV stabilized • Optional PE liner",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "standard-fibc"
+          slug: "standard-fibc",
+          ...productPricing("standard-fibc"),
         },
         {
           title: "Ventilated FIBC Bag",
@@ -43,7 +54,8 @@ const Products = () => {
           specs: "500–1,000 kg capacity • 160–180 GSM • Ventilation strips • 4 lifting loops • Enhanced airflow",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "ventilated-fibc"
+          slug: "ventilated-fibc",
+          ...productPricing("ventilated-fibc"),
         },
         {
           title: "Baffle FIBC Bag",
@@ -51,7 +63,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 180–200 GSM • Internal baffles • Maintains cubic shape • Optimized stacking",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "baffle-fibc"
+          slug: "baffle-fibc",
+          ...productPricing("baffle-fibc"),
         }
       ]
     },
@@ -66,7 +79,8 @@ const Products = () => {
           specs: "500–1,500 kg capacity • 180–200 GSM • Low breakdown voltage • Prevents spark discharges • 4 lifting loops",
           image: productStandard,
           stockStatus: "Contact for availability",
-          slug: "type-b-antistatic-fibc"
+          slug: "type-b-antistatic-fibc",
+          ...productPricing("type-b-antistatic-fibc"),
         },
         {
           title: "Type C Conductive FIBC",
@@ -74,7 +88,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 200–220 GSM • Conductive threads • Requires grounding • Flammable powder safe",
           image: productStandard,
           stockStatus: "Contact for availability",
-          slug: "type-c-conductive-fibc"
+          slug: "type-c-conductive-fibc",
+          ...productPricing("type-c-conductive-fibc"),
         },
         {
           title: "Type D Static Dissipative FIBC",
@@ -82,7 +97,8 @@ const Products = () => {
           specs: "500–1,500 kg capacity • 180–200 GSM • No grounding required • Static dissipative • Safe for hazardous environments",
           image: productStandard,
           stockStatus: "Contact for availability",
-          slug: "type-d-static-dissipative-fibc"
+          slug: "type-d-static-dissipative-fibc",
+          ...productPricing("type-d-static-dissipative-fibc"),
         }
       ]
     },
@@ -97,7 +113,8 @@ const Products = () => {
           specs: "1,000–2,000 kg capacity • 180–220 GSM • Heavy-duty fabric • 4 corner loops • UV stabilized",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "standard-construction-fibc"
+          slug: "standard-construction-fibc",
+          ...productPricing("standard-construction-fibc"),
         },
         {
           title: "Circular/Tubular FIBC",
@@ -105,7 +122,8 @@ const Products = () => {
           specs: "1,000–2,000 kg capacity • 180–200 GSM • Seamless body • Ideal for fine materials • Reduced rupture risk",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "circular-tubular-fibc"
+          slug: "circular-tubular-fibc",
+          ...productPricing("circular-tubular-fibc"),
         },
         {
           title: "Baffle FIBC Bag",
@@ -113,7 +131,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 200–220 GSM • Internal baffles • Cubic shape • Optimized for cement & fly ash",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "baffle-construction-fibc"
+          slug: "baffle-construction-fibc",
+          ...productPricing("baffle-construction-fibc"),
         }
       ]
     },
@@ -128,7 +147,8 @@ const Products = () => {
           specs: "500–1,500 kg capacity • 160–180 GSM • FDA-compliant • Cleanroom manufactured • Food-safe PE liner",
           image: productFoodGrade,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "food-grade-fibc"
+          slug: "food-grade-fibc",
+          ...productPricing("food-grade-fibc"),
         },
         {
           title: "Baffle Food-Grade FIBC",
@@ -136,7 +156,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 180–200 GSM • Internal baffles • Food-grade liner • Cubic shape for stacking",
           image: productFoodGrade,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "baffle-food-grade-fibc"
+          slug: "baffle-food-grade-fibc",
+          ...productPricing("baffle-food-grade-fibc"),
         }
       ]
     },
@@ -151,7 +172,8 @@ const Products = () => {
           specs: "500–1,000 kg capacity • 160–180 GSM • Cleanroom manufactured • GMP-compliant • Pharma-grade liner",
           image: productFoodGrade,
           stockStatus: "Contact for availability",
-          slug: "pharmaceutical-grade-fibc"
+          slug: "pharmaceutical-grade-fibc",
+          ...productPricing("pharmaceutical-grade-fibc"),
         },
         {
           title: "Type D Static Dissipative FIBC",
@@ -159,7 +181,8 @@ const Products = () => {
           specs: "500–1,500 kg capacity • 180–200 GSM • No grounding required • Static dissipative • Safe for APIs",
           image: productFoodGrade,
           stockStatus: "Contact for availability",
-          slug: "type-d-pharma-fibc"
+          slug: "type-d-pharma-fibc",
+          ...productPricing("type-d-pharma-fibc"),
         }
       ]
     },
@@ -174,7 +197,8 @@ const Products = () => {
           specs: "500–1,500 kg capacity • 160–180 GSM • 4 corner loops • Durable construction • Reusable",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "standard-recycling-fibc"
+          slug: "standard-recycling-fibc",
+          ...productPricing("standard-recycling-fibc"),
         },
         {
           title: "Ventilated FIBC Bag",
@@ -182,7 +206,8 @@ const Products = () => {
           specs: "500–1,000 kg capacity • 160–180 GSM • Ventilation strips • Airflow for organic materials • 4 lifting loops",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "ventilated-recycling-fibc"
+          slug: "ventilated-recycling-fibc",
+          ...productPricing("ventilated-recycling-fibc"),
         }
       ]
     },
@@ -197,7 +222,8 @@ const Products = () => {
           specs: "1,000–2,000 kg capacity • 200–240 GSM • High GSM fabric • Reinforced loops • Abrasion resistant",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "heavy-duty-minerals-fibc"
+          slug: "heavy-duty-minerals-fibc",
+          ...productPricing("heavy-duty-minerals-fibc"),
         },
         {
           title: "Circular/Tubular FIBC",
@@ -205,7 +231,8 @@ const Products = () => {
           specs: "1,000–2,000 kg capacity • 180–200 GSM • Seamless body • Ideal for fine mineral powders • Reduced leakage",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "circular-minerals-fibc"
+          slug: "circular-minerals-fibc",
+          ...productPricing("circular-minerals-fibc"),
         },
         {
           title: "Baffle FIBC Bag",
@@ -213,7 +240,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 200–220 GSM • Internal baffles • Cubic shape • Optimized storage",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "baffle-minerals-fibc"
+          slug: "baffle-minerals-fibc",
+          ...productPricing("baffle-minerals-fibc"),
         }
       ]
     },
@@ -228,7 +256,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 160–200 GSM • UV stabilized • 4 corner loops • Optional PE liner",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "standard-fertilizer-fibc"
+          slug: "standard-fertilizer-fibc",
+          ...productPricing("standard-fertilizer-fibc"),
         },
         {
           title: "Lined FIBC Bag",
@@ -236,7 +265,8 @@ const Products = () => {
           specs: "500–1,500 kg capacity • 160–180 GSM • PE liner • Moisture protection • Ideal for hygroscopic fertilizers",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "lined-fertilizer-fibc"
+          slug: "lined-fertilizer-fibc",
+          ...productPricing("lined-fertilizer-fibc"),
         }
       ]
     },
@@ -251,7 +281,8 @@ const Products = () => {
           specs: "1,000–2,000 kg capacity • 180–200 GSM • Seamless body • Ideal for cement & pigments • Minimizes dust leakage",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "circular-cement-fibc"
+          slug: "circular-cement-fibc",
+          ...productPricing("circular-cement-fibc"),
         },
         {
           title: "Baffle FIBC Bag",
@@ -259,7 +290,8 @@ const Products = () => {
           specs: "1,000–1,500 kg capacity • 200–220 GSM • Internal baffles • Cubic shape • Optimized for fine powders",
           image: productStandard,
           stockStatus: "In Stock — Ships 24-72 hrs",
-          slug: "baffle-cement-fibc"
+          slug: "baffle-cement-fibc",
+          ...productPricing("baffle-cement-fibc"),
         }
       ]
     }

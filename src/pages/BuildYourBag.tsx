@@ -1,310 +1,198 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+import { useEffect, useState, useMemo } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import QuoteWizard from "@/components/quote/QuoteWizard";
+import QuoteSidebar from "@/components/quote/QuoteSidebar";
+import QuoteMobileBar from "@/components/quote/QuoteMobileBar";
+import QuoteLeadForm from "@/components/quote/QuoteLeadForm";
+import QuoteConfirmation from "@/components/quote/QuoteConfirmation";
+import { QuoteContext } from "@/hooks/useQuoteConfig";
+import { useQuoteConfig } from "@/hooks/useQuoteConfig";
+import { useQuoteSubmit } from "@/hooks/useQuoteSubmit";
+import { useQuoteAnalytics } from "@/hooks/useQuoteAnalytics";
+import type { LeadData } from "@/types/quote";
+import { DEFAULT_CONFIG } from "@/types/quote";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-// Export configuration options for use in Contact page
-export const bagTops = [
-  { id: "open-top", name: "Open Top", image: "/images/bag-parts/open-top.png" },
-  { id: "spout-top", name: "Spout Top", image: "/images/bag-parts/spout-top.png" },
-  { id: "flap-top", name: "Flap Top", image: "/images/bag-parts/flap-top.png" },
-  { id: "duffle-top", name: "Duffle Top", image: "/images/bag-parts/duffle-top.png" },
+// ─── FAQ ──────────────────────────────────────────────────────────────────────
+
+const FAQ = [
+  {
+    q: "How accurate is the price estimate?",
+    a: "The estimate is within ±13% of the final price for most standard configurations. Custom dimensions, special certifications, and rush orders may affect pricing.",
+  },
+  {
+    q: "What is the minimum order quantity?",
+    a: "Our minimum order is typically 100 units for standard bags and 500 units for specialized configurations (Type C/D, UN certified, pharmaceutical grade).",
+  },
+  {
+    q: "How long does manufacturing take?",
+    a: "Standard in-stock configurations ship within 24–72 hours from our regional warehouses. Custom configurations typically require 3–6 weeks production time.",
+  },
+  {
+    q: "Do you offer samples before a full order?",
+    a: "Yes — we can ship a sample bag for evaluation before committing to a full production run. Contact our sales team to request samples.",
+  },
+  {
+    q: "What is the difference between safety factors 5:1 and 6:1?",
+    a: "A 5:1 safety factor bag is rated for single-trip use. A 6:1 safety factor bag is built for multiple trips and is constructed with heavier fabric and reinforced seams.",
+  },
+  {
+    q: "What does 'Type C' or 'Type D' antistatic mean?",
+    a: "Type C bags use conductive threads woven into the fabric and must be grounded during use. Type D bags are static-dissipative and require no grounding cable — safer for most environments.",
+  },
+  {
+    q: "Can I get a bag certified to UN standards?",
+    a: "Yes — select 'UN Certified' in the Extras step. UN certification is required for transport of certain hazardous materials and adds testing and documentation to the order.",
+  },
+  {
+    q: "What payment terms are available?",
+    a: "We offer net-30 terms for established customers and 50% deposit / 50% on shipment for new customers. Wire transfer, ACH, and major credit cards are accepted.",
+  },
 ];
 
-export const loopTypes = [
-  { id: "cross-corner", name: "Cross-Corner Loops", image: "/images/bag-parts/loop-cross-corner.png" },
-  { id: "corner-seam", name: "Corner Seam Loops", image: "/images/bag-parts/loop-corner-seam.png" },
-  { id: "stevedore", name: "Stevedore Strap", image: "/images/bag-parts/loop-stevedore.png" },
-  { id: "sleeve", name: "Sleeve Lifts", image: "/images/bag-parts/loop-sleeve.png" },
-  { id: "single-point", name: "Single Point", image: "/images/bag-parts/loop-single-point.png" },
-];
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
-export const bagBottoms = [
-  { id: "plain", name: "Plain Bottom", image: "/images/bag-parts/plain-bottom.png" },
-  { id: "spout", name: "Spout Bottom", image: "/images/bag-parts/spout-bottom.png" },
-];
+type PageStage = "wizard" | "lead-form" | "confirmation";
 
-export const constructionTypes = [
-  { id: "4-panel", name: "4-Panel", image: "/images/bag-parts/4-panel.png" },
-  { id: "u-panel", name: "U-panel", image: "/images/bag-parts/u-panel.png" },
-  { id: "circular", name: "Circular", image: "/images/bag-parts/circular.png" },
-  { id: "baffled", name: "Baffled", image: "/images/bag-parts/baffled.png" },
-];
+function BuildYourBagInner() {
+  const quoteState = useQuoteConfig();
+  const { submit, status, setStatus } = useQuoteSubmit();
+  const [stage, setStage] = useState<PageStage>("wizard");
+  const { trackStep, trackSubmit } = useQuoteAnalytics(quoteState.config, stage === "lead-form" ? 13 : stage === "confirmation" ? 13 : 0);
 
-export const fabricTypes = [
-  { id: "standard", name: "Standard PP", gsm: "150-180 GSM" },
-  { id: "coated", name: "Coated Fabric", gsm: "180-200 GSM" },
-  { id: "breathable", name: "Breathable", gsm: "160-180 GSM" },
-  { id: "food-grade", name: "Food Grade", gsm: "180-220 GSM" },
-];
+  // SEO
+  useEffect(() => {
+    document.title = "FIBC Bulk Bag Pricing | Build & Price Your Bag — Safe Packaging";
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute(
+        "content",
+        "Configure your custom FIBC bulk bag and get an instant transparent price estimate. Choose construction, dimensions, SWL, liner, printing and more."
+      );
+    }
 
-export const linerOptions = [
-  { id: "none", name: "No Liner" },
-  { id: "pe", name: "PE Liner" },
-  { id: "aluminum", name: "Aluminum Barrier" },
-  { id: "food-safe", name: "Food-Safe Liner" },
-];
+    // JSON-LD
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.id = "quote-jsonld";
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: "FIBC Bag Price Configurator",
+      description: "Configure and price your custom FIBC bulk bag instantly.",
+      applicationCategory: "BusinessApplication",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    });
+    if (!document.getElementById("quote-jsonld")) {
+      document.head.appendChild(script);
+    }
 
-export const capacities = [
-  { id: "500", name: "500 kg" },
-  { id: "1000", name: "1,000 kg" },
-  { id: "1500", name: "1,500 kg" },
-  { id: "2000", name: "2,000 kg" },
-];
-
-export interface BagConfiguration {
-  top: string;
-  loop: string;
-  bottom: string;
-  construction: string;
-  fabric: string;
-  liner: string;
-  capacity: string;
-}
-
-
-const BuildYourBag = () => {
-  const navigate = useNavigate();
-  const [selectedTop, setSelectedTop] = useState("open-top");
-  const [selectedLoop, setSelectedLoop] = useState("cross-corner");
-  const [selectedBottom, setSelectedBottom] = useState("plain");
-  const [selectedConstruction, setSelectedConstruction] = useState("4-panel");
-  const [selectedFabric, setSelectedFabric] = useState("standard");
-  const [selectedLiner, setSelectedLiner] = useState("none");
-  const [selectedCapacity, setSelectedCapacity] = useState("1000");
-
-  const handleRequestQuote = () => {
-    const configuration: BagConfiguration = {
-      top: selectedTop,
-      loop: selectedLoop,
-      bottom: selectedBottom,
-      construction: selectedConstruction,
-      fabric: selectedFabric,
-      liner: selectedLiner,
-      capacity: selectedCapacity,
+    return () => {
+      document.getElementById("quote-jsonld")?.remove();
     };
-    navigate("/contact", { state: { bagConfiguration: configuration } });
-  };
+  }, []);
+
+  const contextValue = useMemo(
+    () => quoteState,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [quoteState.config, quoteState.priceResult, quoteState.warnings]
+  );
+
+  async function handleLeadSubmit(lead: LeadData) {
+    trackSubmit();
+    await submit(quoteState.config, lead, quoteState.priceResult);
+    // Show confirmation regardless of email success/failure
+    setStage("confirmation");
+  }
+
+  function handleReset() {
+    setStage("wizard");
+    setStatus("idle");
+  }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      
-      <div className="container mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <Button variant="ghost" asChild className="mb-4">
-            <Link to="/">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Home
-            </Link>
-          </Button>
-          <h1 className="text-4xl font-bold mb-2">Build Your Own FIBC Bag</h1>
-          <p className="text-muted-foreground text-lg">
-            Customize every aspect of your bulk bag — from top to bottom, loops to liner
-          </p>
-        </div>
+    <QuoteContext.Provider value={contextValue}>
+      <div className="min-h-screen bg-background">
+        <Header />
 
-        {/* Configuration Panel - Full Width */}
-        <div className="space-y-8 pb-32">
-          {/* Construction Selection */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Construction</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {constructionTypes.map((construction) => (
-                <button
-                  key={construction.id}
-                  onClick={() => setSelectedConstruction(construction.id)}
-                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedConstruction === construction.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={construction.image} alt={construction.name} className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-sm font-semibold text-center">{construction.name}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-
-          {/* Loop Type Selection */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Loops</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
-              {loopTypes.map((loop) => (
-                <button
-                  key={loop.id}
-                  onClick={() => setSelectedLoop(loop.id)}
-                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedLoop === loop.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={loop.image} alt={loop.name} className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-sm font-semibold text-center">{loop.name}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-
-          {/* Bag Top Selection */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Bag Top</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {bagTops.map((top) => (
-                <button
-                  key={top.id}
-                  onClick={() => setSelectedTop(top.id)}
-                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedTop === top.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={top.image} alt={top.name} className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-sm font-semibold text-center">{top.name}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-
-          {/* Bag Bottom Selection */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Bag Bottom</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {bagBottoms.map((bottom) => (
-                <button
-                  key={bottom.id}
-                  onClick={() => setSelectedBottom(bottom.id)}
-                  className={`p-4 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedBottom === bottom.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <div className="aspect-square bg-muted/30 rounded-lg mb-3 flex items-center justify-center p-4">
-                    <img src={bottom.image} alt={bottom.name} className="w-full h-full object-contain" />
-                  </div>
-                  <p className="text-sm font-semibold text-center">{bottom.name}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-
-          {/* Fabric Type */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Fabric Type</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {fabricTypes.map((fabric) => (
-                <button
-                  key={fabric.id}
-                  onClick={() => setSelectedFabric(fabric.id)}
-                  className={`p-6 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedFabric === fabric.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <p className="font-semibold mb-1">{fabric.name}</p>
-                  <p className="text-sm text-muted-foreground">{fabric.gsm}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-
-          {/* Liner Options */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Liner Options</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {linerOptions.map((liner) => (
-                <button
-                  key={liner.id}
-                  onClick={() => setSelectedLiner(liner.id)}
-                  className={`p-6 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedLiner === liner.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <p className="font-semibold">{liner.name}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-
-          {/* Capacity */}
-          <Card className="p-6">
-            <h2 className="text-2xl font-bold mb-6">Capacity</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {capacities.map((capacity) => (
-                <button
-                  key={capacity.id}
-                  onClick={() => setSelectedCapacity(capacity.id)}
-                  className={`p-6 rounded-xl border-2 transition-all hover:border-primary hover:shadow-lg ${
-                    selectedCapacity === capacity.id
-                      ? "border-primary bg-primary/5 shadow-md"
-                      : "border-border"
-                  }`}
-                >
-                  <p className="font-semibold">{capacity.name}</p>
-                </button>
-              ))}
-            </div>
-          </Card>
-        </div>
-      </div>
-
-      {/* Sticky Bottom Summary Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t shadow-lg z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="text-muted-foreground">Construction:</span>
-                <span className="font-semibold">{constructionTypes.find(c => c.id === selectedConstruction)?.name}</span>
-              </div>
-              <div className="hidden sm:block h-4 w-px bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-muted-foreground">Loops:</span>
-                <span className="font-semibold">{loopTypes.find(l => l.id === selectedLoop)?.name}</span>
-              </div>
-              <div className="hidden sm:block h-4 w-px bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-muted-foreground">Top:</span>
-                <span className="font-semibold">{bagTops.find(t => t.id === selectedTop)?.name}</span>
-              </div>
-              <div className="hidden sm:block h-4 w-px bg-border" />
-              <div className="flex items-center gap-2">
-                <span className="text-muted-foreground">Bottom:</span>
-                <span className="font-semibold">{bagBottoms.find(b => b.id === selectedBottom)?.name}</span>
-              </div>
-              <div className="hidden lg:flex items-center gap-2">
-                <div className="h-4 w-px bg-border" />
-                <span className="text-muted-foreground">Capacity:</span>
-                <span className="font-semibold">{capacities.find(c => c.id === selectedCapacity)?.name}</span>
-              </div>
-            </div>
-            <Button size="lg" onClick={handleRequestQuote} className="shrink-0">
-              Request Quote
-            </Button>
+        {/* Hero */}
+        <section className="py-10 bg-amber-500/5 border-b">
+          <div className="container mx-auto px-4 text-center">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+              Build &amp; Price Your FIBC Bag
+            </h1>
+            <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base">
+              Configure every specification below — your estimated price updates in real time in the sidebar. No sales call needed.
+            </p>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <Footer />
-    </div>
+        <div className="container mx-auto px-4 py-8 pb-24 md:pb-10">
+          {stage === "wizard" && (
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <QuoteWizard onComplete={() => setStage("lead-form")} />
+              </div>
+              <div className="hidden lg:block">
+                <QuoteSidebar />
+              </div>
+            </div>
+          )}
+
+          {stage === "lead-form" && (
+            <div className="grid lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <div className="border rounded-xl p-6 bg-card">
+                  <QuoteLeadForm onSubmit={handleLeadSubmit} isSubmitting={status === "submitting"} />
+                </div>
+              </div>
+              <div className="hidden lg:block">
+                <QuoteSidebar />
+              </div>
+            </div>
+          )}
+
+          {stage === "confirmation" && (
+            <div className="max-w-2xl mx-auto">
+              <div className="border rounded-xl p-6 bg-card">
+                <QuoteConfirmation onReset={handleReset} />
+              </div>
+            </div>
+          )}
+
+          {/* FAQ */}
+          {stage !== "confirmation" && (
+            <section className="mt-16 max-w-2xl mx-auto">
+              <h2 className="text-xl font-bold mb-4">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="space-y-2">
+                {FAQ.map((item, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="border rounded-lg px-4">
+                    <AccordionTrigger className="text-sm font-semibold hover:no-underline py-3">
+                      {item.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm text-muted-foreground pb-3">
+                      {item.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </section>
+          )}
+        </div>
+
+        <QuoteMobileBar />
+        <Footer />
+      </div>
+    </QuoteContext.Provider>
   );
-};
+}
+
+// Wrap with Suspense boundary for useSearchParams
+const BuildYourBag = () => <BuildYourBagInner />;
 
 export default BuildYourBag;
+
+// ─── Legacy exports (for Contact.tsx backward compat) ────────────────────────
+// Contact.tsx has been updated to use new types — these are kept for any other imports.
+export type { QuoteConfig as BagConfiguration } from "@/types/quote";

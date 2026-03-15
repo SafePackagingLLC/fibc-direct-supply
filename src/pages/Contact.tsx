@@ -10,19 +10,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Package } from "lucide-react";
-import {
-  BagConfiguration,
-  bagTops,
-  loopTypes,
-  bagBottoms,
-  constructionTypes,
-  fabricTypes,
-  linerOptions,
-  capacities
-} from "./BuildYourBag";
+import type { QuoteConfig } from "@/types/quote";
+import { PRICING_CONFIG } from "@/data/pricingConfig";
 
 interface LocationState {
-  bagConfiguration?: BagConfiguration;
+  bagConfiguration?: QuoteConfig;
 }
 
 const Contact = () => {
@@ -89,31 +81,31 @@ const Contact = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
                   <div>
                     <span className="text-muted-foreground">Construction:</span>
-                    <p className="font-semibold">{constructionTypes.find(c => c.id === bagConfig.construction)?.name}</p>
+                    <p className="font-semibold">{PRICING_CONFIG.construction[bagConfig.construction as keyof typeof PRICING_CONFIG.construction]?.label ?? bagConfig.construction}</p>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Loops:</span>
-                    <p className="font-semibold">{loopTypes.find(l => l.id === bagConfig.loop)?.name}</p>
+                    <p className="font-semibold">{PRICING_CONFIG.loops[bagConfig.loops.type as keyof typeof PRICING_CONFIG.loops]?.label ?? bagConfig.loops.type}</p>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Top:</span>
-                    <p className="font-semibold">{bagTops.find(t => t.id === bagConfig.top)?.name}</p>
+                    <p className="font-semibold">{(PRICING_CONFIG.top[bagConfig.top.type as keyof typeof PRICING_CONFIG.top] as { label?: string } | undefined)?.label ?? bagConfig.top.type}</p>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Bottom:</span>
-                    <p className="font-semibold">{bagBottoms.find(b => b.id === bagConfig.bottom)?.name}</p>
+                    <p className="font-semibold">{(PRICING_CONFIG.bottom[bagConfig.bottom.type as keyof typeof PRICING_CONFIG.bottom] as { label?: string } | undefined)?.label ?? bagConfig.bottom.type}</p>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Fabric:</span>
-                    <p className="font-semibold">{fabricTypes.find(f => f.id === bagConfig.fabric)?.name}</p>
+                    <p className="font-semibold">{bagConfig.fabricGsm === "220plus" ? "220+ GSM" : `${bagConfig.fabricGsm} GSM`}</p>
                   </div>
                   <div>
                     <span className="text-muted-foreground">Liner:</span>
-                    <p className="font-semibold">{linerOptions.find(l => l.id === bagConfig.liner)?.name}</p>
+                    <p className="font-semibold">{PRICING_CONFIG.liner[bagConfig.liner as keyof typeof PRICING_CONFIG.liner]?.label ?? bagConfig.liner}</p>
                   </div>
                   <div>
-                    <span className="text-muted-foreground">Capacity:</span>
-                    <p className="font-semibold">{capacities.find(c => c.id === bagConfig.capacity)?.name}</p>
+                    <span className="text-muted-foreground">Quantity:</span>
+                    <p className="font-semibold">{bagConfig.quantity.toLocaleString()} units</p>
                   </div>
                 </div>
               </Card>
